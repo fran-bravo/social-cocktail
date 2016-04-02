@@ -6,7 +6,23 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'CreateCategoriasTable' => $baseDir . '/database/migrations/2016_04_02_181858_create_categorias_table.php',
+    'CreateCoctelesTable' => $baseDir . '/database/migrations/2016_04_02_193202_create_cocteles_table.php',
+    'CreateComentariosTable' => $baseDir . '/database/migrations/2016_04_02_221415_create_comentarios_table.php',
+    'CreateContactosTable' => $baseDir . '/database/migrations/2016_04_02_205746_create_contactos_table.php',
+    'CreateCristalesTable' => $baseDir . '/database/migrations/2016_04_02_171952_create_cristales_table.php',
+    'CreateCvsTable' => $baseDir . '/database/migrations/016_04_02_212039_create_cvs_table.php',
+    'CreateExperienciasTable' => $baseDir . '/database/migrations/2016_04_02_212917_create_experiencias_table.php',
+    'CreateFormacionesTable' => $baseDir . '/database/migrations/2016_04_02_213603_create_formaciones_table.php',
+    'CreateIdiomasTable' => $baseDir . '/database/migrations/2016_04_02_212533_create_idiomas_table.php',
+    'CreateIngredientesTable' => $baseDir . '/database/migrations/2016_04_02_182844_create_ingredientes_table.php',
+    'CreateMarcasTable' => $baseDir . '/database/migrations/2016_04_02_181750_create_marcas_table.php',
+    'CreateMensajesTable' => $baseDir . '/database/migrations/2016_04_02_204433_create_mensajes_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+    'CreatePropinasTable' => $baseDir . '/database/migrations/2016_04_02_210557_create_propinas_table.php',
+    'CreatePropuestasTable' => $baseDir . '/database/migrations/2016_04_02_215356_create_propuestas_table.php',
+    'CreatePublicacionesTable' => $baseDir . '/database/migrations/2016_04_02_220455_create_publicaciones_table.php',
+    'CreateSubcategoriasTable' => $baseDir . '/database/migrations/2016_04_02_182315_create_subcategorias_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
