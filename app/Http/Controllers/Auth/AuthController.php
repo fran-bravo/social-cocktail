@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace social-cocktail\Http\Controllers\Auth;
 
-use App\User;
+use social-cocktail\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use social-cocktail\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
