@@ -1,6 +1,6 @@
 <?php
 
-namespace social-cocktail\Providers;
+namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

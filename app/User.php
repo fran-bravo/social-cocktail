@@ -1,6 +1,6 @@
 <?php
 
-namespace social-cocktail;
+namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 

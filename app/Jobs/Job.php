@@ -1,6 +1,6 @@
 <?php
 
-namespace social-cocktail\Jobs;
+namespace App\Jobs;
 
 use Illuminate\Bus\Queueable;
 
