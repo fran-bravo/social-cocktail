@@ -14,8 +14,8 @@ class CreateCvsTable extends Migration
     {
         Schema::create('cvs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('carta',500);
-            $table->text('anexo');
+            $table->string('carta',500)->nullable();
+            $table->text('anexo')->nullable();
             $table->timestamps();
         });
     }

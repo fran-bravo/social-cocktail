@@ -18,6 +18,7 @@ class CreateIdiomasTable extends Migration
             $table->integer('cv_id')->unsigned();
             //Referencia a la tabla CVs
             $table->foreign('cv_id')->references('id')->on('cvs');
+            $table->string('idioma',50);
             $table->enum('nivel',['basico','intermedio','avansado','nativo']);
             $table->timestamps();
         });

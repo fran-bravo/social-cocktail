@@ -4,11 +4,11 @@ namespace socialCocktail;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Marca extends Model
+class Categoria extends Model
 {
-    protected $table='marcas';
-    protected $fillable=['nombre',];
-
+    protected $table='categorias';
+    protected $fillable=['nombre','descripcion',];
+    
     //Devuelve todos los ingredientes que posean esta marca.
     public function ingredientes(){
         return $this->hasMany('socialCocktail\Ingrediente');

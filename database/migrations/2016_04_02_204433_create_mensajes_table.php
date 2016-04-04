@@ -16,7 +16,7 @@ class CreateMensajesTable extends Migration
             $table->increments('id');
             $table->text('contenido');
             $table->string('asunto',50);
-            $table->integer('viste');
+            $table->integer('visto');
 
             //Pks a tabla usuario
             $table->integer('remitente_id')->unsigned();
