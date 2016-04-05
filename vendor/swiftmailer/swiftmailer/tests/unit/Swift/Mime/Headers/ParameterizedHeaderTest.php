@@ -74,7 +74,7 @@ class Swift_Mime_Headers_ParameterizedHeaderTest extends \SwiftMailerTestCase
         nor gaps in the sequence are allowed.
 
         The original parameter value is recovered by concatenating the
-        various sections of the parameter, in order.  For example, the
+        various templatesSections of the parameter, in order.  For example, the
         content-type field
 
                 Content-Type: message/external-body; access-type=URL;

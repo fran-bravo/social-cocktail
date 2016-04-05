@@ -1148,7 +1148,7 @@ class Builder
     {
         // Here, we totally remove all of the where clauses since we are going to
         // rebuild them as nested queries by slicing the groups of wheres into
-        // their own sections. This is to prevent any confusing logic order.
+        // their own templatesSections. This is to prevent any confusing logic order.
         $allWheres = $query->wheres;
 
         $query->wheres = [];

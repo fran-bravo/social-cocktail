@@ -78,28 +78,28 @@ class Factory implements FactoryContract
     protected $composers = [];
 
     /**
-     * All of the finished, captured sections.
+     * All of the finished, captured templatesSections.
      *
      * @var array
      */
     protected $sections = [];
 
     /**
-     * The stack of in-progress sections.
+     * The stack of in-progress templatesSections.
      *
      * @var array
      */
     protected $sectionStack = [];
 
     /**
-     * All of the finished, captured push sections.
+     * All of the finished, captured push templatesSections.
      *
      * @var array
      */
     protected $pushes = [];
 
     /**
-     * The stack of in-progress push sections.
+     * The stack of in-progress push templatesSections.
      *
      * @var array
      */
@@ -953,7 +953,7 @@ class Factory implements FactoryContract
     }
 
     /**
-     * Get the entire array of sections.
+     * Get the entire array of templatesSections.
      *
      * @return array
      */

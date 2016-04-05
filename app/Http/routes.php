@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/admin', function () {
+    return view('plantillas.admin.admin');
+});
+Route::group(['prefix' => 'admin'], function(){
+    route::get('create', function(){
+        return view('plantillas.admin.UserForms.create');
+    });
+});

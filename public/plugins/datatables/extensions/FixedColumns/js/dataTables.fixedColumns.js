@@ -428,7 +428,7 @@ FixedColumns.prototype = /** @lends FixedColumns.prototype */{
 
 	/**
 	 * Initialisation for FixedColumns
-	 *  @param   {Object} oInit User settings for initialisation
+	 *  @param   {Object} oInit UserForms settings for initialisation
 	 *  @returns {void}
 	 *  @private
 	 */

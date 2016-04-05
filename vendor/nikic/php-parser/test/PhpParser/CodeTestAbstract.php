@@ -23,14 +23,14 @@ abstract class CodeTestAbstract extends \PHPUnit_Framework_TestCase
                 $fileContents
             );
 
-            // parse sections
+            // parse templatesSections
             $parts = array_map('trim', explode('-----', $fileContents));
 
             // first part is the name
             $name = array_shift($parts) . ' (' . $fileName . ')';
             $shortName = basename($fileName, '.test');
 
-            // multiple sections possible with always two forming a pair
+            // multiple templatesSections possible with always two forming a pair
             $chunks = array_chunk($parts, 2);
             foreach ($chunks as $i => $chunk) {
                 $dataSetName = $shortName . (count($chunks) > 1 ? '#' . $i : '');
