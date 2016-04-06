@@ -162,7 +162,7 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
     protected $touches = [];
 
     /**
-     * UserForms exposed observable events.
+     * User exposed observable events.
      *
      * @var array
      */

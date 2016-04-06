@@ -28,9 +28,9 @@ class CreateUsersTable extends Migration
             $table->string('cuit_cuil', 50)->nullable();
             $table->smallInteger('activo');
             $table->date('nacimiento')->nullable();
-            $table->smallInteger('tipoUsuario');
+            $table->string('tipoUsuario',30);
             //Referencia a la tabla cvs
-            $table->integer('cv_id')->unsigned();
+            $table->integer('cv_id')->unsigned()->nullable();
             $table->foreign('cv_id')->references('id')->on('cvs');
             //
             $table->rememberToken();

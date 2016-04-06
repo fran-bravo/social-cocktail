@@ -1,7 +1,7 @@
 @extends('plantillas.main.main')
 
 @section('title','Admin panel')
-@section('titleComplement', 'UserForms')
+@section('titleComplement', 'userForms')
 
 @section('content')
     @include('plantillas.templatesSections.header')
@@ -12,6 +12,8 @@
                 @yield('headerContent','Header por defecto')
                 <small>@yield('headerDescription','Descripcion por defecto')</small>
             </h1>
+            @include('plantillas.alerts.error')
+            @include('plantillas.alerts.alerta')
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
                 <li class="active">Here</li>

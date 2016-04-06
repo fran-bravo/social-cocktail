@@ -333,7 +333,7 @@ class CliDumper extends AbstractDumper
                         $key = explode("\0", substr($key, 1), 2);
 
                         switch ($key[0]) {
-                            case '+': // UserForms inserted keys
+                            case '+': // userForms inserted keys
                                 $attr['dynamic'] = true;
                                 $this->line .= '+'.$bin.'"'.$this->style('public', $key[1], $attr).'": ';
                                 break 2;

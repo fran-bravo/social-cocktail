@@ -175,7 +175,7 @@ class XmlFileLoader extends FileLoader
      *
      * @return \DOMDocument
      *
-     * @throws \InvalidArgumentException When loading of XML file fails because of syntax errors
+     * @throws \InvalidArgumentException When loading of XML file fails because of syntax alerts
      *                                   or when the XML structure is not as expected by the scheme -
      *                                   see validate()
      */

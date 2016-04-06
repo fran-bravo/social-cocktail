@@ -1459,11 +1459,11 @@ S2.define('select2/selection/single',[
     });
 
     this.$selection.on('focus', function (evt) {
-      // UserForms focuses on the container
+      // userForms focuses on the container
     });
 
     this.$selection.on('blur', function (evt) {
-      // UserForms exits the container
+      // userForms exits the container
     });
 
     container.on('selection:update', function (params) {
@@ -3329,7 +3329,7 @@ S2.define('select2/data/ajax',[
 
         callback(results);
       }, function () {
-        // TODO: Handle AJAX errors
+        // TODO: Handle AJAX alerts
       });
 
       self._request = $request;

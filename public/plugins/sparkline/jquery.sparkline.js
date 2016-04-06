@@ -1044,7 +1044,7 @@
 
 
     /**
-     * UserForms option handler
+     * userForms option handler
      */
     $.fn.sparkline.options = createClass({
         init: function (tag, userOptions) {

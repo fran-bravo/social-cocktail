@@ -192,26 +192,26 @@ class AppNameCommand extends Command
     }
 
     /**
-     * Set the authentication UserForms namespace.
+     * Set the authentication User namespace.
      *
      * @return void
      */
     protected function setAuthConfigNamespace()
     {
         $this->replaceIn(
-            $this->getConfigPath('auth'), $this->currentRoot.'\\UserForms', $this->argument('name').'\\UserForms'
+            $this->getConfigPath('auth'), $this->currentRoot.'\\User', $this->argument('name').'\\User'
         );
     }
 
     /**
-     * Set the services UserForms namespace.
+     * Set the services User namespace.
      *
      * @return void
      */
     protected function setServicesConfigNamespace()
     {
         $this->replaceIn(
-            $this->getConfigPath('services'), $this->currentRoot.'\\UserForms', $this->argument('name').'\\UserForms'
+            $this->getConfigPath('services'), $this->currentRoot.'\\User', $this->argument('name').'\\User'
         );
     }
 

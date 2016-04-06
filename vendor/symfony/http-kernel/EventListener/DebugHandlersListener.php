@@ -23,7 +23,7 @@ use Symfony\Component\Console\Event\ConsoleEvent;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
 
 /**
- * Configures errors and exceptions handlers.
+ * Configures alerts and exceptions handlers.
  *
  * @author Nicolas Grekas <p@tchwork.com>
  */
@@ -41,8 +41,8 @@ class DebugHandlersListener implements EventSubscriberInterface
      * @param callable|null        $exceptionHandler A handler that will be called on Exception
      * @param LoggerInterface|null $logger           A PSR-3 logger
      * @param array|int            $levels           An array map of E_* to LogLevel::* or an integer bit field of E_* constants
-     * @param int|null             $throwAt          Thrown errors in a bit field of E_* constants, or null to keep the current value
-     * @param bool                 $scream           Enables/disables screaming mode, where even silenced errors are logged
+     * @param int|null             $throwAt          Thrown alerts in a bit field of E_* constants, or null to keep the current value
+     * @param bool                 $scream           Enables/disables screaming mode, where even silenced alerts are logged
      * @param string               $fileLinkFormat   The format for links to source files
      */
     public function __construct(callable $exceptionHandler = null, LoggerInterface $logger = null, $levels = E_ALL, $throwAt = E_ALL, $scream = true, $fileLinkFormat = null)

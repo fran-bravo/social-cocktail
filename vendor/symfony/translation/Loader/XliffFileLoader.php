@@ -221,11 +221,11 @@ class XliffFileLoader implements LoaderInterface
     }
 
     /**
-     * Returns the XML errors of the internal XML parser.
+     * Returns the XML alerts of the internal XML parser.
      *
      * @param bool $internalErrors
      *
-     * @return array An array of errors
+     * @return array An array of alerts
      */
     private function getXmlErrors($internalErrors)
     {

@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * UserForms: Uriel
+ * userForms: Uriel
  * Date: 5/4/16
  * Time: 1:40 PM
  */?>
@@ -9,7 +9,7 @@
 <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="#" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>S</b>CT</span>
         <!-- logo for regular state and mobile devices -->
@@ -40,7 +40,7 @@
                                 <li><!-- start message -->
                                     <a href="#">
                                         <div class="pull-left">
-                                            <!-- UserForms Image -->
+                                            <!-- userForms Image -->
                                             <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
                                         </div>
                                         <!-- Message title and timestamp -->
@@ -115,7 +115,7 @@
                         </li>
                     </ul>
                 </li>
-                <!-- UserForms Account Menu -->
+                <!-- userForms Account Menu -->
                 <li class="dropdown user user-menu">
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
