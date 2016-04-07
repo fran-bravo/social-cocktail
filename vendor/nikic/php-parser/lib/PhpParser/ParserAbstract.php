@@ -109,9 +109,9 @@ abstract class ParserAbstract implements Parser
     }
 
     /**
-     * Get array of errors that occurred during the last parse.
+     * Get array of alerts that occurred during the last parse.
      *
-     * This method may only return multiple errors if the 'throwOnError' option is disabled.
+     * This method may only return multiple alerts if the 'throwOnError' option is disabled.
      *
      * @return Error[]
      */
@@ -166,7 +166,7 @@ abstract class ParserAbstract implements Parser
                 if ($symbol === self::SYMBOL_NONE) {
                     // Fetch the next token id from the lexer and fetch additional info by-ref.
                     // The end attributes are fetched into a temporary variable and only set once the token is really
-                    // shifted (not during read). Otherwise you would sometimes get off-by-one errors, when a rule is
+                    // shifted (not during read). Otherwise you would sometimes get off-by-one alerts, when a rule is
                     // reduced after a token was read but not yet shifted.
                     $tokenId = $this->lexer->getNextToken($tokenValue, $startAttributes, $endAttributes);
 
@@ -251,7 +251,7 @@ abstract class ParserAbstract implements Parser
                         if ($this->throwOnError) {
                             throw $e;
                         } else {
-                            // Currently can't recover from "special" errors
+                            // Currently can't recover from "special" alerts
                             return null;
                         }
                     }

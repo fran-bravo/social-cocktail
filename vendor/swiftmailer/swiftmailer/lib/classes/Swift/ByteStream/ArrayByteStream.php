@@ -134,7 +134,7 @@ class Swift_ByteStream_ArrayByteStream implements Swift_InputByteStream, Swift_O
     /**
      * Remove an already bound stream.
      *
-     * If $is is not bound, no errors will be raised.
+     * If $is is not bound, no alerts will be raised.
      * If the stream currently has any buffered data it will be written to $is
      * before unbinding occurs.
      *

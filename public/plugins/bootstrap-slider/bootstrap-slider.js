@@ -76,7 +76,7 @@
 
 			// -------------------------- plugin bridge -------------------------- //
 
-			// helper function for logging errors
+			// helper function for logging alerts
 			// $.error breaks jQuery chaining
 			var logError = typeof console === 'undefined' ? noop :
 			  function( message ) {
@@ -404,7 +404,7 @@
 			if (this.options.value instanceof Array) {
 				this.options.range = true;
 			} else if (this.options.range) {
-				// UserForms wants a range, but value is not an array
+				// userForms wants a range, but value is not an array
 				this.options.value = [this.options.value, this.options.max];
 			}
 

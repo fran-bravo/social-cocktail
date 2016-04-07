@@ -109,7 +109,7 @@ trait ValidatesRequests
     }
 
     /**
-     * Format the validation errors to be returned.
+     * Format the validation alerts to be returned.
      *
      * @param  \Illuminate\Contracts\Validation\Validator  $validator
      * @return array

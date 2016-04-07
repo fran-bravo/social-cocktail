@@ -126,7 +126,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
             $payload['ip_address'] = $container->make('request')->ip();
 
             $payload['user_agent'] = substr(
-                (string) $container->make('request')->header('UserForms-Agent'), 0, 500
+                (string) $container->make('request')->header('User-Agent'), 0, 500
             );
         }
 

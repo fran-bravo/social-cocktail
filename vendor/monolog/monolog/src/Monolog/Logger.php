@@ -34,7 +34,7 @@ class Logger implements LoggerInterface
     /**
      * Interesting events
      *
-     * Examples: UserForms logs in, SQL logs.
+     * Examples: userForms logs in, SQL logs.
      */
     const INFO = 200;
 
@@ -44,7 +44,7 @@ class Logger implements LoggerInterface
     const NOTICE = 250;
 
     /**
-     * Exceptional occurrences that are not errors
+     * Exceptional occurrences that are not alerts
      *
      * Examples: Use of deprecated APIs, poor use of an API,
      * undesirable things that are not necessarily wrong.
@@ -52,7 +52,7 @@ class Logger implements LoggerInterface
     const WARNING = 300;
 
     /**
-     * Runtime errors
+     * Runtime alerts
      */
     const ERROR = 400;
 

@@ -48,7 +48,7 @@ class Response extends BaseResponse
 
         // If this content implements the "Renderable" interface then we will call the
         // render method on the object so we will avoid any "__toString" exceptions
-        // that might be thrown and have their errors obscured by PHP's handling.
+        // that might be thrown and have their alerts obscured by PHP's handling.
         elseif ($content instanceof Renderable) {
             $content = $content->render();
         }

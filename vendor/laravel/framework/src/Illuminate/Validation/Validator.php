@@ -583,7 +583,7 @@ class Validator implements ValidatorContract
     /**
      * Determine if it's a necessary presence validation.
      *
-     * This is to avoid possible database type comparison errors.
+     * This is to avoid possible database type comparison alerts.
      *
      * @param  string  $rule
      * @param  string  $attribute

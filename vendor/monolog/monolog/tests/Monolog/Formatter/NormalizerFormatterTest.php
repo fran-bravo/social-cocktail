@@ -293,7 +293,7 @@ class NormalizerFormatterTest extends \PHPUnit_Framework_TestCase
     public function testExceptionTraceWithArgs()
     {
         if (defined('HHVM_VERSION')) {
-            $this->markTestSkipped('Not supported in HHVM since it detects errors differently');
+            $this->markTestSkipped('Not supported in HHVM since it detects alerts differently');
         }
 
         // This happens i.e. in React promises or Guzzle streams where stream wrappers are registered

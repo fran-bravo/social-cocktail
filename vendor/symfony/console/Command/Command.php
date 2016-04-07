@@ -67,7 +67,7 @@ class Command
     }
 
     /**
-     * Ignores validation errors.
+     * Ignores validation alerts.
      *
      * This is mainly useful for the help command.
      */

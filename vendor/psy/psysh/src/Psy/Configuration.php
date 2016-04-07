@@ -652,12 +652,12 @@ class Configuration
     /**
      * Get the current error logging level.
      *
-     * By default, PsySH will automatically log all errors, regardless of the
+     * By default, PsySH will automatically log all alerts, regardless of the
      * current `error_reporting` level. Additionally, if the `error_reporting`
      * level warrants, an ErrorException will be thrown.
      *
-     * Set `errorLoggingLevel` to 0 to prevent logging non-thrown errors. Set it
-     * to any valid error_reporting value to log only errors which match that
+     * Set `errorLoggingLevel` to 0 to prevent logging non-thrown alerts. Set it
+     * to any valid error_reporting value to log only alerts which match that
      * level.
      *
      *     http://php.net/manual/en/function.error-reporting.php

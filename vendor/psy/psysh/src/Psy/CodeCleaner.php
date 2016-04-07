@@ -35,7 +35,7 @@ use Psy\CodeCleaner\ValidFunctionNamePass;
 use Psy\Exception\ParseErrorException;
 
 /**
- * A service to clean up user input, detect parse errors before they happen,
+ * A service to clean up user input, detect parse alerts before they happen,
  * and generally work around issues with the PHP code evaluation experience.
  */
 class CodeCleaner
@@ -114,7 +114,7 @@ class CodeCleaner
             return false;
         }
 
-        // Catch fatal errors before they happen
+        // Catch fatal alerts before they happen
         $stmts = $this->traverser->traverse($stmts);
 
         return $this->printer->prettyPrint($stmts);

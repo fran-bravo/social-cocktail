@@ -155,7 +155,7 @@ class DocBlock implements \Reflector
          *   occur after it and will be stripped).
          * - The short description is started from the first character until a dot is encountered followed by a
          *   newline OR two consecutive newlines (horizontal whitespace is taken into account to consider spacing
-         *   errors). This is optional.
+         *   alerts). This is optional.
          * - The long description, any character until a new line is encountered followed by an @ and word
          *   characters (a tag). This is optional.
          * - Tags; the remaining characters

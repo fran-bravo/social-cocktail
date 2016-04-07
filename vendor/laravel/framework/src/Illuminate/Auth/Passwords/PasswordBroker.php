@@ -78,7 +78,7 @@ class PasswordBroker implements PasswordBrokerContract
     {
         // First we will check to see if we found a user at the given credentials and
         // if we did not we will redirect back to this current URI with a piece of
-        // "flash" data in the session to indicate to the developers the errors.
+        // "flash" data in the session to indicate to the developers the alerts.
         $user = $this->getUser($credentials);
 
         if (is_null($user)) {
@@ -87,7 +87,7 @@ class PasswordBroker implements PasswordBrokerContract
 
         // Once we have the reset token, we are ready to send the message out to this
         // user with a link to reset their password. We will then redirect back to
-        // the current URI having nothing set in the session to indicate errors.
+        // the current URI having nothing set in the session to indicate alerts.
         $token = $this->tokens->create($user);
 
         $this->emailResetLink($user, $token, $callback);
@@ -235,7 +235,7 @@ class PasswordBroker implements PasswordBrokerContract
         $user = $this->users->retrieveByCredentials($credentials);
 
         if ($user && ! $user instanceof CanResetPasswordContract) {
-            throw new UnexpectedValueException('UserForms must implement CanResetPassword interface.');
+            throw new UnexpectedValueException('userForms must implement CanResetPassword interface.');
         }
 
         return $user;

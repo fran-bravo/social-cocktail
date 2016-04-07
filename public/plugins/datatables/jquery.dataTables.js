@@ -646,7 +646,7 @@
 			}
 		}
 	
-		/* UserForms specified column options */
+		/* userForms specified column options */
 		if ( oOptions !== undefined && oOptions !== null )
 		{
 			// Backwards compatibility
@@ -14758,7 +14758,7 @@
 		_fnRowAttributes: _fnRowAttributes,
 		_fnCalculateEnd: function () {} // Used by a lot of plug-ins, but redundant
 		                                // in 1.10, so this dead-end function is
-		                                // added to prevent errors
+		                                // added to prevent alerts
 	} );
 	
 

@@ -55,7 +55,7 @@ class BufferHandler extends AbstractHandler
         }
 
         if (!$this->initialized) {
-            // __destructor() doesn't get called on Fatal errors
+            // __destructor() doesn't get called on Fatal alerts
             register_shutdown_function(array($this, 'close'));
             $this->initialized = true;
         }

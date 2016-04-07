@@ -149,12 +149,12 @@ class NormalizerFormatter implements FormatterInterface
      *
      * @param  mixed             $data
      * @param  bool              $ignoreErrors
-     * @throws \RuntimeException if encoding fails and errors are not ignored
+     * @throws \RuntimeException if encoding fails and alerts are not ignored
      * @return string
      */
     protected function toJson($data, $ignoreErrors = false)
     {
-        // suppress json_encode errors since it's twitchy with some inputs
+        // suppress json_encode alerts since it's twitchy with some inputs
         if ($ignoreErrors) {
             return @$this->jsonEncode($data);
         }

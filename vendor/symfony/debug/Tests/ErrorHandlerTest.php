@@ -473,7 +473,7 @@ class ErrorHandlerTest extends \PHPUnit_Framework_TestCase
             $handler->setDefaultLogger($logger, E_ERROR);
 
             $error = array(
-                'type' => E_ERROR + 0x1000000, // This error level is used by HHVM for fatal errors
+                'type' => E_ERROR + 0x1000000, // This error level is used by HHVM for fatal alerts
                 'message' => 'foo',
                 'file' => 'bar',
                 'line' => 123,

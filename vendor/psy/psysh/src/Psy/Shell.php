@@ -505,7 +505,7 @@ class Shell extends Application
      *
      * @throws InvalidArgumentException if the input is not a valid command.
      *
-     * @param string $input UserForms input string
+     * @param string $input userForms input string
      *
      * @return mixed Who knows?
      */
@@ -639,7 +639,7 @@ class Shell extends Application
      * Renders a caught Exception.
      *
      * Exceptions are formatted according to severity. ErrorExceptions which were
-     * warnings or Strict errors aren't rendered as harshly as real errors.
+     * warnings or Strict alerts aren't rendered as harshly as real alerts.
      *
      * Stores $e as the last Exception in the Shell Context.
      *

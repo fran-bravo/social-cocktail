@@ -299,7 +299,7 @@
 			};
 		})(),
 		warn = helpers.warn = function(str){
-			//Method for warning of errors
+			//Method for warning of alerts
 			if (window.console && typeof window.console.warn == "function") console.warn(str);
 		},
 		amd = helpers.amd = (typeof define == 'function' && define.amd),
@@ -459,7 +459,7 @@
 
 		},
 		/* jshint ignore:start */
-		// Blows up jshint errors based on the new Function constructor
+		// Blows up jshint alerts based on the new Function constructor
 		//Templating methods
 		//Javascript micro templating by John Resig - source at http://ejohn.org/blog/javascript-micro-templating/
 		template = helpers.template = function(templateString, valuesObject){

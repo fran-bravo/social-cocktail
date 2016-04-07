@@ -40,7 +40,7 @@ class SplObjectStorageComparator extends Comparator
      *                                         ignored when comparing string values
      * @throws ComparisonFailure Thrown when the comparison
      *                                        fails. Contains information about the
-     *                                        specific errors that lead to the failure.
+     *                                        specific alerts that lead to the failure.
      */
     public function assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase = false)
     {

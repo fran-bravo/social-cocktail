@@ -54,7 +54,7 @@ trait LoggerTrait
     }
 
     /**
-     * Runtime errors that do not require immediate action but should typically
+     * Runtime alerts that do not require immediate action but should typically
      * be logged and monitored.
      *
      * @param string $message
@@ -67,7 +67,7 @@ trait LoggerTrait
     }
 
     /**
-     * Exceptional occurrences that are not errors.
+     * Exceptional occurrences that are not alerts.
      *
      * Example: Use of deprecated APIs, poor use of an API, undesirable things
      * that are not necessarily wrong.
@@ -96,7 +96,7 @@ trait LoggerTrait
     /**
      * Interesting events.
      *
-     * Example: UserForms logs in, SQL logs.
+     * Example: userForms logs in, SQL logs.
      *
      * @param string $message
      * @param array $context

@@ -47,7 +47,7 @@ class Lexer
      *
      * @param string $code The source code to lex
      *
-     * @throws Error on lexing errors (unterminated comment or unexpected character)
+     * @throws Error on lexing alerts (unterminated comment or unexpected character)
      */
     public function startLexing($code) {
         $scream = ini_set('xdebug.scream', '0');

@@ -20,14 +20,14 @@ namespace Symfony\Component\Console\Output;
 interface ConsoleOutputInterface extends OutputInterface
 {
     /**
-     * Gets the OutputInterface for errors.
+     * Gets the OutputInterface for alerts.
      *
      * @return OutputInterface
      */
     public function getErrorOutput();
 
     /**
-     * Sets the OutputInterface used for errors.
+     * Sets the OutputInterface used for alerts.
      *
      * @param OutputInterface $error
      */
