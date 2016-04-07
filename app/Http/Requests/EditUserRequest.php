@@ -4,7 +4,7 @@ namespace socialCocktail\Http\Requests;
 
 use socialCocktail\Http\Requests\Request;
 
-class UserRequest extends Request
+class EditUserRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,9 +26,8 @@ class UserRequest extends Request
         return [
             'name'=>'min:3|max:40|required',
             'lastName'=>'min:3|max:40|required',
-            'password'=>'min:8|max:30|required|confirmed|alpha_num',
             'email'=>'required|unique:users|email|max:50',
-            'pais'=>'min:2|max:2',
+            'pais'=>'min:2|max:2|alpha',
             'provincia'=>'min:5|max:50',
             'localidad'=>'min:5|max:50',
             'codigoPostal'=>'max:10000|numeric|alpha_num',

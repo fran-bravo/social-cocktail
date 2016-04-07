@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use socialCocktail\Http\Requests;
 use socialCocktail\Http\Requests\UserRequest;
+use socialCocktail\Http\Requests\EditUserRequest;
 use socialCocktail\User;
 use Laracasts\Flash\Flash;
 
@@ -18,7 +19,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        $users=User::all();
+        return view('plantillas.admin.userForms.users')->with('users', $users);
     }
 
     /**
@@ -65,7 +67,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user=User::find($id);
+        return view('plantillas.admin.userForms.edit')->with('user',$user);
     }
 
     /**
@@ -75,9 +78,14 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditUserRequest $request, $id)
     {
-        //
+        $user=User::find($id);
+        $user->fill($request->all());
+        $user->save();
+        Flash::success('El usuario '.$user->name.' se ha modificado exitosamente');
+        return redirect('admin/users');
+
     }
 
     /**
@@ -88,6 +96,9 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user=User::find($id);
+        $user->delete();
+        Flash::success('El usuario '.$user->name . ' ha sido eliminado exitosamente');
+        return redirect('admin/users');
     }
 }

@@ -1,5 +1,6 @@
 @extends('plantillas.admin.admin')
-@section('title', 'crear')
+@section('title', 'Crear usuario')
+@section('titleComplement',' Admin')
 @section('headerContent','Registrar usuario')
 @section('headerDescription','Los campos con icono al final son obligatorios')
 @section('contentPage')
@@ -30,7 +31,7 @@
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" name="passwordconfirm" placeholder="Confirmar password" required="required" maxlength="30">
+                    <input type="password" class="form-control" name="password_confirmation" placeholder="Confirmar password" required="required" maxlength="30">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
@@ -319,7 +320,7 @@
             <!-- /.box-body -->
 
             <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Crear</button>
             </div>
 
             {!! Form::close() !!}

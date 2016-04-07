@@ -1,10 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * userForms: Uriel
- * Date: 5/4/16
- * Time: 1:19 PM
- */?><!DOCTYPE html>
+<!DOCTYPE html>
     <html>
         <head>
             <meta charset="utf-8">
@@ -24,6 +18,7 @@
                   apply the skin class to the body tag so the changes take effect.
             -->
             <link rel="stylesheet" href="{{asset('dist/css/skins/skin-red.min.css')}}">
+            @yield('aditionalCSS')
             <title>@yield('title','Main') | @yield('titleComplement','Complement')</title>
         </head>
         <body class="skin-red sidebar-mini">
@@ -31,6 +26,7 @@
             @yield('content')
 
              </div><!-- ./wrapper -->
+             <!-- jQuery 2.2.0 -->
             <!-- jQuery 2.1.4 -->
             <script src="{{asset('plugins/jQuery/jQuery-2.1.4.min.js')}}"></script>
             <!-- Bootstrap 3.3.5 -->
@@ -43,5 +39,6 @@
             <script src="{{asset('/plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
             <!-- AdminLTE for demo purposes -->
             <script src="{{asset('/dist/js/demo.js')}}"></script>
+        @yield('aditionalSCRIPT')
         </body>
     </html>
