@@ -28,7 +28,7 @@ trait LoggerTrait
      * Action must be taken immediately.
      *
      * Example: Entire website down, database unavailable, etc. This should
-     * trigger the SMS alerts and wake you up.
+     * trigger the SMS alertas and wake you up.
      *
      * @param string $message
      * @param array $context
@@ -54,7 +54,7 @@ trait LoggerTrait
     }
 
     /**
-     * Runtime alerts that do not require immediate action but should typically
+     * Runtime alertas that do not require immediate action but should typically
      * be logged and monitored.
      *
      * @param string $message
@@ -67,7 +67,7 @@ trait LoggerTrait
     }
 
     /**
-     * Exceptional occurrences that are not alerts.
+     * Exceptional occurrences that are not alertas.
      *
      * Example: Use of deprecated APIs, poor use of an API, undesirable things
      * that are not necessarily wrong.

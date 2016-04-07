@@ -44,7 +44,7 @@ class Logger implements LoggerInterface
     const NOTICE = 250;
 
     /**
-     * Exceptional occurrences that are not alerts
+     * Exceptional occurrences that are not alertas
      *
      * Examples: Use of deprecated APIs, poor use of an API,
      * undesirable things that are not necessarily wrong.
@@ -52,7 +52,7 @@ class Logger implements LoggerInterface
     const WARNING = 300;
 
     /**
-     * Runtime alerts
+     * Runtime alertas
      */
     const ERROR = 400;
 
@@ -67,7 +67,7 @@ class Logger implements LoggerInterface
      * Action must be taken immediately
      *
      * Example: Entire website down, database unavailable, etc.
-     * This should trigger the SMS alerts and wake you up.
+     * This should trigger the SMS alertas and wake you up.
      */
     const ALERT = 550;
 

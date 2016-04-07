@@ -11,7 +11,7 @@ class LocalizationTest extends \PHPUnit_Framework_TestCase
         foreach (glob(__DIR__ . '/../../../src/Faker/Provider/*/Person.php') as $localizedPerson) {
             preg_match('#/([a-zA-Z_]+)/Person\.php#', $localizedPerson, $matches);
             $faker = Factory::create($matches[1]);
-            $this->assertNotNull($faker->name(), 'Localized Name Provider ' . $matches[1] . ' does not throw alerts');
+            $this->assertNotNull($faker->name(), 'Localized Name Provider ' . $matches[1] . ' does not throw errors');
         }
     }
 
@@ -20,7 +20,7 @@ class LocalizationTest extends \PHPUnit_Framework_TestCase
         foreach (glob(__DIR__ . '/../../../src/Faker/Provider/*/Address.php') as $localizedAddress) {
             preg_match('#/([a-zA-Z_]+)/Address\.php#', $localizedAddress, $matches);
             $faker = Factory::create($matches[1]);
-            $this->assertNotNull($faker->address(), 'Localized Address Provider ' . $matches[1] . ' does not throw alerts');
+            $this->assertNotNull($faker->address(), 'Localized Address Provider ' . $matches[1] . ' does not throw errors');
         }
     }
 }

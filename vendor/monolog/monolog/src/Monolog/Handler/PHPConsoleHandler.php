@@ -43,9 +43,9 @@ class PHPConsoleHandler extends AbstractProcessingHandler
         'enabled' => true, // bool Is PHP Console server enabled
         'classesPartialsTraceIgnore' => array('Monolog\\'), // array Hide calls of classes started with...
         'debugTagsKeysInContext' => array(0, 'tag'), // bool Is PHP Console server enabled
-        'useOwnErrorsHandler' => false, // bool Enable alerts handling
+        'useOwnErrorsHandler' => false, // bool Enable alertas handling
         'useOwnExceptionsHandler' => false, // bool Enable exceptions handling
-        'sourcesBasePath' => null, // string Base path of all project sources to strip in alerts source paths
+        'sourcesBasePath' => null, // string Base path of all project sources to strip in alertas source paths
         'registerHelper' => true, // bool Register PhpConsole\Helper that allows short debug calls like PC::debug($var, 'ta.g.s')
         'serverEncoding' => null, // string|null Server internal encoding
         'headersLimit' => null, // int|null Set headers size limit for your web-server

@@ -32,7 +32,7 @@ interface LoggerInterface
      * Action must be taken immediately.
      *
      * Example: Entire website down, database unavailable, etc. This should
-     * trigger the SMS alerts and wake you up.
+     * trigger the SMS alertas and wake you up.
      *
      * @param string $message
      * @param array $context
@@ -52,7 +52,7 @@ interface LoggerInterface
     public function critical($message, array $context = array());
 
     /**
-     * Runtime alerts that do not require immediate action but should typically
+     * Runtime alertas that do not require immediate action but should typically
      * be logged and monitored.
      *
      * @param string $message
@@ -62,7 +62,7 @@ interface LoggerInterface
     public function error($message, array $context = array());
 
     /**
-     * Exceptional occurrences that are not alerts.
+     * Exceptional occurrences that are not alertas.
      *
      * Example: Use of deprecated APIs, poor use of an API, undesirable things
      * that are not necessarily wrong.

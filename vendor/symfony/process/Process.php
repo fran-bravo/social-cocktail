@@ -79,7 +79,7 @@ class Process
     /**
      * Exit codes translation table.
      *
-     * userForms-defined alerts must use exit codes in the 64-113 range.
+     * userForms-defined alertas must use exit codes in the 64-113 range.
      *
      * @var array
      */

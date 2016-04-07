@@ -3329,7 +3329,7 @@ S2.define('select2/data/ajax',[
 
         callback(results);
       }, function () {
-        // TODO: Handle AJAX alerts
+        // TODO: Handle AJAX alertas
       });
 
       self._request = $request;

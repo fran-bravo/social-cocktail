@@ -191,7 +191,7 @@ class InflectorTest extends DoctrineTestCase
         $this->assertEquals(Inflector::pluralize('uninflectable'), 'uninflectable');
 
         Inflector::rules('plural', array(
-            'rules' => array('/^(alert)$/i' => '\1ables'),
+            'rules' => array('/^(errors)$/i' => '\1ables'),
             'uninflected' => array('noflect', 'abtuse'),
             'irregular' => array('amaze' => 'amazable', 'phone' => 'phonezes')
         ));

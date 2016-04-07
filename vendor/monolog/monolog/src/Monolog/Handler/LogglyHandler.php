@@ -15,7 +15,7 @@ use Monolog\Logger;
 use Monolog\Formatter\LogglyFormatter;
 
 /**
- * Sends alerts to Loggly.
+ * Sends alertas to Loggly.
  *
  * @author Przemek Sobstel <przemek@sobstel.org>
  * @author Adam Pancutt <adam@pancutt.com>

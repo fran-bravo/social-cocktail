@@ -2883,7 +2883,7 @@
                 months = this._months + daysToYears(days) * 12;
                 return units === 'month' ? months : months / 12;
             } else {
-                // handle milliseconds separately because of floating point math alerts (issue #1867)
+                // handle milliseconds separately because of floating point math alertas (issue #1867)
                 days = this._days + Math.round(yearsToDays(this._months / 12));
                 switch (units) {
                     case 'week': return days / 7 + this._milliseconds / 6048e5;
@@ -2891,7 +2891,7 @@
                     case 'hour': return days * 24 + this._milliseconds / 36e5;
                     case 'minute': return days * 24 * 60 + this._milliseconds / 6e4;
                     case 'second': return days * 24 * 60 * 60 + this._milliseconds / 1000;
-                    // Math.floor prevents floating point math alerts here
+                    // Math.floor prevents floating point math alertas here
                     case 'millisecond': return Math.floor(days * 24 * 60 * 60 * 1000) + this._milliseconds;
                     default: throw new Error('Unknown unit ' + units);
                 }

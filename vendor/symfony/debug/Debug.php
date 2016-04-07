@@ -29,7 +29,7 @@ class Debug
      * class loader is also registered.
      *
      * @param int  $errorReportingLevel The level of error reporting you want
-     * @param bool $displayErrors       Whether to display alerts (for development) or just log them (for production)
+     * @param bool $displayErrors       Whether to display alertas (for development) or just log them (for production)
      */
     public static function enable($errorReportingLevel = E_ALL, $displayErrors = true)
     {
@@ -49,7 +49,7 @@ class Debug
             ini_set('display_errors', 0);
             ExceptionHandler::register();
         } elseif ($displayErrors && (!ini_get('log_errors') || ini_get('error_log'))) {
-            // CLI - display alerts only if they're not already logged to STDERR
+            // CLI - display alertas only if they're not already logged to STDERR
             ini_set('display_errors', 1);
         }
         if ($displayErrors) {

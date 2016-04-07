@@ -18,7 +18,7 @@ use Monolog\Handler\AbstractHandler;
 /**
  * Monolog error handler
  *
- * A facility to enable logging of runtime alerts, exceptions and fatal alerts.
+ * A facility to enable logging of runtime alertas, exceptions and fatal alertas.
  *
  * Quick setup: <code>ErrorHandler::register($logger);</code>
  *
@@ -47,7 +47,7 @@ class ErrorHandler
     /**
      * Registers a new ErrorHandler for a given Logger
      *
-     * By default it will handle alerts, exceptions and fatal alerts
+     * By default it will handle alertas, exceptions and fatal alertas
      *
      * @param  LoggerInterface $logger
      * @param  array|false     $errorLevelMap  an array of E_* constant to LogLevel::* constant mapping, or false to disable error handling

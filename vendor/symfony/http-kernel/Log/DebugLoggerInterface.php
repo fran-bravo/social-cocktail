@@ -30,9 +30,9 @@ interface DebugLoggerInterface
     public function getLogs();
 
     /**
-     * Returns the number of alerts.
+     * Returns the number of alertas.
      *
-     * @return int The number of alerts
+     * @return int The number of alertas
      */
     public function countErrors();
 }

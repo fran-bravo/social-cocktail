@@ -32,7 +32,7 @@ interface ControllerResolverInterface
      * return false when it is not able to determine the controller.
      *
      * The resolver must only throw an exception when it should be able to load
-     * controller but cannot because of some alerts made by the developer.
+     * controller but cannot because of some alertas made by the developer.
      *
      * @param Request $request A Request instance
      *

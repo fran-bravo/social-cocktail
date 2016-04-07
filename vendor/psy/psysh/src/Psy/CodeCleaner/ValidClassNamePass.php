@@ -302,7 +302,7 @@ class ValidClassNamePass extends NamespaceAwarePass
     protected function classExists($name)
     {
         // Give `self`, `static` and `parent` a pass. This will actually let
-        // some alerts through, since we're not checking whether the keyword is
+        // some alertas through, since we're not checking whether the keyword is
         // being used in a class scope.
         if (in_array(strtolower($name), array('self', 'static', 'parent'))) {
             return true;

@@ -2745,7 +2745,7 @@ EOT;
     works. Despite these efforts, the Project's eBooks and any
     medium they may be on may contain "Defects". Among other
     things, Defects may take the form of incomplete, inaccurate or
-    corrupt data, transcription alerts, a copyright or other
+    corrupt data, transcription alertas, a copyright or other
     intellectual property infringement, a defective or damaged
     disk or other eBook medium, a computer virus, or computer
     codes that damage or cannot be read by your equipment.

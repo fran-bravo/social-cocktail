@@ -131,7 +131,7 @@ class Router implements RouterInterface, RequestMatcherInterface
             'strict_requirements' => true,
         );
 
-        // check option names and live merge, if alerts are encountered Exception will be thrown
+        // check option names and live merge, if alertas are encountered Exception will be thrown
         $invalid = array();
         foreach ($options as $key => $value) {
             if (array_key_exists($key, $this->options)) {

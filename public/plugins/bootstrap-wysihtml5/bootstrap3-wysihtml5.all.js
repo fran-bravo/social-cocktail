@@ -2451,7 +2451,7 @@ var wysihtml5 = {
             <ul id="ul"><li id="a">| a </li><li id="b"> b |</li></ul>
 
             var range = document.selection.createRange();
-            alert(range.parentElement().id); // Should alert "ul" but alerts "b"
+            alert(range.parentElement().id); // Should alert "ul" but alertas "b"
 
             This method returns the common ancestor node of the following:
             - the parentElement() of the textRange
@@ -4373,7 +4373,7 @@ wysihtml5.browser = (function() {
         "insertOrderedList":    isIE()
       };
 
-      // Firefox throws alerts for queryCommandSupported, so we have to build up our own object of supported commands
+      // Firefox throws alertas for queryCommandSupported, so we have to build up our own object of supported commands
       var supported = {
         "insertHTML": isGecko
       };
@@ -4381,7 +4381,7 @@ wysihtml5.browser = (function() {
       return function(doc, command) {
         var isBuggy = buggyCommands[command];
         if (!isBuggy) {
-          // Firefox throws alerts when invoking queryCommandSupported or queryCommandEnabled
+          // Firefox throws alertas when invoking queryCommandSupported or queryCommandEnabled
           try {
             return doc.queryCommandSupported(command);
           } catch(e1) {}
@@ -6990,7 +6990,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
       this.getWindow = function() { return iframe.contentWindow; };
       this.getDocument = function() { return iframe.contentWindow.document; };
 
-      // Catch js alerts and pass them to the parent's onerror event
+      // Catch js alertas and pass them to the parent's onerror event
       // addEventListener("error") doesn't work properly in some browsers
       // TODO: apparently this doesn't work in IE9!
       iframeWindow.onerror = function(errorMessage, fileName, lineNumber) {
@@ -7124,10 +7124,10 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
         this.getWindow = function() { return element.ownerDocument.defaultView; };
         this.getDocument = function() { return element.ownerDocument; };
 
-        // Catch js alerts and pass them to the parent's onerror event
+        // Catch js alertas and pass them to the parent's onerror event
         // addEventListener("error") doesn't work properly in some browsers
         // TODO: apparently this doesn't work in IE9!
-        // TODO: figure out and bind the alerts logic for contenteditble mode
+        // TODO: figure out and bind the alertas logic for contenteditble mode
         /*iframeWindow.onerror = function(errorMessage, fileName, lineNumber) {
           throw new Error("wysihtml5.Sandbox: " + errorMessage, fileName, lineNumber);
         }

@@ -197,7 +197,7 @@ class View implements ArrayAccess, ViewContract
     }
 
     /**
-     * Add validation alerts to the view.
+     * Add validation alertas to the view.
      *
      * @param  \Illuminate\Contracts\Support\MessageProvider|array  $provider
      * @return $this
@@ -205,9 +205,9 @@ class View implements ArrayAccess, ViewContract
     public function withErrors($provider)
     {
         if ($provider instanceof MessageProvider) {
-            $this->with('alerts', $provider->getMessageBag());
+            $this->with('errors', $provider->getMessageBag());
         } else {
-            $this->with('alerts', new MessageBag((array) $provider));
+            $this->with('errors', new MessageBag((array) $provider));
         }
 
         return $this;

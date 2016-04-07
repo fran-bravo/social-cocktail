@@ -127,7 +127,7 @@ trait InteractsWithSession
     }
 
     /**
-     * Assert that the session has alerts bound.
+     * Assert that the session has alertas bound.
      *
      * @param  string|array  $bindings
      * @param  mixed  $format
@@ -135,11 +135,11 @@ trait InteractsWithSession
      */
     public function assertSessionHasErrors($bindings = [], $format = null)
     {
-        $this->assertSessionHas('alerts');
+        $this->assertSessionHas('errors');
 
         $bindings = (array) $bindings;
 
-        $errors = $this->app['session.store']->get('alerts');
+        $errors = $this->app['session.store']->get('errors');
 
         foreach ($bindings as $key => $value) {
             if (is_int($key)) {

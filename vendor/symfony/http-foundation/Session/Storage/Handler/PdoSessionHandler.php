@@ -348,7 +348,7 @@ class PdoSessionHandler implements \SessionHandlerInterface
             $updateStmt->execute();
 
             // When MERGE is not supported, like in Postgres, we have to use this approach that can result in
-            // duplicate key alerts when the same session is written simultaneously (given the LOCK_NONE behavior).
+            // duplicate key alertas when the same session is written simultaneously (given the LOCK_NONE behavior).
             // We can just catch such an error and re-execute the update. This is similar to a serializable
             // transaction with retry logic on serialization failures but without the overhead and without possible
             // false positives due to longer gap locking.

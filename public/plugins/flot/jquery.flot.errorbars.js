@@ -108,7 +108,7 @@ shadowSize and lineWidth are derived as well from the points series.
 
         var points = series.datapoints.points;
 
-        // read alerts from points array
+        // read alertas from points array
         var exl = null,
                 exu = null,
                 eyl = null,
@@ -142,7 +142,7 @@ shadowSize and lineWidth are derived as well from the points series.
                 eyu = points[i + 3];
             } else eyl = points[i + 2];
 
-        // symmetric alerts?
+        // symmetric alertas?
         if (exu == null) exu = exl;
         if (eyu == null) eyu = eyl;
 

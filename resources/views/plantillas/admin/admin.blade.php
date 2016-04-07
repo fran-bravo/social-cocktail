@@ -12,8 +12,13 @@
                 @yield('headerContent','Header por defecto')
                 <small>@yield('headerDescription','Descripcion por defecto')</small>
             </h1>
-            @include('plantillas.alerts.error')
-            @include('plantillas.alerts.alerta')
+            <div class="row">
+                <div class="col-md-8">
+                    @include('plantillas.alertas.error')
+                    @include('plantillas.alertas.alerta')
+                </div>
+                <div class="col-md-3"></div>
+            </div>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
                 <li class="active">Here</li>

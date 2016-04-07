@@ -639,7 +639,7 @@ class Shell extends Application
      * Renders a caught Exception.
      *
      * Exceptions are formatted according to severity. ErrorExceptions which were
-     * warnings or Strict alerts aren't rendered as harshly as real alerts.
+     * warnings or Strict alertas aren't rendered as harshly as real alertas.
      *
      * Stores $e as the last Exception in the Shell Context.
      *

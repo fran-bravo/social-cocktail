@@ -34,7 +34,7 @@ class TestListener implements \PHPUnit_Framework_TestListener
     {
         try {
             $container = \Mockery::getContainer();
-            // check addToAssertionCount is important to avoid mask test alerts
+            // check addToAssertionCount is important to avoid mask test alertas
             if ($container != null && method_exists($test, 'addToAssertionCount')) {
                 $expectation_count = $container->mockery_getExpectationCount();
                 $test->addToAssertionCount($expectation_count);

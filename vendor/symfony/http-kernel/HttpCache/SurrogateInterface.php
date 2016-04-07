@@ -69,7 +69,7 @@ interface SurrogateInterface
      *
      * @param string $uri          A URI
      * @param string $alt          An alternate URI
-     * @param bool   $ignoreErrors Whether to ignore alerts or not
+     * @param bool   $ignoreErrors Whether to ignore alertas or not
      * @param string $comment      A comment to add as an esi:include tag
      *
      * @return string
@@ -92,7 +92,7 @@ interface SurrogateInterface
      * @param HttpCache $cache        An HttpCache instance
      * @param string    $uri          The main URI
      * @param string    $alt          An alternative URI
-     * @param bool      $ignoreErrors Whether to ignore alerts or not
+     * @param bool      $ignoreErrors Whether to ignore alertas or not
      *
      * @return string
      *

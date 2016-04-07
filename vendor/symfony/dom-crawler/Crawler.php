@@ -156,12 +156,12 @@ class Crawler implements \Countable, \IteratorAggregate
     /**
      * Adds an HTML content to the list of nodes.
      *
-     * The libxml alerts are disabled when the content is parsed.
+     * The libxml alertas are disabled when the content is parsed.
      *
-     * If you want to get parsing alerts, be sure to enable
-     * internal alerts via libxml_use_internal_errors(true)
-     * and then, get the alerts via libxml_get_errors(). Be
-     * sure to clear alerts with libxml_clear_errors() afterward.
+     * If you want to get parsing alertas, be sure to enable
+     * internal alertas via libxml_use_internal_errors(true)
+     * and then, get the alertas via libxml_get_errors(). Be
+     * sure to clear alertas with libxml_clear_errors() afterward.
      *
      * @param string $content The HTML content
      * @param string $charset The charset
@@ -211,12 +211,12 @@ class Crawler implements \Countable, \IteratorAggregate
     /**
      * Adds an XML content to the list of nodes.
      *
-     * The libxml alerts are disabled when the content is parsed.
+     * The libxml alertas are disabled when the content is parsed.
      *
-     * If you want to get parsing alerts, be sure to enable
-     * internal alerts via libxml_use_internal_errors(true)
-     * and then, get the alerts via libxml_get_errors(). Be
-     * sure to clear alerts with libxml_clear_errors() afterward.
+     * If you want to get parsing alertas, be sure to enable
+     * internal alertas via libxml_use_internal_errors(true)
+     * and then, get the alertas via libxml_get_errors(). Be
+     * sure to clear alertas with libxml_clear_errors() afterward.
      *
      * @param string $content The XML content
      * @param string $charset The charset

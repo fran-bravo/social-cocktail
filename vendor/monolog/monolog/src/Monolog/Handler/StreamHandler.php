@@ -89,7 +89,7 @@ class StreamHandler extends AbstractProcessingHandler
         }
 
         if ($this->useLocking) {
-            // ignoring alerts here, there's not much we can do about them
+            // ignoring alertas here, there's not much we can do about them
             flock($this->stream, LOCK_EX);
         }
 

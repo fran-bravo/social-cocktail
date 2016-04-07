@@ -25,12 +25,12 @@ use Symfony\Component\Debug\FatalErrorHandler\FatalErrorHandlerInterface;
 /**
  * A generic ErrorHandler for the PHP engine.
  *
- * Provides five bit fields that control how alerts are handled:
- * - thrownErrors: alerts thrown as \ErrorException
- * - loggedErrors: logged alerts, when not @-silenced
- * - scopedErrors: alerts thrown or logged with their local context
- * - tracedErrors: alerts logged with their stack trace, only once for repeated alerts
- * - screamedErrors: never @-silenced alerts
+ * Provides five bit fields that control how alertas are handled:
+ * - thrownErrors: alertas thrown as \ErrorException
+ * - loggedErrors: logged alertas, when not @-silenced
+ * - scopedErrors: alertas thrown or logged with their local context
+ * - tracedErrors: alertas logged with their stack trace, only once for repeated alertas
+ * - screamedErrors: never @-silenced alertas
  *
  * Each error level can be logged by a dedicated PSR-3 logger object.
  * Screaming only applies to logging.
@@ -38,8 +38,8 @@ use Symfony\Component\Debug\FatalErrorHandler\FatalErrorHandlerInterface;
  * Uncaught exceptions are logged as E_ERROR.
  * E_DEPRECATED and E_USER_DEPRECATED levels never throw.
  * E_RECOVERABLE_ERROR and E_USER_ERROR levels always throw.
- * Non catchable alerts that can be detected at shutdown time are logged when the scream bit field allows so.
- * As alerts have a performance cost, repeated alerts are all logged, so that the developer
+ * Non catchable alertas that can be detected at shutdown time are logged when the scream bit field allows so.
+ * As alertas have a performance cost, repeated alertas are all logged, so that the developer
  * can see them and weight them as more important to fix than others of the same level.
  *
  * @author Nicolas Grekas <p@tchwork.com>
@@ -149,7 +149,7 @@ class ErrorHandler
     }
 
     /**
-     * Sets a logger to non assigned alerts levels.
+     * Sets a logger to non assigned alertas levels.
      *
      * @param LoggerInterface $logger  A PSR-3 logger to put as default for the given levels
      * @param array|int       $levels  An array map of E_* to LogLevel::* or an integer bit field of E_* constants
@@ -251,7 +251,7 @@ class ErrorHandler
     /**
      * Sets the PHP error levels that throw an exception when a PHP error occurs.
      *
-     * @param int  $levels  A bit field of E_* constants for thrown alerts
+     * @param int  $levels  A bit field of E_* constants for thrown alertas
      * @param bool $replace Replace or amend the previous value
      *
      * @return int The previous value
@@ -271,7 +271,7 @@ class ErrorHandler
     /**
      * Sets the PHP error levels for which local variables are preserved.
      *
-     * @param int  $levels  A bit field of E_* constants for scoped alerts
+     * @param int  $levels  A bit field of E_* constants for scoped alertas
      * @param bool $replace Replace or amend the previous value
      *
      * @return int The previous value
@@ -290,7 +290,7 @@ class ErrorHandler
     /**
      * Sets the PHP error levels for which the stack trace is preserved.
      *
-     * @param int  $levels  A bit field of E_* constants for traced alerts
+     * @param int  $levels  A bit field of E_* constants for traced alertas
      * @param bool $replace Replace or amend the previous value
      *
      * @return int The previous value
@@ -309,7 +309,7 @@ class ErrorHandler
     /**
      * Sets the error levels where the @-operator is ignored.
      *
-     * @param int  $levels  A bit field of E_* constants for screamed alerts
+     * @param int  $levels  A bit field of E_* constants for screamed alertas
      * @param bool $replace Replace or amend the previous value
      *
      * @return int The previous value
@@ -346,7 +346,7 @@ class ErrorHandler
     }
 
     /**
-     * Handles alerts by filtering then logging them according to the configured bit fields.
+     * Handles alertas by filtering then logging them according to the configured bit fields.
      *
      * @param int    $type    One of the E_* constants
      * @param string $file
@@ -371,7 +371,7 @@ class ErrorHandler
         }
 
         if (null !== $backtrace && $type & E_ERROR) {
-            // E_ERROR fatal alerts are triggered on HHVM when
+            // E_ERROR fatal alertas are triggered on HHVM when
             // hhvm.error_handling.call_user_handler_on_fatals=1
             // which is the way to get their backtrace.
             $this->handleFatalError(compact('type', 'message', 'file', 'line', 'backtrace'));
@@ -433,7 +433,7 @@ class ErrorHandler
             throw $throw;
         }
 
-        // For duplicated alerts, log the trace only once
+        // For duplicated alertas, log the trace only once
         $e = md5("{$type}/{$line}/{$file}\x00{$message}", true);
         $trace = true;
 
@@ -548,7 +548,7 @@ class ErrorHandler
     }
 
     /**
-     * Shutdown registered function for handling PHP fatal alerts.
+     * Shutdown registered function for handling PHP fatal alertas.
      *
      * @param array $error An array as returned by error_get_last()
      *
@@ -605,11 +605,11 @@ class ErrorHandler
 
     /**
      * Configures the error handler for delayed handling.
-     * Ensures also that non-catchable fatal alerts are never silenced.
+     * Ensures also that non-catchable fatal alertas are never silenced.
      *
      * As shown by http://bugs.php.net/42098 and http://bugs.php.net/60724
      * PHP has a compile stage where it behaves unusually. To workaround it,
-     * we plug an error handler that only stacks alerts for later.
+     * we plug an error handler that only stacks alertas for later.
      *
      * The most important feature of this is to prevent
      * autoloading until unstackErrors() is called.
@@ -620,7 +620,7 @@ class ErrorHandler
     }
 
     /**
-     * Unstacks stacked alerts and forwards to the logger.
+     * Unstacks stacked alertas and forwards to the logger.
      */
     public static function unstackErrors()
     {

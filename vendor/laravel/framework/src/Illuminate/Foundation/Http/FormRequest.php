@@ -153,7 +153,7 @@ class FormRequest extends Request implements ValidatesWhenResolved
     }
 
     /**
-     * Format the errors from the given Validator instance.
+     * Format the alertas from the given Validator instance.
      *
      * @param  \Illuminate\Contracts\Validation\Validator  $validator
      * @return array
@@ -210,7 +210,7 @@ class FormRequest extends Request implements ValidatesWhenResolved
     }
 
     /**
-     * Set custom messages for validator errors.
+     * Set custom messages for validator alertas.
      *
      * @return array
      */
@@ -220,7 +220,7 @@ class FormRequest extends Request implements ValidatesWhenResolved
     }
 
     /**
-     * Set custom attributes for validator errors.
+     * Set custom attributes for validator alertas.
      *
      * @return array
      */

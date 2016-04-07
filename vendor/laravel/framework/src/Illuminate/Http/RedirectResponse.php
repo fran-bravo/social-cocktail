@@ -106,7 +106,7 @@ class RedirectResponse extends BaseRedirectResponse
     }
 
     /**
-     * Flash a container of alerts to the session.
+     * Flash a container of alertas to the session.
      *
      * @param  \Illuminate\Contracts\Support\MessageProvider|array|string  $provider
      * @param  string  $key
@@ -117,14 +117,14 @@ class RedirectResponse extends BaseRedirectResponse
         $value = $this->parseErrors($provider);
 
         $this->session->flash(
-            'alerts', $this->session->get('alerts', new ViewErrorBag)->put($key, $value)
+            'errors', $this->session->get('errors', new ViewErrorBag)->put($key, $value)
         );
 
         return $this;
     }
 
     /**
-     * Parse the given alerts into an appropriate value.
+     * Parse the given alertas into an appropriate value.
      *
      * @param  \Illuminate\Contracts\Support\MessageProvider|array|string  $provider
      * @return \Illuminate\Support\MessageBag

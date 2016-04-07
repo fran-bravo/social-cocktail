@@ -298,7 +298,7 @@ class Mailer implements MailerContract, MailQueueContract
     /**
      * Force the transport to re-connect.
      *
-     * This will prevent alerts in daemon queue situations.
+     * This will prevent alertas in daemon queue situations.
      *
      * @return void
      */

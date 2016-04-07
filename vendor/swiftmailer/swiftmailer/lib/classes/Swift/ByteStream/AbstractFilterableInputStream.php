@@ -119,7 +119,7 @@ abstract class Swift_ByteStream_AbstractFilterableInputStream implements Swift_I
     /**
      * Remove an already bound stream.
      *
-     * If $is is not bound, no alerts will be raised.
+     * If $is is not bound, no alertas will be raised.
      * If the stream currently has any buffered data it will be written to $is
      * before unbinding occurs.
      *

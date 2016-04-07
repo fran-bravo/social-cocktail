@@ -9,7 +9,7 @@
  */
 
 /**
- * Wrapper for PHP deprecated alerts.
+ * Wrapper for PHP deprecated alertas.
  * You can disable deprecated-to-exception conversion by setting
  *
  * <code>

@@ -39,7 +39,7 @@ class ShareErrorsFromSession
         // its value with all view instances so the views can easily access alerts
         // without having to bind. An empty bag is set when there aren't alerts.
         $this->view->share(
-            'alerts', $request->session()->get('alerts') ?: new ViewErrorBag
+            'errors', $request->session()->get('errors') ?: new ViewErrorBag
         );
 
         // Putting the alerts in the view for every view allows the developer to just

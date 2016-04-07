@@ -186,7 +186,7 @@ class PHPUnit_Framework_TestResult implements Countable
     }
 
     /**
-     * Adds an error to the list of alerts.
+     * Adds an error to the list of alertas.
      *
      * @param PHPUnit_Framework_Test $test
      * @param Exception              $e
@@ -459,7 +459,7 @@ class PHPUnit_Framework_TestResult implements Countable
     }
 
     /**
-     * Gets the number of detected alerts.
+     * Gets the number of detected alertas.
      *
      * @return int
      */
@@ -469,7 +469,7 @@ class PHPUnit_Framework_TestResult implements Countable
     }
 
     /**
-     * Returns an Enumeration for the alerts.
+     * Returns an Enumeration for the alertas.
      *
      * @return array
      */
