@@ -505,7 +505,7 @@ class Shell extends Application
      *
      * @throws InvalidArgumentException if the input is not a valid command.
      *
-     * @param string $input userForms input string
+     * @param string $input user input string
      *
      * @return mixed Who knows?
      */

@@ -51,13 +51,13 @@
                         <i class="fa fa-wrench"></i>
                     </a>
                 </div>
-                <div title="Editar Email" class="form-group">
-                    <a class="btn btn-info btn-xs" href="">
+                <div title="Cambiar Email" class="form-group">
+                    <a class="btn btn-info btn-xs" href="{{route('admin.users.editEmail',$user->id)}}">
                         <i class="fa fa-at"></i>
                     </a>
                 </div>
                 <div title="Cambiar password" class="form-group">
-                    <a class="btn btn-success btn-xs" href="">
+                    <a class="btn btn-success btn-xs" href="{{route('admin.users.editPassword',$user->id)}}">
                         <i class="fa fa-lock"></i>
                     </a>
                 </div>

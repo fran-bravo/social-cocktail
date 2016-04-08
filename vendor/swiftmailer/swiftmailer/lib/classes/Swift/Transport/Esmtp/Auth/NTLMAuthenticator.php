@@ -256,7 +256,7 @@ class Swift_Transport_Esmtp_Auth_NTLMAuthenticator implements Swift_Transport_Es
 .$lmSec // LM response header
 .$ntlmSec // NTLM response header
 .$domainSec // Domain header
-.$userSec // userForms header
+.$userSec // user header
 .$workSec // Workstation header
 .$this->createByte('000000009a', 8) // session key header (empty)
 .$this->createByte('01020000') // FLAGS
@@ -705,12 +705,12 @@ class Swift_Transport_Esmtp_Auth_NTLMAuthenticator implements Swift_Transport_Es
                 'LM Response Security Buffer',
                 'NTLM Response Security Buffer',
                 'Target Name Security Buffer',
-                'userForms Name Security Buffer',
+                'user Name Security Buffer',
                 'Workstation Name Security Buffer',
                 'Session Key Security Buffer',
                 'Flags',
                 'Target Name Data',
-                'userForms Name Data',
+                'user Name Data',
                 'Workstation Name Data',
                 'LM Response Data',
                 'NTLM Response Data',

@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * userForms: Uriel
+ * user: Uriel
  * Date: 5/4/16
  * Time: 1:40 PM
  */?>
@@ -40,7 +40,7 @@
                                 <li><!-- start message -->
                                     <a href="#">
                                         <div class="pull-left">
-                                            <!-- userForms Image -->
+                                            <!-- user Image -->
                                             <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
                                         </div>
                                         <!-- Message title and timestamp -->
@@ -115,7 +115,7 @@
                         </li>
                     </ul>
                 </li>
-                <!-- userForms Account Menu -->
+                <!-- user Account Menu -->
                 <li class="dropdown user user-menu">
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">

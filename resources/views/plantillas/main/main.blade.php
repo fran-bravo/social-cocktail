@@ -26,7 +26,7 @@
             @yield('content')
 
              </div><!-- ./wrapper -->
-             <!-- jQuery 2.2.0 -->
+             <script async="" src="//www.google-analytics.com/analytics.js"></script>
             <!-- jQuery 2.1.4 -->
             <script src="{{asset('plugins/jQuery/jQuery-2.1.4.min.js')}}"></script>
             <!-- Bootstrap 3.3.5 -->

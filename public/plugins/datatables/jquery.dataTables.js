@@ -646,7 +646,7 @@
 			}
 		}
 	
-		/* userForms specified column options */
+		/* user specified column options */
 		if ( oOptions !== undefined && oOptions !== null )
 		{
 			// Backwards compatibility

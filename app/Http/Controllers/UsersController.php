@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use socialCocktail\Http\Requests;
 use socialCocktail\Http\Requests\UserRequest;
 use socialCocktail\Http\Requests\EditUserRequest;
+use socialCocktail\Http\Requests\EmailEditRequest;
+use socialCocktail\Http\Requests\PasswordEditRequest;
 use socialCocktail\User;
 use Laracasts\Flash\Flash;
 
@@ -20,7 +22,7 @@ class UsersController extends Controller
     public function index()
     {
         $users=User::all();
-        return view('plantillas.admin.userForms.users')->with('users', $users);
+        return view('plantillas.admin.user.users')->with('users', $users);
     }
 
     /**
@@ -30,7 +32,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('plantillas.admin.userForms.create');
+        return view('plantillas.admin.user.create');
     }
 
     /**
@@ -68,7 +70,7 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user=User::find($id);
-        return view('plantillas.admin.userForms.edit')->with('user',$user);
+        return view('plantillas.admin.user.edit')->with('user',$user);
     }
 
     /**
@@ -99,6 +101,37 @@ class UsersController extends Controller
         $user=User::find($id);
         $user->delete();
         Flash::success('El usuario '.$user->name . ' ha sido eliminado exitosamente');
+        return redirect('admin/users');
+    }
+
+    public function updateEmail(EmailEditRequest $request, $id){
+        $user=User::find($id);
+        $user->fill($request->all());
+        $user->save();
+        return redirect('admin/users');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function editEmail($id){
+        $user=User::find($id);
+        return view('plantillas.admin.user.editEmail')->with('user',$user);
+    }
+
+    public function editPassword($id){
+        $user=User::find($id);
+        return view('plantillas.admin.user.editPassword')->with('user',$user);
+    }
+
+    public function updatePassword(PasswordEditRequest $request, $id){
+        $user=User::find($id);
+        $user->password=bcrypt($request->password);
+        $user->save();
+        Flash::success('Se ha cambiado el password de '.$user->name.' exitosamente');
         return redirect('admin/users');
     }
 }

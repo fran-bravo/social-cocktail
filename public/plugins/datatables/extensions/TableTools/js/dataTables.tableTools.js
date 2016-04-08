@@ -1695,7 +1695,7 @@ TableTools.prototype = {
 			}
 		}
 
-		// userForms defined pre-selection function
+		// user defined pre-selection function
 		if ( this.s.select.preRowSelect !== null && !this.s.select.preRowSelect.call(this, e, anSelected, true) )
 		{
 			return;
@@ -1744,7 +1744,7 @@ TableTools.prototype = {
 			}
 		}
 
-		// userForms defined pre-selection function
+		// user defined pre-selection function
 		if ( this.s.select.preRowSelect !== null && !this.s.select.preRowSelect.call(this, e, anDeselectedTrs, false) )
 		{
 			return;

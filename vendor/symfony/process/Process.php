@@ -79,7 +79,7 @@ class Process
     /**
      * Exit codes translation table.
      *
-     * userForms-defined alertas must use exit codes in the 64-113 range.
+     * user-defined alertas must use exit codes in the 64-113 range.
      *
      * @var array
      */
@@ -102,9 +102,9 @@ class Process
         135 => 'Bus error: "access to undefined portion of memory object"',
         136 => 'Floating point exception: "erroneous arithmetic operation"',
         137 => 'Kill (terminate immediately)',
-        138 => 'userForms-defined 1',
+        138 => 'user-defined 1',
         139 => 'Segmentation violation',
-        140 => 'userForms-defined 2',
+        140 => 'user-defined 2',
         141 => 'Write to pipe with no one reading',
         142 => 'Signal raised by alarm',
         143 => 'Termination (request to terminate)',

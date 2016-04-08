@@ -1459,11 +1459,11 @@ S2.define('select2/selection/single',[
     });
 
     this.$selection.on('focus', function (evt) {
-      // userForms focuses on the container
+      // user focuses on the container
     });
 
     this.$selection.on('blur', function (evt) {
-      // userForms exits the container
+      // user exits the container
     });
 
     container.on('selection:update', function (params) {

@@ -1,7 +1,7 @@
 @extends('plantillas.main.main')
 
 @section('title','Admin panel')
-@section('titleComplement', 'userForms')
+@section('titleComplement', 'user')
 
 @section('content')
     @include('plantillas.templatesSections.header')

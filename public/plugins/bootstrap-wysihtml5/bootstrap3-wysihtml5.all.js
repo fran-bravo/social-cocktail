@@ -12813,7 +12813,7 @@ wysihtml5.views.View = Base.extend(
         }, 250);
     }
 
-    // --------- userForms interaction tracking --
+    // --------- user interaction tracking --
 
     dom.observe(focusBlurElement, interactionEvents, function() {
       setTimeout(function() {

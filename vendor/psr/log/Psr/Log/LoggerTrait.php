@@ -96,7 +96,7 @@ trait LoggerTrait
     /**
      * Interesting events.
      *
-     * Example: userForms logs in, SQL logs.
+     * Example: user logs in, SQL logs.
      *
      * @param string $message
      * @param array $context

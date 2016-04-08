@@ -5,7 +5,7 @@
 @section('headerDescription','Modifique los campos que sean necesarios')
 @section('contentPage')
     <div class="row">
-        <div class="col-md-8"><div class="box box-primary">
+        <div class="col-md-8"><div class="box box-warning">
                 <div class="box-header with-border">
                     <h3 class="box-title">Complete el formulario</h3>
                 </div>
@@ -20,10 +20,6 @@
                     <div class="form-group has-feedback">
                         <input value="{{$user->lastName}}" type="text" class="form-control" name="lastName" placeholder="Apellido" required="required" maxlength="40">
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                    </div>
-                    <div class="form-group has-feedback">
-                        <input value="{{$user->email}}" type="email" class="form-control" name="email" placeholder="Email" required="required" maxlength="50">
-                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
                         <select class="form-control" name="tipoUsuario">
@@ -44,7 +40,7 @@
                     </div>
                     <div class="form-group has-feedback">
                         <select class="form-control" name="pais" >
-                            <option value="">Pais</option>
+                            <option value="{{$user->pais}}">{{$user->pais}}</option>
                             <option value="AF">Afganistán</option>
                             <option value="AL">Albania</option>
                             <option value="DE">Alemania</option>

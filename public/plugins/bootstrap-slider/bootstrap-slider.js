@@ -404,7 +404,7 @@
 			if (this.options.value instanceof Array) {
 				this.options.range = true;
 			} else if (this.options.range) {
-				// userForms wants a range, but value is not an array
+				// user wants a range, but value is not an array
 				this.options.value = [this.options.value, this.options.max];
 			}
 
