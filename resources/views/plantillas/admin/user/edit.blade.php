@@ -1,4 +1,4 @@
-@extends('plantillas.admin.admin')
+@extends('plantillas.admin.mainAdmin')
 @section('title','Editar')
 @section('titleComplement','Admin')
 @section('headerContent','Editar usuario')

@@ -3,6 +3,9 @@
 namespace socialCocktail\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Laracasts\Flash\Flash;
+use socialCocktail\Categoria;
+use socialCocktail\Http\Requests\CategoriasRequest;
 
 use socialCocktail\Http\Requests;
 
@@ -34,9 +37,12 @@ class CategoriasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoriasRequest $request)
     {
-        //
+        $categoria=Categoria::create($request->all());
+        $categoria->save();
+        Flash::success('La categoria '.$categoria->nombre .' ha sido creada exitosamente');
+        return redirect('admin/categorias');
     }
 
     /**
