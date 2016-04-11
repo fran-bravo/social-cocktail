@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
 use socialCocktail\Categoria;
 use socialCocktail\Http\Requests\CategoriasRequest;
-
+use socialCocktail\Http\Requests\CategoriasEditNombreRequest;
 use socialCocktail\Http\Requests;
 
 class CategoriasController extends Controller
@@ -18,7 +18,8 @@ class CategoriasController extends Controller
      */
     public function index()
     {
-        //
+        $categorias=Categoria::all();
+        return view('plantillas/admin/categorias/categorias')->with('categorias',$categorias);
     }
 
     /**
@@ -64,7 +65,8 @@ class CategoriasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categoria=Categoria::find($id);
+        return view('plantillas.admin.categorias.editDescripcion')->with('categoria',$categoria);
     }
 
     /**
@@ -76,7 +78,11 @@ class CategoriasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $categoria=Categoria::find($id);
+        $categoria->fill($request->all());
+        Flash::success('La categoria '.$categoria->nombre.' ha sido modificada con exito');
+        $categoria->save();
+        return redirect('admin/categorias');
     }
 
     /**
@@ -87,6 +93,22 @@ class CategoriasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $categoria=Categoria::find($id);
+        $categoria->delete();
+        Flash::success('El categoria '.$categoria->nombre.' ha sido elimiada con exito');
+        return redirect('admin/categorias');
+    }
+
+    public function editNombre($id){
+        $categoria=Categoria::find($id);
+        return view('plantillas.admin.categorias.editNombre')->with('categoria',$categoria);
+    }
+
+    public function updateNombre(CategoriasEditNombreRequest $request, $id){
+        $categoria=Categoria::find($id);
+        $categoria->nombre=$request->nombre;
+        $categoria->save();
+        Flash::success('La categoria ha sido modificada con exito');
+        return redirect('admin/categorias');
     }
 }

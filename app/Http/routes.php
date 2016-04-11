@@ -49,4 +49,17 @@
         ]);
 
         Route::resource('categorias','categoriasController');
+        //Rutas para cambiar el nombre de la categoria
+        Route::get('categorias/{id}/editNombre',[
+            'uses'=>'CategoriasController@editNombre',
+            'as'=>'admin.categorias.editNombre'
+        ]);
+        Route::put('categorias/{id}/updateNombre',[
+            'uses'=>'CategoriasController@updateNombre',
+            'as'=>'admin.categorias.updateNombre'
+        ]);
+        Route::get('categorias/{id}/destroy',[
+            'uses'=>'CategoriasController@destroy',
+            'as'=>'admin.categorias.destroy'
+        ]);
     });
