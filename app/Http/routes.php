@@ -19,6 +19,9 @@
     });
     Route::group(['prefix' => 'admin'], function(){
 
+
+
+        //      USUARIOS
         Route::resource('users','UsersController');
         Route::get('users/{id}/destroy', [
             'uses'=>'UsersController@destroy',
@@ -48,7 +51,11 @@
             'as'=>'admin.users.updatePassword'
         ]);
 
-        Route::resource('categorias','categoriasController');
+
+
+
+        //      CATEGORIAS
+        Route::resource('categorias','CategoriasController');
         //Rutas para cambiar el nombre de la categoria
         Route::get('categorias/{id}/editNombre',[
             'uses'=>'CategoriasController@editNombre',
@@ -62,4 +69,9 @@
             'uses'=>'CategoriasController@destroy',
             'as'=>'admin.categorias.destroy'
         ]);
+
+
+
+        //      SUBCATEGORIAS
+        Route::resource('subCategorias','SubCategoriasController');
     });

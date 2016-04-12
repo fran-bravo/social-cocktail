@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->smallInteger('activo');
             $table->date('nacimiento')->nullable();
             $table->string('tipoUsuario',30);
+            $table->softDeletes();
             //Referencia a la tabla cvs
             $table->integer('cv_id')->unsigned()->nullable();
             $table->foreign('cv_id')->references('id')->on('cvs');
