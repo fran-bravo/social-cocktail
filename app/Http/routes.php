@@ -74,4 +74,16 @@
 
         //      SUBCATEGORIAS
         Route::resource('subCategorias','SubCategoriasController');
+        Route::get('subCategorias/{id}/destroy',[
+            'uses'=>'SubCategoriasController@destroy',
+            'as'=>'admin.subCategorias.destroy'
+        ]);
+
+
+        //      MARCAS
+        Route::resource('marcas','MarcasController');
+        Route::get('marcas/{id}/destroy',[
+            'uses'=>'MarcasController@destroy',
+            'as'=>'admin.marcas.destroy'
+        ]);
     });

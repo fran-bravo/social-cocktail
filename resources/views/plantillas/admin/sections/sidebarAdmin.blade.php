@@ -28,6 +28,14 @@
         </ul>
 
     </li>
+    <li class="treeview">
+        <a href="#"><i class="fa fa-registered"></i> <span>Marca</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+            <li><a href="{{route('admin.marcas.create')}}"><i class="fa fa-plus"></i>Registrar Marca</a></li>
+            <li><a href="{{route('admin.marcas.index')}}"><i class="fa fa-list-ol"></i>Listar Marcas</a></li>
+        </ul>
+
+    </li>
     <li><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
     <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
 @endsection

@@ -93,6 +93,9 @@ class SubCategoriasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $subCategoria=SubCategoria::find($id);
+        $subCategoria->delete();
+        Flash::success('La SubCategoria '.$subCategoria->nombre.' ha sido eliminada con exito');
+        return redirect()->route('admin.subCategorias.index');
     }
 }
