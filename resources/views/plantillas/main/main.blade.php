@@ -32,10 +32,15 @@
             <script src="{{asset('plugins/jQuery/jQuery-2.1.4.min.js')}}"></script>
             <!-- Bootstrap 3.3.5 -->
             <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
+             <!-- jquery personal-->
+             <script src="{{asset('dist/js/jquery/jquery.js')}}"></script>
             <!-- FastClick -->
             <script src="{{asset('/plugins/fastclick/fastclick.js')}}"></script>
             <!-- AdminLTE App -->
             <script src="{{asset('dist/js/app.min.js')}}"></script>
+             <!-- Jquery Validation -->
+             <script src="{{asset('/plugins/jquery-validation/dist/jquery.validate.min.js')}}"></script>
+             <script src="{{asset('/plugins/jquery-validation/dist/additional-methods.min.js')}}"></script>
             <!-- Slimscroll -->
             <script src="{{asset('/plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
             <!-- AdminLTE for demo purposes -->

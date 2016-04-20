@@ -12,26 +12,26 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            {!! Form::open(['route'=> 'admin.users.store','method'=>'POST']) !!}
+            {!! Form::open(['route'=> 'admin.users.store','method'=>'POST', 'id'=>'createUser']) !!}
             <div class="box-body">
                 <div class="form-group has-feedback">
-                    <input value="{{Input::old('name')}}" type="text" class="form-control" name="name" placeholder="Nombre" required="required" maxlength="40">
+                    <input id="nombre" value="{{Input::old('name')}}" type="text" class="form-control" name="name" placeholder="Nombre" required="required" maxlength="40">
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input value="{{Input::old('lastName')}}" type="text" class="form-control" name="lastName" placeholder="Apellido" required="required" maxlength="40">
+                    <input id="apellido" value="{{Input::old('lastName')}}" type="text" class="form-control" name="lastName" placeholder="Apellido" required="required" maxlength="40">
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input value="{{Input::old('email')}}" type="email" class="form-control" name="email" placeholder="Email" required="required" maxlength="50">
+                    <input id="email" value="{{Input::old('email')}}" type="email" class="form-control" name="email" placeholder="Email" required="required" maxlength="50">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" name="password" placeholder="Password" required="required" maxlength="30">
+                    <input id="password" type="password" class="form-control" name="password" placeholder="Password" required="required" maxlength="30">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" name="password_confirmation" placeholder="Confirmar password" required="required" maxlength="30">
+                    <input id="passwordConfirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirmar password" required="required" maxlength="30">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
@@ -281,22 +281,22 @@
                     </select>
                 </div>
                 <div class="form-group has-feedback">
-                    <input value="{{Input::old('provincia')}}" type="text" class="form-control" name="provincia" placeholder="Provincia" maxlength="50">
+                    <input id="provincia" value="{{Input::old('provincia')}}" type="text" class="form-control" name="provincia" placeholder="Provincia" maxlength="50">
                 </div>
                 <div class="form-group has-feedback">
-                    <input value="{{Input::old('localidad')}}" type="text" class="form-control" name="localidad" placeholder="Localidad" maxlength="50">
+                    <input id="localidad" value="{{Input::old('localidad')}}" type="text" class="form-control" name="localidad" placeholder="Localidad" maxlength="50">
                 </div>
                 <div class="form-group has-feedback">
-                    <input value="{{Input::old('codigoPostal')}}" type="text" class="form-control" name="codigoPostal" placeholder="Codigo Postal" maxlength="20">
+                    <input id="codigoPostal" value="{{Input::old('codigoPostal')}}" type="text" class="form-control" name="codigoPostal" placeholder="Codigo Postal" maxlength="20">
                 </div>
                 <div class="form-group has-feedback">
-                    <input value="{{Input::old('domicilio')}}" type="text" class="form-control" name="domicilio" placeholder="Direccion" maxlength="50">
+                    <input id="domicilio" value="{{Input::old('domicilio')}}" type="text" class="form-control" name="domicilio" placeholder="Direccion" maxlength="50">
                 </div>
                 <div class="form-group has-feedback">
-                    <input value="{{Input::old('telefono')}}" type="text" class="form-control" name="telefono" placeholder="Numero de contacto" maxlength="50">
+                    <input id="telefono" value="{{Input::old('telefono')}}" type="text" class="form-control" name="telefono" placeholder="Numero de contacto" maxlength="50">
                 </div>
                 <div class="form-group has-feedback">
-                    <input value="{{Input::old('cuit_cuil')}}" type="text" class="form-control" name="cuit_cuil" placeholder="Cuit/Cuil" maxlength="50">
+                    <input id="cuit_cuil" value="{{Input::old('cuit_cuil')}}" type="text" class="form-control" name="cuit_cuil" placeholder="Cuit/Cuil" maxlength="50">
                 </div>
                 <div class="form-group">
                     <div class="radio">
@@ -320,7 +320,7 @@
             <!-- /.box-body -->
 
             <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Crear</button>
+                <button id="crearUser" type="submit" class="btn btn-primary">Crear</button>
             </div>
 
             {!! Form::close() !!}
