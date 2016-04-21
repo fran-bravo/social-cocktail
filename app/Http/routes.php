@@ -86,4 +86,8 @@
             'uses'=>'MarcasController@destroy',
             'as'=>'admin.marcas.destroy'
         ]);
+        Route::put('marcas/{id}/editDescripcion',[
+            'uses'=>'MarcasController@editDescripcion',
+            'as'=>'admin.marcas.editDescripcion'
+        ]);
     });

@@ -35,16 +35,21 @@
                         <td>{{$marca->nombre}}</td>
                         <td>
                             <div title="Cambiar Nombre" class="form-group">
-                                <a class="btn btn-info btn-xs" href="{{route('admin.subCategorias.edit',$marca->id)}}">
+                                <a class="btn btn-info btn-xs" href="{{route('admin.marcas.edit',$marca->id)}}">
                                     <i class="fa fa-registered"></i>
                                 </a>
                             </div>
-
-                            <div title="Eliminar SubCategoria" class="form-group">
-                                <a class="btn btn-danger btn-xs" href="{{route('admin.subCategorias.destroy',$marca->id)}}" onclick="return confirm('¿Esta seguro que desea eliminarla?')">
+                            <div title="Cambiar descripcion" class="form-group">
+                                <a class="btn btn-warning btn-xs" href="{{route('admin.marcas.edit',$marca->id)}}">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                            </div>
+                            <div title="Eliminar Marca" class="form-group">
+                                <a class="btn btn-danger btn-xs" href="{{route('admin.marcas.editDescripcion',$marca->id)}}" onclick="return confirm('¿Esta seguro que desea eliminarla?')">
                                     <i class="fa fa-remove"></i>
                                 </a>
                             </div>
+
 
                         </td>
                     </tr>

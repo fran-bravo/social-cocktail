@@ -65,7 +65,11 @@ class MarcasController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('plantillas.admin.marcas.edit');
+    }
+
+    public function editDescripcion($id){
+        return view('plantillas.admin.marcas.editDescripcion');
     }
 
     /**
@@ -80,6 +84,10 @@ class MarcasController extends Controller
         //
     }
 
+    public function updateDescripcion(Request $request, $id){
+
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -88,6 +96,9 @@ class MarcasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $marca=Marca::find($id);
+        $marca->delete();
+        Flash::success('La marca '.$marca->nombre.' ha sido eliminada exitosamente');
+        return redirect()->route('admin.marcas.index');
     }
 }
