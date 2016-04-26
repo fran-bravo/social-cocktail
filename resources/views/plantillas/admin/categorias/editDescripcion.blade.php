@@ -5,7 +5,7 @@
 @section('headerDescription','...')
 @section('contentPage')
     <div class="row">
-        <div class="col-md-8"><div class="box box-info">
+        <div class="col-md-8"><div class="box box-warning">
                 <div class="box-header with-border">
                     <h3 class="box-title">{{$categoria->nombre}}</h3>
                 </div>

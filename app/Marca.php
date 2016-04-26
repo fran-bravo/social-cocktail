@@ -9,7 +9,7 @@ class Marca extends Model
 {
     use SoftDeletes;
     protected $table='marcas';
-    protected $fillable=['nombre',];
+    protected $fillable=['nombre','descripcion'];
     protected $dates=['deleted_at'];
 
     //Devuelve todos los ingredientes que posean esta marca.

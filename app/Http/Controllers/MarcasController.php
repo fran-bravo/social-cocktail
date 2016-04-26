@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
 use socialCocktail\Http\Requests;
 use socialCocktail\Http\Requests\MarcasRequest;
+use socialCocktail\Http\Requests\MarcasEditNombreRequest;
 use socialCocktail\Marca;
 
 class MarcasController extends Controller
@@ -65,11 +66,13 @@ class MarcasController extends Controller
      */
     public function edit($id)
     {
-        return view('plantillas.admin.marcas.edit');
+        $marca=Marca::find($id);
+        return view('plantillas.admin.marcas.edit')->with('marca',$marca);
     }
 
     public function editDescripcion($id){
-        return view('plantillas.admin.marcas.editDescripcion');
+        $marca=Marca::find($id);
+        return view('plantillas.admin.marcas.editDescripcion')->with('marca',$marca);
     }
 
     /**
@@ -79,13 +82,21 @@ class MarcasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MarcasEditNombreRequest $request, $id)
     {
-        //
+        $marca=Marca::find($id);
+        $marca->fill($request->all());
+        $marca->save();
+        Flash::success('La marca '.$marca->nombre.' ha sido modificada exitosamente');
+        return redirect()->route('admin.marcas.index');
     }
 
     public function updateDescripcion(Request $request, $id){
-
+        $marca=Marca::find($id);
+        $marca->fill($request->all());
+        $marca->save();
+        Flash::success('La descripcion de '.$marca->nombre.'ha sido modificada exitosamente');
+        return redirect()->route('admin.marcas.index');
     }
 
     /**
