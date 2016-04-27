@@ -5,6 +5,7 @@ namespace socialCocktail\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Laracasts\Flash\Flash;
+use socialCocktail\Categoria;
 use socialCocktail\Http\Requests;
 use socialCocktail\Http\Requests\SubCategoriaRequest;
 use socialCocktail\SubCategoria;
@@ -29,7 +30,8 @@ class SubCategoriasController extends Controller
      */
     public function create()
     {
-        return view('plantillas.admin.subCategorias.create');
+        $categorias=Categoria::all();
+        return view('plantillas.admin.subCategorias.create')->with('categorias',$categorias);
     }
 
     /**

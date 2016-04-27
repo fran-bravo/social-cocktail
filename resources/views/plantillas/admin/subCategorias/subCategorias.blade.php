@@ -18,6 +18,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
+                    <th>Categoria</th>
                     <th>Accion</th>
                 </tr>
                 </thead>
@@ -25,6 +26,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
+                    <th>Categoria</th>
                     <th>Accion</th>
                 </tr>
                 </tfoot>
@@ -33,6 +35,7 @@
                     <tr>
                         <td>{{$subCategoria->id}}</td>
                         <td>{{$subCategoria->nombre}}</td>
+                        <td>{{$subCategoria->categoria->nombre}}</td>
                         <td>
                             <div title="Cambiar Nombre" class="form-group">
                                 <a class="btn btn-info btn-xs" href="{{route('admin.subCategorias.edit',$subCategoria->id)}}">

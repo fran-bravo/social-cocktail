@@ -13,4 +13,8 @@ class Categoria extends Model
     public function ingredientes(){
         return $this->hasMany('socialCocktail\Ingrediente');
     }
+    //Devuelve todas las SubCategorias
+    public function subCategorias(){
+        return $this->hasMany('socialCocktail\SubCategoria');
+    }
 }

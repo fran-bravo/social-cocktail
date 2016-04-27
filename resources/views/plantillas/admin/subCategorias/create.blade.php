@@ -17,6 +17,13 @@
                         <input value="{{Input::old('nombre')}}" type="text" class="form-control" name="nombre" placeholder="Nombre" required="required" maxlength="40">
                         <span class="glyphicon glyphicon fa fa-sitemap form-control-feedback"></span>
                     </div>
+                    <div class="form-group has-feedback">
+                        <select class="form-control" name="categoria_id" id="categoria_id" required="required">
+                            @foreach($categorias as $categoria)
+                            <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
                 <!-- /.box-body -->
 
