@@ -42,12 +42,17 @@
                                     <i class="fa fa-sitemap"></i>
                                 </a>
                             </div>
-
+                            <div title="Cambiar Categoria" class="form-group">
+                                <a class="btn btn-warning btn-xs" href="{{route('admin.subCategorias.editCategoria',$subCategoria->id)}}">
+                                    <i class="fa fa-tags"></i>
+                                </a>
+                            </div>
                             <div title="Eliminar SubCategoria" class="form-group">
                                 <a class="btn btn-danger btn-xs" href="{{route('admin.subCategorias.destroy',$subCategoria->id)}}" onclick="return confirm('¿Esta seguro que desea eliminarla?')">
                                     <i class="fa fa-remove"></i>
                                 </a>
                             </div>
+
 
                         </td>
                     </tr>

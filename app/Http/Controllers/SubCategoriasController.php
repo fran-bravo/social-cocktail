@@ -100,4 +100,18 @@ class SubCategoriasController extends Controller
         Flash::success('La SubCategoria '.$subCategoria->nombre.' ha sido eliminada con exito');
         return redirect()->route('admin.subCategorias.index');
     }
+
+    public function editCategoria($id){
+        $subCategoria=SubCategoria::find($id);
+        $categorias=Categoria::all();
+        return view('plantillas.admin.subCategorias.editCategoria')->with(['subCategoria'=>$subCategoria,'categorias'=>$categorias]);
+    }
+
+    public function updateCategoria(Request $request,$id){
+        $subCategoria=SubCategoria::find($id);
+        $subCategoria->fill($request->all());
+        $subCategoria->save();
+        Flash::success('La subCategoria '.$subCategoria->nombre.' ha sido modificada exitosamente');
+        return redirect()->route('admin.subCategorias.index');
+    }
 }

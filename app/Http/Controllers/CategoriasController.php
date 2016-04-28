@@ -8,6 +8,7 @@ use socialCocktail\Categoria;
 use socialCocktail\Http\Requests\CategoriasRequest;
 use socialCocktail\Http\Requests\CategoriasEditNombreRequest;
 use socialCocktail\Http\Requests;
+use socialCocktail\SubCategoria;
 
 class CategoriasController extends Controller
 {

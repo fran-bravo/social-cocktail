@@ -78,6 +78,14 @@
             'uses'=>'SubCategoriasController@destroy',
             'as'=>'admin.subCategorias.destroy'
         ]);
+        Route::get('subCategorias/{id}/editCategoria',[
+            'uses'=>'SubCategoriasController@editCategoria',
+            'as'=>'admin.subCategorias.editCategoria'
+        ]);
+        Route::put('subCategorias/{id}/updateCategoria',[
+            'uses'=>'SubCategoriasController@updateCategoria',
+            'as'=>'admin.subCategorias.updateCategoria'
+        ]);
 
 
         //      MARCAS

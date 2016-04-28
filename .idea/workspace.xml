@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f413455c-9be9-4307-ba17-743cc8e8bf0a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Categoria.php" afterPath="$PROJECT_DIR$/app/Categoria.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoriasController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoriasController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/SubCategoriasController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubCategoriasController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/SubCategoria.php" afterPath="$PROJECT_DIR$/app/SubCategoria.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_04_02_182315_create_subcategorias_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_04_02_182315_create_subcategorias_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/plantillas/admin/subCategorias/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/plantillas/admin/subCategorias/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/plantillas/admin/subCategorias/subCategorias.blade.php" afterPath="$PROJECT_DIR$/resources/views/plantillas/admin/subCategorias/subCategorias.blade.php" />
     </list>
     <ignored path="social-cocktail.iws" />
@@ -44,7 +42,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Requests/EmailEditRequest.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/userForms/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/PasswordEditRequest.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/userForms/editEmail.blade.php" />
@@ -67,7 +64,6 @@
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/categorias/editNombre.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/CategoriasEditNombreRequest.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/categorias/categorias.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CategoriasController.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/categorias/create.blade.php" />
@@ -85,7 +81,6 @@
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/marcas/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Marca.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/marcas/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MarcasController.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/marcas/editDescripcion.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/categorias/editDescripcion.blade.php" />
@@ -93,8 +88,11 @@
         <option value="$PROJECT_DIR$/database/migrations/2016_04_02_182315_create_subcategorias_table.php" />
         <option value="$PROJECT_DIR$/app/SubCategoria.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/subCategorias/create.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/SubCategoriasController.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/subCategorias/subCategorias.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CategoriasController.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/resources/views/plantillas/admin/subCategorias/editCategoria.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/SubCategoriasController.php" />
       </list>
     </option>
   </component>
@@ -307,36 +305,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="marcas" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="social-cocktail" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="social-cocktail" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plantillas" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="categorias" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -507,12 +475,12 @@
       <workItem from="1460836688451" duration="2878000" />
       <workItem from="1461002622664" duration="9267000" />
       <workItem from="1461258651895" duration="2648000" />
-      <workItem from="1461693891799" duration="6949000" />
+      <workItem from="1461693891799" duration="8859000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118955000" />
+    <option name="totallyTimeSpent" value="120865000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -567,20 +535,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/plugins/jquery-validation/lib/jquery.form.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1755">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/plugins/jquery-validation/dist/localization/methods_de.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/plugins/jquery-validation/dist/jquery.validate.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2190">
@@ -715,14 +669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/admin/subCategorias/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="30" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/plantillas/admin/marcas/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -735,14 +681,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/SubCategoriaRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="69" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="69" />
           <folding />
         </state>
       </provider>
@@ -779,22 +717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CategoriasController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/admin/categorias/editNombre.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="66" selection-start-line="13" selection-start-column="66" selection-end-line="13" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/plantillas/admin/categorias/editDescripcion.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -825,14 +747,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="249">
           <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="92" column="32" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -925,22 +839,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/admin/subCategorias/subCategorias.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="29" column="35" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SubCategoriasController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/SubCategoria.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -949,10 +847,82 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/admin/categorias/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/admin/categorias/editNombre.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="57" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/SubCategoriaRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="69" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CategoriasController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="113" column="5" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/admin/subCategorias/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="31" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/plantillas/admin/subCategorias/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="74" selection-start-line="16" selection-start-column="74" selection-end-line="16" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SubCategoriasController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="86" column="54" selection-start-line="86" selection-start-column="54" selection-end-line="86" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/admin/subCategorias/editCategoria.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="77" selection-start-line="21" selection-start-column="77" selection-end-line="21" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/admin/subCategorias/subCategorias.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="45" column="57" selection-start-line="45" selection-start-column="57" selection-end-line="45" selection-end-column="57" />
           <folding />
         </state>
       </provider>
