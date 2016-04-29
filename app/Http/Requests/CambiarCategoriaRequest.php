@@ -4,7 +4,7 @@ namespace socialCocktail\Http\Requests;
 
 use socialCocktail\Http\Requests\Request;
 
-class SubCategoriaRequest extends Request
+class CambiarCategoriaRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,6 @@ class SubCategoriaRequest extends Request
     public function rules()
     {
         return [
-            'nombre'=>'unique:subCategorias|unique:categorias|max:50|required',
             'categoria_id'=>'exist_categoria|required'
         ];
     }

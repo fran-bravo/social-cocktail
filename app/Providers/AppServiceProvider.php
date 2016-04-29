@@ -3,6 +3,8 @@
 namespace socialCocktail\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Validator;
+use socialCocktail\Categoria;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Validator::extend('exist_categoria',function($atribute, $value, $parameters){
+            $categorias=Categoria::all();
+            $categoriaSeleccionada=Categoria::find($value);
+            foreach ($categorias as $categoria){
+                if ($categoria==$categoriaSeleccionada){
+                    return true;
+                }
+            }
+            return false;
+        });
     }
 
     /**

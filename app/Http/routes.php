@@ -102,4 +102,12 @@
             'uses'=>'MarcasController@updateDescripcion',
             'as'=>'admin.marcas.updateDescripcion'
         ]);
+        Route::get('marcas/{id}/editCategoria',[
+            'uses'=>'MarcasController@editCategoria',
+            'as'=>'admin.marcas.editCategoria'
+        ]);
+        Route::put('marcas/{id}/updateCategoria',[
+            'uses'=>'MarcasController@updateCategoria',
+            'as'=>'admin.marcas.updateCategoria'
+        ]);
     });

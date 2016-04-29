@@ -17,4 +17,7 @@ class Categoria extends Model
     public function subCategorias(){
         return $this->hasMany('socialCocktail\SubCategoria');
     }
+    public function marcas(){
+        request($this->hasMany('socialCocktail\Marca'));
+    }
 }

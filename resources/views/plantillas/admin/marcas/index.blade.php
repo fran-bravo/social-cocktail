@@ -18,6 +18,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
+                    <th>Categoria</th>
                     <th>Accion</th>
                 </tr>
                 </thead>
@@ -25,6 +26,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
+                    <th>Categoria</th>
                     <th>Accion</th>
                 </tr>
                 </tfoot>
@@ -33,6 +35,7 @@
                     <tr>
                         <td>{{$marca->id}}</td>
                         <td>{{$marca->nombre}}</td>
+                        <td>{{$marca->categoria->nombre}}</td>
                         <td>
                             <div title="Cambiar Nombre" class="form-group">
                                 <a class="btn btn-info btn-xs" href="{{route('admin.marcas.edit',$marca->id)}}">
@@ -42,6 +45,11 @@
                             <div title="Cambiar descripcion" class="form-group">
                                 <a class="btn btn-warning btn-xs" href="{{route('admin.marcas.editDescripcion',$marca->id)}}">
                                     <i class="fa fa-edit"></i>
+                                </a>
+                            </div>
+                            <div title="Cambiar categoria" class="form-group">
+                                <a class="btn btn-default btn-xs" href="{{route('admin.marcas.editCategoria',$marca->id)}}">
+                                    <i class="fa fa-tags"></i>
                                 </a>
                             </div>
                             <div title="Eliminar Marca" class="form-group">

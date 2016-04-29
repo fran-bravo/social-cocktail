@@ -8,6 +8,7 @@ use Laracasts\Flash\Flash;
 use socialCocktail\Categoria;
 use socialCocktail\Http\Requests;
 use socialCocktail\Http\Requests\SubCategoriaRequest;
+use socialCocktail\Http\Requests\CambiarCategoriaRequest;
 use socialCocktail\SubCategoria;
 
 class SubCategoriasController extends Controller
@@ -30,7 +31,7 @@ class SubCategoriasController extends Controller
      */
     public function create()
     {
-        $categorias=Categoria::all();
+        $categorias=Categoria::all()->sortBy('nombre');
         return view('plantillas.admin.subCategorias.create')->with('categorias',$categorias);
     }
 
@@ -103,11 +104,11 @@ class SubCategoriasController extends Controller
 
     public function editCategoria($id){
         $subCategoria=SubCategoria::find($id);
-        $categorias=Categoria::all();
+        $categorias=Categoria::all()->sortBy('nombre');
         return view('plantillas.admin.subCategorias.editCategoria')->with(['subCategoria'=>$subCategoria,'categorias'=>$categorias]);
     }
 
-    public function updateCategoria(Request $request,$id){
+    public function updateCategoria(CambiarCategoriaRequest $request,$id){
         $subCategoria=SubCategoria::find($id);
         $subCategoria->fill($request->all());
         $subCategoria->save();
