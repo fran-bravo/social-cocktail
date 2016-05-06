@@ -2,7 +2,6 @@
 
 namespace socialCocktail\Http\Controllers;
 
-use Illuminate\Http\Request;
 
 use socialCocktail\Http\Requests;
 use socialCocktail\Http\Requests\UserRequest;
@@ -10,7 +9,8 @@ use socialCocktail\Http\Requests\EditUserRequest;
 use socialCocktail\Http\Requests\EmailEditRequest;
 use socialCocktail\Http\Requests\PasswordEditRequest;
 use socialCocktail\User;
-use Laracasts\Flash\Flash;
+use socialCocktail\Http\Controllers\Src\Utiles\Utiles;
+use socialCocktail\Http\Controllers\Src\DAO\UserDAO;
 
 class UsersController extends Controller
 {
@@ -21,7 +21,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users=User::all();
+        $users=UserDAO::all();
         return view('plantillas.admin.user.users')->with('users', $users);
     }
 
@@ -43,10 +43,8 @@ class UsersController extends Controller
      */
     public function store(UserRequest $request)
     {
-        $user = new User($request->all());
-        $user->password=bcrypt($request->password);
-        $user->save();
-        Flash::success('Se ha registrado a ' . $user->name . ' exitosamente');
+        UserDAO::create($request->all());
+        Utiles::flashMessageSuccessDefect();
         return redirect('admin/users/create');
     }
 
@@ -69,7 +67,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        $user=User::find($id);
+        $user=UserDAO::findById($id);
         return view('plantillas.admin.user.edit')->with('user',$user);
     }
 
@@ -82,34 +80,12 @@ class UsersController extends Controller
      */
     public function update(EditUserRequest $request, $id)
     {
-        $user=User::find($id);
-        $user->fill($request->all());
-        $user->save();
-        Flash::success('El usuario '.$user->name.' se ha modificado exitosamente');
+        UserDAO::update($request->all(),$id);
+        Utiles::flashMessageSuccessDefect();
         return redirect('admin/users');
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $user=User::find($id);
-        $user->delete();
-        Flash::success('El usuario '.$user->name . ' ha sido eliminado exitosamente');
-        return redirect('admin/users');
-    }
-
-    public function updateEmail(EmailEditRequest $request, $id){
-        $user=User::find($id);
-        $user->fill($request->all());
-        $user->save();
-        return redirect('admin/users');
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -118,20 +94,37 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function editEmail($id){
-        $user=User::find($id);
+        $user=UserDAO::findById($id);
         return view('plantillas.admin.user.editEmail')->with('user',$user);
     }
+    public function updateEmail(EmailEditRequest $request, $id){
+        UserDAO::update($request->all(),$id);
+        Utiles::flashMessageSuccessDefect();
+        return redirect('admin/users');
+    }
+
+
 
     public function editPassword($id){
-        $user=User::find($id);
+        $user=UserDAO::findById($id);
         return view('plantillas.admin.user.editPassword')->with('user',$user);
     }
 
     public function updatePassword(PasswordEditRequest $request, $id){
-        $user=User::find($id);
-        $user->password=bcrypt($request->password);
-        $user->save();
-        Flash::success('Se ha cambiado el password de '.$user->name.' exitosamente');
+        UserDAO::updatePassword($request->all(),$id);
+        Utiles::flashMessageSuccessDefect();
+        return redirect('admin/users');
+    }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        UserDAO::delete($id);
+        Utiles::flashMessageSuccessDefect();
         return redirect('admin/users');
     }
 }

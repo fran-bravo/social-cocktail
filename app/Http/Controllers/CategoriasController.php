@@ -4,11 +4,12 @@ namespace socialCocktail\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
-use socialCocktail\Categoria;
 use socialCocktail\Http\Requests\CategoriasRequest;
 use socialCocktail\Http\Requests\CategoriasEditNombreRequest;
 use socialCocktail\Http\Requests;
 use socialCocktail\SubCategoria;
+use socialCocktail\Http\Controllers\Src\Utiles\Utiles;
+use socialCocktail\Http\Controllers\Src\DAO\CategoriaDAO;
 
 class CategoriasController extends Controller
 {
@@ -19,7 +20,7 @@ class CategoriasController extends Controller
      */
     public function index()
     {
-        $categorias=Categoria::all();
+        $categorias=CategoriaDAO::all();
         return view('plantillas/admin/categorias/categorias')->with('categorias',$categorias);
     }
 
@@ -41,9 +42,8 @@ class CategoriasController extends Controller
      */
     public function store(CategoriasRequest $request)
     {
-        $categoria=Categoria::create($request->all());
-        $categoria->save();
-        Flash::success('La categoria '.$categoria->nombre .' ha sido creada exitosamente');
+        CategoriaDAO::create($request->all());
+        Utiles::flashMessageSuccessDefect();
         return redirect('admin/categorias');
     }
 
@@ -66,7 +66,7 @@ class CategoriasController extends Controller
      */
     public function edit($id)
     {
-        $categoria=Categoria::find($id);
+        $categoria=CategoriaDAO::findById($id);
         return view('plantillas.admin.categorias.editDescripcion')->with('categoria',$categoria);
     }
 
@@ -79,10 +79,8 @@ class CategoriasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $categoria=Categoria::find($id);
-        $categoria->fill($request->all());
-        Flash::success('La categoria '.$categoria->nombre.' ha sido modificada con exito');
-        $categoria->save();
+        CategoriaDAO::update($request->all(),$id);
+        Utiles::flashMessageSuccessDefect();
         return redirect('admin/categorias');
     }
 
@@ -94,22 +92,19 @@ class CategoriasController extends Controller
      */
     public function destroy($id)
     {
-        $categoria=Categoria::find($id);
-        $categoria->delete();
-        Flash::success('El categoria '.$categoria->nombre.' ha sido elimiada con exito');
+        CategoriaDAO::delete($id);
+        Utiles::flashMessageSuccessDefect();
         return redirect('admin/categorias');
     }
 
     public function editNombre($id){
-        $categoria=Categoria::find($id);
+        $categoria=CategoriaDAO::findById($id);
         return view('plantillas.admin.categorias.editNombre')->with('categoria',$categoria);
     }
 
     public function updateNombre(CategoriasEditNombreRequest $request, $id){
-        $categoria=Categoria::find($id);
-        $categoria->nombre=$request->nombre;
-        $categoria->save();
-        Flash::success('La categoria ha sido modificada con exito');
+        CategoriaDAO::update($request->all(),$id);
+        Utiles::flashMessageSuccessDefect();
         return redirect('admin/categorias');
     }
 }

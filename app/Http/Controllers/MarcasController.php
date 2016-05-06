@@ -10,6 +10,9 @@ use socialCocktail\Http\Requests;
 use socialCocktail\Http\Requests\MarcasRequest;
 use socialCocktail\Http\Requests\MarcasEditNombreRequest;
 use socialCocktail\Http\Requests\CambiarCategoriaRequest;
+use socialCocktail\Http\Controllers\Src\DAO\MarcaDAO;
+use socialCocktail\Http\Controllers\Src\DAO\CategoriaDAO;
+use socialCocktail\Http\Controllers\Src\Utiles\Utiles;
 use socialCocktail\Marca;
 
 class MarcasController extends Controller
@@ -21,7 +24,7 @@ class MarcasController extends Controller
      */
     public function index()
     {
-        $marcas=Marca::all();
+        $marcas=MarcaDAO::all();
         return view('plantillas.admin.marcas.index')->with('marcas',$marcas);
     }
 
@@ -32,8 +35,7 @@ class MarcasController extends Controller
      */
     public function create()
     {
-        $categorias=Categoria::all()->sortBy('nombre');
-
+        $categorias=CategoriaDAO::all();
         return view('plantillas.admin.marcas.create')->with('categorias',$categorias);
     }
 
@@ -45,9 +47,8 @@ class MarcasController extends Controller
      */
     public function store(MarcasRequest $request)
     {
-        $marca=Marca::create($request->all());
-        $marca->save();
-        Flash::success('La marca '.$marca->nombre.' ha sido registrada con exito');
+        MarcaDAO::create($request->all());
+        Utiles::flashMessageSuccessDefect();
         return redirect()->route('admin.marcas.index');
     }
 
@@ -70,13 +71,8 @@ class MarcasController extends Controller
      */
     public function edit($id)
     {
-        $marca=Marca::find($id);
+        $marca=MarcaDAO::findById($id);
         return view('plantillas.admin.marcas.edit')->with('marca',$marca);
-    }
-
-    public function editDescripcion($id){
-        $marca=Marca::find($id);
-        return view('plantillas.admin.marcas.editDescripcion')->with('marca',$marca);
     }
 
     /**
@@ -88,18 +84,31 @@ class MarcasController extends Controller
      */
     public function update(MarcasEditNombreRequest $request, $id)
     {
-        $marca=Marca::find($id);
-        $marca->fill($request->all());
-        $marca->save();
-        Flash::success('La marca '.$marca->nombre.' ha sido modificada exitosamente');
+        MarcaDAO::update($request->all(),$id);
+        Utiles::flashMessageSuccessDefect();
         return redirect()->route('admin.marcas.index');
     }
 
+    public function editDescripcion($id){
+        $marca=MarcaDAO::findById($id);
+        return view('plantillas.admin.marcas.editDescripcion')->with('marca',$marca);
+    }
+
     public function updateDescripcion(Request $request, $id){
-        $marca=Marca::find($id);
-        $marca->fill($request->all());
-        $marca->save();
-        Flash::success('La descripcion de '.$marca->nombre.'ha sido modificada exitosamente');
+        MarcaDAO::update($request->all(),$id);
+        Utiles::flashMessageSuccessDefect();
+        return redirect()->route('admin.marcas.index');
+    }
+
+    public function editCategoria($id){
+        $marca=MarcaDAO::findById($id);
+        $categorias=CategoriaDAO::all();
+        return view('plantillas.admin.marcas.editCategoria')->with(['marca'=>$marca,'categorias'=>$categorias]);
+    }
+
+    public function updateCategoria(CambiarCategoriaRequest $request,$id){
+        MarcaDAO::update($request->all(),$id);
+        Utiles::flashMessageSuccessDefect();
         return redirect()->route('admin.marcas.index');
     }
 
@@ -111,23 +120,10 @@ class MarcasController extends Controller
      */
     public function destroy($id)
     {
-        $marca=Marca::find($id);
-        $marca->delete();
-        Flash::success('La marca '.$marca->nombre.' ha sido eliminada exitosamente');
+        MarcaDAO::delete($id);
+        Utiles::flashMessageSuccessDefect();
         return redirect()->route('admin.marcas.index');
     }
 
-    public function editCategoria($id){
-        $marca=Marca::find($id);
-        $categorias=Categoria::all()->sortBy('nombre');
-        return view('plantillas.admin.marcas.editCategoria')->with(['marca'=>$marca,'categorias'=>$categorias]);
-    }
 
-    public function updateCategoria(CambiarCategoriaRequest $request,$id){
-        $marca=Marca::find($id);
-        $marca->fill($request->all());
-        $marca->save();
-        Flash::success('La marca '.$marca->nombre.' ha sido modificada exitosamente');
-        return redirect()->route('admin.marcas.index');
-    }
 }

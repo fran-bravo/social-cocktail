@@ -2,14 +2,14 @@
 
 namespace socialCocktail\Http\Controllers;
 
-use Illuminate\Http\Request;
 
-use Laracasts\Flash\Flash;
-use socialCocktail\Categoria;
+use socialCocktail\Http\Controllers\Src\DAO\SubCategoriaDAO;
 use socialCocktail\Http\Requests;
 use socialCocktail\Http\Requests\SubCategoriaRequest;
 use socialCocktail\Http\Requests\CambiarCategoriaRequest;
-use socialCocktail\SubCategoria;
+use socialCocktail\Http\Controllers\Src\Utiles\Utiles;
+use socialCocktail\Http\Controllers\Src\DAO\CategoriaDAO;
+use socialCocktail\Http\Requests\SubCategoriaCambiarNombreRequest;
 
 class SubCategoriasController extends Controller
 {
@@ -20,7 +20,7 @@ class SubCategoriasController extends Controller
      */
     public function index()
     {
-        $subCategorias=SubCategoria::all();
+        $subCategorias=SubCategoriaDAO::all();
         return view('plantillas.admin.subCategorias.subCategorias')->with('subCategorias',$subCategorias);
     }
 
@@ -31,7 +31,7 @@ class SubCategoriasController extends Controller
      */
     public function create()
     {
-        $categorias=Categoria::all()->sortBy('nombre');
+        $categorias=CategoriaDAO::all();
         return view('plantillas.admin.subCategorias.create')->with('categorias',$categorias);
     }
 
@@ -43,9 +43,8 @@ class SubCategoriasController extends Controller
      */
     public function store(SubCategoriaRequest $request)
     {
-        $subCategoria= SubCategoria::create($request->all());
-        $subCategoria->save();
-        Flash::success('La SubCategoria '.$subCategoria->nombre . ' ha sido creada exitosamente');
+        SubCategoriaDAO::create($request->all());
+        Utiles::flashMessageSuccessDefect();
         return redirect()->route('admin.subCategorias.index');
     }
 
@@ -68,7 +67,7 @@ class SubCategoriasController extends Controller
      */
     public function edit($id)
     {
-        $subCategoria=SubCategoria::find($id);
+        $subCategoria=SubCategoriaDAO::findById($id);
         return view('plantillas.admin.subCategorias.edit')->with('subCategoria',$subCategoria);
     }
 
@@ -79,12 +78,22 @@ class SubCategoriasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(SubCategoriaRequest $request, $id)
+    public function update(SubCategoriaCambiarNombreRequest $request, $id)
     {
-        $subCategoria=SubCategoria::find($id);
-        $subCategoria->fill($request->all());
-        $subCategoria->save();
-        Flash::success('La SubCategoria '.$subCategoria->nombre.' ha sido modificada con exito');
+        SubCategoriaDAO::update($request->all(),$id);
+        Utiles::flashMessageSuccessDefect();
+        return redirect()->route('admin.subCategorias.index');
+    }
+
+    public function editCategoria($id){
+        $subCategoria=SubCategoriaDAO::findById($id);
+        $categorias=CategoriaDAO::all();
+        return view('plantillas.admin.subCategorias.editCategoria')->with(['subCategoria'=>$subCategoria,'categorias'=>$categorias]);
+    }
+
+    public function updateCategoria(CambiarCategoriaRequest $request,$id){
+        SubCategoriaDAO::update($request->all(),$id);
+        Utiles::flashMessageSuccessDefect();
         return redirect()->route('admin.subCategorias.index');
     }
 
@@ -96,23 +105,10 @@ class SubCategoriasController extends Controller
      */
     public function destroy($id)
     {
-        $subCategoria=SubCategoria::find($id);
-        $subCategoria->delete();
-        Flash::success('La SubCategoria '.$subCategoria->nombre.' ha sido eliminada con exito');
+        SubCategoriaDAO::delete($id);
+        Utiles::flashMessageSuccessDefect();
         return redirect()->route('admin.subCategorias.index');
     }
 
-    public function editCategoria($id){
-        $subCategoria=SubCategoria::find($id);
-        $categorias=Categoria::all()->sortBy('nombre');
-        return view('plantillas.admin.subCategorias.editCategoria')->with(['subCategoria'=>$subCategoria,'categorias'=>$categorias]);
-    }
 
-    public function updateCategoria(CambiarCategoriaRequest $request,$id){
-        $subCategoria=SubCategoria::find($id);
-        $subCategoria->fill($request->all());
-        $subCategoria->save();
-        Flash::success('La subCategoria '.$subCategoria->nombre.' ha sido modificada exitosamente');
-        return redirect()->route('admin.subCategorias.index');
-    }
 }
