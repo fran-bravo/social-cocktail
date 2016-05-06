@@ -14,6 +14,14 @@
         </ul>
     </li>
     <li class="treeview">
+        <a href="#"><i class="fa fa-glass"></i> <span>Coctel</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+            <li><a href="{{route('admin.cocteles.create')}}"><i class="fa fa-plus"></i>Registrar Coctel</a></li>
+            <li><a href="{{route('admin.cocteles.index')}}"><i class="fa fa-list-ol"></i>Listar Cocteles</a></li>
+        </ul>
+
+    </li>
+    <li class="treeview">
         <a href="#"><i class="fa fa-tags"></i> <span>Categoria</span> <i class="fa fa-angle-left pull-right"></i></a>
         <ul class="treeview-menu">
             <li><a href="{{route('admin.categorias.create')}}"><i class="fa fa-plus"></i>Crear Categoria</a></li>
@@ -37,13 +45,14 @@
 
     </li>
     <li class="treeview">
-        <a href="#"><i class="fa fa-glass"></i> <span>Coctel</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <a href="#"><i class="fa fa-beer"></i> <span>Cristalería</span> <i class="fa fa-angle-left pull-right"></i></a>
         <ul class="treeview-menu">
-            <li><a href="{{route('admin.marcas.create')}}"><i class="fa fa-plus"></i>Registrar Coctel</a></li>
-            <li><a href="{{route('admin.marcas.index')}}"><i class="fa fa-list-ol"></i>Listar Cocteles</a></li>
+            <li><a href="{{route('admin.cristales.create')}}"><i class="fa fa-plus"></i>Registrar</a></li>
+            <li><a href="{{route('admin.cristales.index')}}"><i class="fa fa-list-ol"></i>Listar</a></li>
         </ul>
 
     </li>
+
     <li><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
     <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
 @endsection

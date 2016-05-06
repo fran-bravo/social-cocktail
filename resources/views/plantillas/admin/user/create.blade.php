@@ -6,7 +6,7 @@
 @section('contentPage')
 
 <div class="row">
-    <div class="col-md-8"><div class="box box-primary">
+    <div class="col-md-5"><div class="box box-primary">
             <div class="box-header with-border">
                 <h3 class="box-title">Complete el formulario</h3>
             </div>
@@ -35,12 +35,17 @@
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
+                    <input value="{{Input::old('nacimiento')}}" type="date" name="nacimiento" class="form-control">
+                    <span class="glyphicon glyphicon fa fa-birthday-cake form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
                     <select class="form-control" name="tipoUsuario">
                         <option value="Usuario">Usuario</option>
                         <option value="Empresa">Empresa</option>
                         <option value="Admin">Adminisrtador</option>
                     </select>
                 </div>
+
                 <div class="form-group has-feedback">
                     <select class="form-control" name="pais" >
                         <option value="">Pais</option>
@@ -312,10 +317,7 @@
                         </label>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label>Nacimiento</label>
-                    <input value="{{Input::old('nacimiento')}}" type="date" name="nacimiento" class="form-control">
-                </div>
+
             </div>
             <!-- /.box-body -->
 

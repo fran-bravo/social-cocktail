@@ -15,6 +15,8 @@ class CreateCristalesTable extends Migration
         Schema::create('cristales', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre',50);
+            $table->double('capacidad');
+            $table->string('descripcion');
             $table->timestamps();
         });
     }

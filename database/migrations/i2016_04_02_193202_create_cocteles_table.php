@@ -57,7 +57,7 @@ class CreateCoctelesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('cocteles');
         Schema::drop('coctel_ingrediente');
+        Schema::drop('cocteles');
     }
 }

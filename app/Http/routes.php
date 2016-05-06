@@ -108,4 +108,19 @@
             'uses'=>'MarcasController@updateCategoria',
             'as'=>'admin.marcas.updateCategoria'
         ]);
+
+
+
+        Route::resource('cristales','CristalesController');
+        Route::get('cristales/{id}/editDescripcion',[
+            'uses'=>'CristalesController@editDescripcion',
+            'as'=>'admin.cristales.editDescripcion'
+        ]);
+        Route::put('cristales/{id}/updateDescripcion',[
+            'uses'=>'CristalesController@updateDescripcion',
+            'as'=>'admin.cristales.updateDescripcion'
+        ]);
+
+
+        Route::resource('cocteles','CoctelesController');
     });
