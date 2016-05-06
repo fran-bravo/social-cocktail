@@ -1,4 +1,4 @@
-@extends('plantillas.admin.admin')
+@extends('plantillas.admin.mainAdmin')
 @section('title','Crear categoria')
 @section('titleComplement','Admin')
 @section('headerContent','Registrar Categoria')

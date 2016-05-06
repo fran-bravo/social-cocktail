@@ -36,6 +36,14 @@
         </ul>
 
     </li>
+    <li class="treeview">
+        <a href="#"><i class="fa fa-glass"></i> <span>Coctel</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+            <li><a href="{{route('admin.marcas.create')}}"><i class="fa fa-plus"></i>Registrar Coctel</a></li>
+            <li><a href="{{route('admin.marcas.index')}}"><i class="fa fa-list-ol"></i>Listar Cocteles</a></li>
+        </ul>
+
+    </li>
     <li><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
     <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
 @endsection

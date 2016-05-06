@@ -34,5 +34,8 @@ class CategoriaDAO implements DAO
     public static function delete($id){
         self::findById($id)->delete();
     }
+    public static function count(){
+        return Categoria::count();
+    }
 
 }

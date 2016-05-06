@@ -35,4 +35,8 @@ class SubCategoriaDAO implements DAO
     public static function delete($id){
         self::findById($id)->delete();
     }
+
+    public static function count(){
+        return SubCategoria::count();
+    }
 }

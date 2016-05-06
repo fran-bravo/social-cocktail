@@ -14,9 +14,7 @@
     Route::get('/', function () {
         return view('index');
     });
-    Route::get('/admin', function () {
-        return view('plantillas.admin.admin');
-    });
+    Route::get('/admin','AdminController@index');
     Route::group(['prefix' => 'admin'], function(){
 
 
