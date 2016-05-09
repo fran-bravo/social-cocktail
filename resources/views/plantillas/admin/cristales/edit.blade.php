@@ -15,7 +15,7 @@
                 <div class="box-body">
                     <div class="form-group has-feedback">
                         <input value="{{$cristal->nombre}}" type="text" class="form-control" name="nombre" placeholder="Nombre" required="required" maxlength="40">
-                        <span class="glyphicon glyphicon-tags form-control-feedback"></span>
+                        <span class="glyphicon glyphicon fa fa-beer form-control-feedback"></span>
                     </div>
                 </div>
                 <!-- /.box-body -->

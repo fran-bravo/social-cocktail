@@ -3,14 +3,14 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/dataTables.bootstrap.min.css">
 @endsection
-@section('title','Subcategorias')
+@section('title','Cristalería')
 @section('titleComplement','Admin')
-@section('headerContent','SubCategorias Registradas')
+@section('headerContent','Cristalería Registrada')
 @section('headerDescription','...')
 @section('contentPage')
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">SubCategorias Registradas</h3>
+            <h3 class="box-title">Cristalería Registradas</h3>
         </div>
         <div class="box-body">
             <table id="cristales" class="table table-striped table-bordered" cellspacing="0" width="100%">

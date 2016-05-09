@@ -2,13 +2,13 @@
 
 namespace socialCocktail\Http\Controllers;
 
-use Illuminate\Http\Request;
 
 use socialCocktail\Http\Requests;
 use socialCocktail\Http\Controllers\Src\Utiles\Utiles;
 use socialCocktail\Http\Controllers\Src\DAO\CristalDAO;
 use socialCocktail\Http\Requests\RequestCristales;
 use socialCocktail\Http\Requests\RequestCristalCambiarNombre;
+use socialCocktail\Http\Requests\RequestCristalCambiarDescripcion;
 
 class CristalesController extends Controller
 {
@@ -69,6 +69,11 @@ class CristalesController extends Controller
         return view('plantillas.admin.cristales.edit')->with('cristal',$cristal);
     }
 
+    public function editDescripcion($id){
+        $cristal=CristalDAO::findById($id);
+        return view('plantillas.admin.cristales.editDescripcion')->with('cristal',$cristal);
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -78,30 +83,39 @@ class CristalesController extends Controller
      */
     public function update(RequestCristalCambiarNombre $request, $id)
     {
-        CristalDAO::update($request->all(),$id);
-        Utiles::flashMessageSuccessDefect();
-        return redirect()->route('admin.cristales.index');
+        return $this->updateGeneric($request, $id);
     }
-
+    public function updateDescripcion(RequestCristalCambiarDescripcion $request, $id){
+        return $this->updateGeneric($request, $id);
+    }
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+
+
+
+
+
+
+    /**
+     * @param RequestCristalCambiarNombre $request
+     * @param $id
+     * @return mixed
+     */
+    private function updateGeneric($request, $id)
     {
-        //No entra aca
-        CristalDAO::delete($id);
+        CristalDAO::update($request->all(), $id);
         Utiles::flashMessageSuccessDefect();
         return redirect()->route('admin.cristales.index');
     }
 
-    public function editDescripcion($id){
-        return view('plantillas.admin.cristales.editDescripcion');
-    }
-
-    public function updateDescripcion($id){
-
+    public function destroy($id)
+    {
+        CristalDAO::delete($id);
+        Utiles::flashMessageSuccessDefect();
+        return redirect()->route('admin.cristales.index');
     }
 }
