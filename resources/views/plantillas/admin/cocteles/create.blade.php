@@ -14,7 +14,7 @@
                 {!! Form::open(['route'=> 'admin.cocteles.store','method'=>'POST']) !!}
                 <div class="box-body">
                     <div class="form-group has-feedback">
-                        <input id="nombre" value="{{Input::old('nombre')}}" type="text" class="form-control" name="name" placeholder="Nombre" required="required" maxlength="40">
+                        <input id="nombre" value="{{Input::old('nombre')}}" type="text" class="form-control" name="nombre" placeholder="Nombre" required="required" maxlength="40">
                         <span class="glyphicon glyphicon-glass form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
@@ -23,14 +23,17 @@
                                 <option value="Batido">Batido</option>
                                 <option value="Directo">Directo</option>
                                 <option value="Flambeado">Flambeado</option>
-                                <option value="Frozzen">Frozzen</option>
+                                <option value="Frozen">Frozzen</option>
                                 <option value="Licuado">Licuado</option>
+                                <option value="Refrescado">Refrescado</option>
                             </select>
                     </div>
                     <div class="form-group has-feedback">
                         <select name="cristal_id" class="form-control">
                             <option disabled selected value="">Cristalería</option>
-                            <option>Completar con foreach mas adelante</option>
+                            @foreach($cristales as $crista)
+                            <option value="{{$crista->id}}">{{$crista->nombre}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">

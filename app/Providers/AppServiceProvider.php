@@ -4,7 +4,8 @@ namespace socialCocktail\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Validator;
-use socialCocktail\Categoria;
+use socialCocktail\Http\Controllers\Src\DAO\CategoriaDAO;
+use socialCocktail\Http\Controllers\Src\DAO\CristalDAO;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,10 +17,28 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Validator::extend('exist_categoria',function($atribute, $value, $parameters){
-            $categorias=Categoria::all();
-            $categoriaSeleccionada=Categoria::find($value);
+            $categorias=CategoriaDAO::all();
+            $categoriaSeleccionada=CategoriaDAO::findById($value);
             foreach ($categorias as $categoria){
                 if ($categoria==$categoriaSeleccionada){
+                    return true;
+                }
+            }
+            return false;
+        });
+        Validator::extend('exist_metodo',function($atribute, $value, $parameters){
+            if ($value=="Batido" or $value=="Directo" or $value=="Flambeado" or $value=="Frozen" or $value=="Licuado" or $value=="Refrescado"){
+                return true;
+            }else{
+                return false;
+            }
+
+        });
+        Validator::extend('exist_cristaleria', function($atribute, $value, $parameters){
+            $cristales=CristalDAO::all();
+            $cristalSeleccionado=CristalDAO::findById($value);
+            foreach ($cristales as $cristal){
+                if ($cristal==$cristalSeleccionado){
                     return true;
                 }
             }

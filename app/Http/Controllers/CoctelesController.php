@@ -4,7 +4,11 @@ namespace socialCocktail\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use socialCocktail\Http\Controllers\Src\DAO\CristalDAO;
 use socialCocktail\Http\Requests;
+use socialCocktail\Http\Controllers\Src\DAO\CoctelDAO;
+use socialCocktail\Http\Controllers\Src\Utiles\Utiles;
+use socialCocktail\Http\Requests\RequestCoctelCreate;
 
 class CoctelesController extends Controller
 {
@@ -15,7 +19,8 @@ class CoctelesController extends Controller
      */
     public function index()
     {
-        return view('plantillas.admin.cocteles.index');
+        $cocteles=CoctelDAO::all();
+        return view('plantillas.admin.cocteles.index')->with('cocteles',$cocteles);
     }
 
     /**
@@ -25,7 +30,8 @@ class CoctelesController extends Controller
      */
     public function create()
     {
-        return view('plantillas.admin.cocteles.create');
+        $cristales=CristalDAO::all();
+        return view('plantillas.admin.cocteles.create')->with('cristales',$cristales);
     }
 
     /**
@@ -34,9 +40,11 @@ class CoctelesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RequestCoctelCreate $request)
     {
-        //
+        CoctelDAO::create($request->all());
+        Utiles::flashMessageSuccessDefect();
+        return redirect()->route('admin.cocteles.create');
     }
 
     /**

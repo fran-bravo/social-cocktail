@@ -23,7 +23,7 @@ class CreateCoctelesTable extends Migration
 
             $table->string('nombre',50);
             $table->string('historia', 500)->nullable();
-            $table->enum('metodo',['Directo','Refrescado','Batido','Flambeado','Frozen','SemiFrozen']);
+            $table->string('metodo',50);
             $table->string('preparacion', 500);
 
             //FK a la tabla cristales

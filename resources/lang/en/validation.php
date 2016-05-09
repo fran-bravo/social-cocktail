@@ -12,7 +12,9 @@ return [
     | as the size rules. Feel free to tweak each of these messages here.
     |
     */
-    'exist_categoria'=>'The category selector not exist.',
+    'exist_cristaleria'=>'The glass selected not exist',
+    'exist_metodo'     =>'The method selected not exist',
+    'exist_categoria'=>'The category selected not exist.',
     'accepted'             => 'The :attribute must be accepted.',
     'active_url'           => 'The :attribute is not a valid URL.',
     'after'                => 'The :attribute must be a date after :date.',
