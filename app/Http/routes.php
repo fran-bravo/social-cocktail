@@ -116,10 +116,15 @@
             'uses'=>'CristalesController@editDescripcion',
             'as'=>'admin.cristales.editDescripcion'
         ]);
+        Route::get('cristales/{id}/destroy',[
+            'uses'=>'CristalesController@destroy',
+            'as'=>'admin.cristales.destroy'
+        ]);
         Route::put('cristales/{id}/updateDescripcion',[
             'uses'=>'CristalesController@updateDescripcion',
             'as'=>'admin.cristales.updateDescripcion'
         ]);
+
 
 
         Route::resource('cocteles','CoctelesController');

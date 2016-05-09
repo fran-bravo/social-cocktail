@@ -8,6 +8,7 @@ use socialCocktail\Http\Requests;
 use socialCocktail\Http\Controllers\Src\Utiles\Utiles;
 use socialCocktail\Http\Controllers\Src\DAO\CristalDAO;
 use socialCocktail\Http\Requests\RequestCristales;
+use socialCocktail\Http\Requests\RequestCristalCambiarNombre;
 
 class CristalesController extends Controller
 {
@@ -64,7 +65,8 @@ class CristalesController extends Controller
      */
     public function edit($id)
     {
-        return view('plantillas.admin.cristales.edit');
+        $cristal=CristalDAO::findById($id);
+        return view('plantillas.admin.cristales.edit')->with('cristal',$cristal);
     }
 
     /**
@@ -74,9 +76,11 @@ class CristalesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RequestCristalCambiarNombre $request, $id)
     {
-        //
+        CristalDAO::update($request->all(),$id);
+        Utiles::flashMessageSuccessDefect();
+        return redirect()->route('admin.cristales.index');
     }
 
     /**
