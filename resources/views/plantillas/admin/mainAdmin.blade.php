@@ -30,7 +30,7 @@
             @yield('contentPage','Contenido por defecto')
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
-    @include('plantillas.templatesSections.controlSidebar')
+    <!--include controlSidebar Buscar en templatessections-->
     @include('plantillas.admin.sections.sidebarAdmin')
     @include('plantillas.templatesSections.footer')
 @endsection
