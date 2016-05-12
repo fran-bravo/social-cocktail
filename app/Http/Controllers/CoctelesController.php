@@ -9,6 +9,7 @@ use socialCocktail\Http\Requests;
 use socialCocktail\Http\Controllers\Src\DAO\CoctelDAO;
 use socialCocktail\Http\Controllers\Src\Utiles\Utiles;
 use socialCocktail\Http\Requests\RequestCoctelCreate;
+use socialCocktail\Http\Requests\RequestCoctelCambiarNombre;
 
 class CoctelesController extends Controller
 {
@@ -66,7 +67,8 @@ class CoctelesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $coctel=CoctelDAO::findById($id);
+        return view('plantillas.admin.cocteles.edit')->with('coctel',$coctel);
     }
 
     /**
@@ -76,9 +78,11 @@ class CoctelesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RequestCoctelCambiarNombre $request, $id)
     {
-        //
+        CoctelDAO::update($request->all(),$id);
+        Utiles::flashMessageSuccessDefect();
+        return redirect()->route('admin.cocteles.index');
     }
 
     /**
@@ -89,6 +93,8 @@ class CoctelesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        CoctelDAO::delete($id);
+        Utiles::flashMessageSuccessDefect();
+        return redirect()->route('admin.cocteles.index');
     }
 }

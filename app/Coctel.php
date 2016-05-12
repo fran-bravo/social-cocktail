@@ -3,9 +3,13 @@
 namespace socialCocktail;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Coctel extends Model
 {
+    use SoftDeletes;
+
+    protected $dates=['deleted_at'];
     protected $table='cocteles';
     protected $fillable=['nombre','historia','metodo','preparacion','cristal_id','usuario_id',];
 

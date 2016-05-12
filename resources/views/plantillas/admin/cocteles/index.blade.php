@@ -48,8 +48,8 @@
                         @endif
                         <td>
                             <div title="Cambiar Nombre" class="form-group">
-                                <a class="btn btn-info btn-xs" href="{{route('admin.cristales.edit',$coctel->id)}}">
-                                    <i class="fa fa-beer"></i>
+                                <a class="btn btn-info btn-xs" href="{{route('admin.cocteles.edit',$coctel->id)}}">
+                                    <i class="fa fa-glass"></i>
                                 </a>
                             </div>
                             <div title="Cambiar Descripcion" class="form-group">
@@ -58,7 +58,7 @@
                                 </a>
                             </div>
                             <div title="Eliminar Capacidad" class="form-group">
-                                <a class="btn btn-danger btn-xs" href="{{route('admin.cristales.destroy',$coctel->id)}}" onclick="return confirm('¿Esta seguro que desea eliminarla?')">
+                                <a class="btn btn-danger btn-xs" href="{{route('admin.cocteles.destroy',$coctel->id)}}" onclick="return confirm('¿Esta seguro que desea eliminarla?')">
                                     <i class="fa fa-remove"></i>
                                 </a>
                             </div>

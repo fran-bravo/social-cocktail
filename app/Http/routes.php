@@ -128,4 +128,8 @@
 
 
         Route::resource('cocteles','CoctelesController');
+        Route::get('cocteles/{id}/destroy',[
+            'uses'=>'CoctelesController@destroy',
+            'as'=>'admin.cocteles.destroy'
+        ]);
     });
