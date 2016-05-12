@@ -61,14 +61,14 @@
             <!-- small box -->
             <div class="small-box bg-red">
                 <div class="inner">
-                    <h3>65</h3>
+                    <h3>{{$cocteles}}</h3>
 
                     <p>Cocteles</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-glass"></i>
                 </div>
-                <a href="#" class="small-box-footer">
+                <a href="{{route('admin.cocteles.index')}}" class="small-box-footer">
                     Mas info <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
