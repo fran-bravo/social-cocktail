@@ -5,7 +5,7 @@
 @section('headerDescription','...')
 @section('contentPage')
     <div class="row">
-        <div class="col-md-5"><div class="box box-danger">
+        <div class="col-md-6"><div class="box box-danger">
                 <div class="box-header with-border">
                     <h3 class="box-title">Complete el formulario</h3>
                 </div>
@@ -42,7 +42,60 @@
                     <div class="form-group">
                         <textarea name="historia" class="form-control" rows="3" placeholder="Cuéntenos en que se inspiró o que lo llevo a crear este coctel... ">{{Input::old('historia')}}</textarea>
                     </div>
-                    <h4>Mas adelante agregar los ingredientes</h4>
+                    <div class="form-group">
+                        <h4>Ingredientes</h4>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <select class="form-control">
+                                        <option value="" disabled selected>Categoría</option>
+                                        @foreach($categorias as $categoria)
+                                            <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select class="form-control">
+                                        <option>Sub-Categoría</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <select class="form-control">
+                                        <option>Marca</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-control" style="border-color: white; width: 100%">
+                                    <button type="button" class="btn btn-block btn-success btn-xs">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th>Categoria</th>
+                            <th>Sub-Categoria</th>
+                            <th>Marca</th>
+                            <th>Accion</th>
+                        </tr>
+                        <tr>
+                            <td>Whisky</td>
+                            <td>Escoces</td>
+                            <td>Johnie Walker</td>
+                            <td>Botones.</td>
+                        </tr>
+                        </tbody></table>
                 </div>
                 <!-- /.box-body -->
 

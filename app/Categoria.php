@@ -18,6 +18,6 @@ class Categoria extends Model
         return $this->hasMany('socialCocktail\SubCategoria');
     }
     public function marcas(){
-        request($this->hasMany('socialCocktail\Marca'));
+        return $this->hasMany('socialCocktail\Marca');
     }
 }

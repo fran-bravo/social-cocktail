@@ -108,6 +108,10 @@
             'uses'=>'MarcasController@updateCategoria',
             'as'=>'admin.marcas.updateCategoria'
         ]);
+        Route::get('marcas/{id}/getSubCategorias',[
+            'uses'=>'MarcasController@getSubCategorias',
+            'as'=>'admin.marcas.getSubCategorias'
+        ]);
 
 
 
@@ -131,5 +135,13 @@
         Route::get('cocteles/{id}/destroy',[
             'uses'=>'CoctelesController@destroy',
             'as'=>'admin.cocteles.destroy'
+        ]);
+        Route::get('cocteles/{id}/editContenido',[
+            'uses'=>'CoctelesController@editContenido',
+            'as'=>'admin.cocteles.editContenido'
+        ]);
+        Route::put('cocteles/{id}/updateContenido',[
+            'uses'=>'CoctelesController@updateContenido',
+            'as'=>'admin.cocteles.updateContenido'
         ]);
     });

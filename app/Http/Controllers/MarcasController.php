@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Laracasts\Flash\Flash;
 use socialCocktail\Categoria;
+use socialCocktail\Http\Controllers\Src\DAO\SubCategoriaDAO;
 use socialCocktail\Http\Requests;
 use socialCocktail\Http\Requests\MarcasRequest;
 use socialCocktail\Http\Requests\MarcasEditNombreRequest;
@@ -14,6 +15,7 @@ use socialCocktail\Http\Controllers\Src\DAO\MarcaDAO;
 use socialCocktail\Http\Controllers\Src\DAO\CategoriaDAO;
 use socialCocktail\Http\Controllers\Src\Utiles\Utiles;
 use socialCocktail\Marca;
+use socialCocktail\SubCategoria;
 
 class MarcasController extends Controller
 {
@@ -36,7 +38,8 @@ class MarcasController extends Controller
     public function create()
     {
         $categorias=CategoriaDAO::all();
-        return view('plantillas.admin.marcas.create')->with('categorias',$categorias);
+        $subCategorias=SubCategoriaDAO::all();
+        return view('plantillas.admin.marcas.create')->with(['categorias'=>$categorias,'subCategorias'=>$subCategorias]);
     }
 
     /**
@@ -124,6 +127,9 @@ class MarcasController extends Controller
         Utiles::flashMessageSuccessDefect();
         return redirect()->route('admin.marcas.index');
     }
-
+    public function getSubCategorias(Request $request,$id){
+        $subCategorias=SubCategoria::all();
+        return $subCategorias[1]->nombre;
+    }
 
 }

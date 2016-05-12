@@ -4,7 +4,10 @@ namespace socialCocktail\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use socialCocktail\Http\Controllers\Src\DAO\CategoriaDAO;
 use socialCocktail\Http\Controllers\Src\DAO\CristalDAO;
+use socialCocktail\Http\Controllers\Src\DAO\MarcaDAO;
+use socialCocktail\Http\Controllers\Src\DAO\SubCategoriaDAO;
 use socialCocktail\Http\Requests;
 use socialCocktail\Http\Controllers\Src\DAO\CoctelDAO;
 use socialCocktail\Http\Controllers\Src\Utiles\Utiles;
@@ -32,7 +35,8 @@ class CoctelesController extends Controller
     public function create()
     {
         $cristales=CristalDAO::all();
-        return view('plantillas.admin.cocteles.create')->with('cristales',$cristales);
+        $categorias=CategoriaDAO::all();
+        return view('plantillas.admin.cocteles.create')->with(['cristales'=>$cristales,'categorias'=>$categorias]);
     }
 
     /**
@@ -85,6 +89,14 @@ class CoctelesController extends Controller
         return redirect()->route('admin.cocteles.index');
     }
 
+    public function editContenido($id){
+        $coctel=CoctelDAO::findById($id);
+        return view('plantillas.admin.cocteles.editContenido')->with('coctel',$coctel);
+    }
+
+    public function updateContenido(Request $request, $id){
+
+    }
     /**
      * Remove the specified resource from storage.
      *

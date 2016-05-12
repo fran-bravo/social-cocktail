@@ -52,9 +52,9 @@
                                     <i class="fa fa-glass"></i>
                                 </a>
                             </div>
-                            <div title="Cambiar Descripcion" class="form-group">
-                                <a class="btn btn-warning btn-xs" href="{{route('admin.cristales.editDescripcion',$coctel->id)}}">
-                                    <i class="fa fa-tint"></i>
+                            <div title="Cambiar Contenido" class="form-group">
+                                <a class="btn btn-warning btn-xs" href="{{route('admin.cocteles.editContenido',$coctel->id)}}">
+                                    <i class="fa fa-edit"></i>
                                 </a>
                             </div>
                             <div title="Eliminar Capacidad" class="form-group">

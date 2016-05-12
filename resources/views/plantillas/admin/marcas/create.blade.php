@@ -19,9 +19,17 @@
                     </div>
                     <div class="form-group has-feedback">
                         <select class="form-control" name="categoria_id" id="categoria_id" required="required">
-                            <option value >Selecciones una categoria</option>
+                            <option value >Seleccione una categoría</option>
                             @foreach($categorias as $categoria)
                                 <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <select class="form-control" name="subCategoria_id" id="subCategoria_id" required="required">
+                            <option value >Seleccione una sub-categoría</option>
+                            @foreach($subCategorias as $subCategorias )
+                                <option value="{{$subCategorias ->id}}">{{$subCategorias ->nombre}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -41,4 +49,5 @@
             </div></div>
         <div class="col-md-4"></div>
     </div>
+    <script src="{{asset('public/dist/js/jquery/jquery.js')}}"></script>
 @endsection
