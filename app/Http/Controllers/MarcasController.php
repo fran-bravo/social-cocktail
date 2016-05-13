@@ -4,7 +4,6 @@ namespace socialCocktail\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Laracasts\Flash\Flash;
 use socialCocktail\Categoria;
 use socialCocktail\Http\Controllers\Src\DAO\SubCategoriaDAO;
 use socialCocktail\Http\Requests;

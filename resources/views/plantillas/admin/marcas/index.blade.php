@@ -18,7 +18,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Categoria</th>
+                    <th>Categoría</th>
+                    <th>Sub-categoría</th>
                     <th>Accion</th>
                 </tr>
                 </thead>
@@ -26,7 +27,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Categoria</th>
+                    <th>Categoría</th>
+                    <th>Sub-categoría</th>
                     <th>Accion</th>
                 </tr>
                 </tfoot>
@@ -36,6 +38,7 @@
                         <td>{{$marca->id}}</td>
                         <td>{{$marca->nombre}}</td>
                         <td>{{$marca->categoria->nombre}}</td>
+                        <td>{{$marca->subCategoria->nombre}}</td>
                         <td>
                             <div title="Cambiar Nombre" class="form-group">
                                 <a class="btn btn-info btn-xs" href="{{route('admin.marcas.edit',$marca->id)}}">

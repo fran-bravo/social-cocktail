@@ -46,7 +46,7 @@ return array(
     'CreatePropinasTable' => $baseDir . '/database/migrations/l2016_04_02_210557_create_propinas_table.php',
     'CreatePropuestasTable' => $baseDir . '/database/migrations/p2016_04_02_215356_create_propuestas_table.php',
     'CreatePublicacionesTable' => $baseDir . '/database/migrations/q2016_04_02_220455_create_publicaciones_table.php',
-    'CreateSubcategoriasTable' => $baseDir . '/database/migrations/g2016_04_02_182315_create_subcategorias_table.php',
+    'CreateSubcategoriasTable' => $baseDir . '/database/migrations/ea2016_04_02_182315_create_subcategorias_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/b2014_10_12_000000_create_users_table.php',
     'Cron\\AbstractField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
     'Cron\\CronExpression' => $vendorDir . '/mtdowling/cron-expression/src/Cron/CronExpression.php',

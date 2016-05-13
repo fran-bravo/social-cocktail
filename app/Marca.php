@@ -21,6 +21,6 @@ class Marca extends Model
         return $this->belongsTo('socialCocktail\Categoria');
     }
     public function subCategoria(){
-        return $this->belongsTo('socialCocktail\SubCategoria');
+        return $this->belongsTo('socialCocktail\SubCategoria','subCategoria_id');
     }
 }

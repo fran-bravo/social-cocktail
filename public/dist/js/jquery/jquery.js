@@ -1,10 +1,10 @@
-/*$(document).on('ready', function() {
-       $('#crearUser').click(function () {
-           var name=$('#nombre').val();
-           if(name===""){
-               $('#div-nombre').attr('class','form-group has-feedback has-error');
-               return false;
-           }
-       });
-});
-*/
+$(document).ready(function () {
+    $('#categoria_id').change(function () {
+        var id=$('#categoria_id').val();
+        var action=id+"/getSubCategorias";
+        var method='GET';
+        $.get(action,function (response) {
+            alert(response);
+        });
+    });
+})
