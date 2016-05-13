@@ -4,10 +4,8 @@
     <list default="true" id="f413455c-9be9-4307-ba17-743cc8e8bf0a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/MarcasController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/MarcasController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Marca.php" afterPath="$PROJECT_DIR$/app/Marca.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Src/DAO/SubCategoriaDAO.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Src/DAO/SubCategoriaDAO.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/jquery/jquery.js" afterPath="$PROJECT_DIR$/public/dist/js/jquery/jquery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/plantillas/admin/marcas/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/plantillas/admin/marcas/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
     </list>
     <ignored path="social-cocktail.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,35 +27,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="create.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/plantillas/admin/cocteles/create.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="55" column="58" selection-start-line="55" selection-start-column="58" selection-end-line="55" selection-end-column="58" />
-              <folding>
-                <element signature="e#4398#4438#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MarcasController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MarcasController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="111" column="23" selection-start-line="111" selection-start-column="23" selection-end-line="111" selection-end-column="23" />
-              <folding>
-                <element signature="e#51#79#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="jquery.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/dist/js/jquery/jquery.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+            <state relative-caret-position="165">
+              <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/plantillas/admin/marcas/create.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -83,7 +67,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Src/DAO/UserDAO.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Src/DAO/CategoriaDAO.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Src/DAO/MarcaDAO.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Src/DAO/SubCategoriaDAO.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CategoriasController.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/cristaleria/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/cristaleria/create.blade.php" />
@@ -123,12 +106,13 @@
         <option value="$PROJECT_DIR$/app/SubCategoria.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/marcas/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/public/dist/js/jquery/jquery.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/SubCategoriasController.php" />
         <option value="$PROJECT_DIR$/database/migrations/f2016_04_02_181750_create_marcas_table.php" />
         <option value="$PROJECT_DIR$/app/Marca.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/MarcasController.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/marcas/index.blade.php" />
+        <option value="$PROJECT_DIR$/public/dist/js/jquery/jquery.js" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/MarcasController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Src/DAO/SubCategoriaDAO.php" />
       </list>
     </option>
   </component>
@@ -740,12 +724,12 @@
       <workItem from="1461693891799" duration="15716000" />
       <workItem from="1462551808512" duration="19487000" />
       <workItem from="1462818652672" duration="7125000" />
-      <workItem from="1463071354696" duration="15296000" />
+      <workItem from="1463071354696" duration="18799000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169630000" />
+    <option name="totallyTimeSpent" value="173133000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -800,13 +784,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/admin/cristales/editDescripcion.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="79" selection-start-line="16" selection-start-column="79" selection-end-line="16" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Src/DAO/CristalDAO.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -1080,14 +1057,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/admin/marcas/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SubCategoriasController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1165,7 +1134,7 @@
         <state relative-caret-position="345">
           <caret line="23" column="78" selection-start-line="23" selection-start-column="78" selection-end-line="23" selection-end-column="78" />
           <folding>
-            <element signature="e#34#73#0#PHP" expanded="true" />
+            <element signature="e#34#73#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1175,6 +1144,26 @@
         <state relative-caret-position="337">
           <caret line="40" column="62" selection-start-line="40" selection-start-column="62" selection-end-line="40" selection-end-column="62" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Src/DAO/SubCategoriaDAO.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="e#140#169#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MarcasController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="130" column="29" selection-start-line="130" selection-start-column="29" selection-end-line="130" selection-end-column="29" />
+          <folding>
+            <element signature="e#51#79#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1190,19 +1179,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/dist/js/jquery/jquery.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+        <state relative-caret-position="165">
+          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MarcasController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/admin/marcas/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="111" column="23" selection-start-line="111" selection-start-column="23" selection-end-line="111" selection-end-column="23" />
-          <folding>
-            <element signature="e#51#79#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="75">
+          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>

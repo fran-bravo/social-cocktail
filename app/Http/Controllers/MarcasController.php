@@ -127,8 +127,8 @@ class MarcasController extends Controller
         return redirect()->route('admin.marcas.index');
     }
     public function getSubCategorias(Request $request,$id){
-        $subCategorias=SubCategoria::all();
-        return $subCategorias[1]->nombre;
+        $subCategorias=SubCategoriaDAO::getSubCategoriaByCategoria($id);
+        return $subCategorias;
     }
 
 }

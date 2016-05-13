@@ -9,6 +9,7 @@
 namespace socialCocktail\Http\Controllers\Src\DAO;
 
 
+use socialCocktail\Categoria;
 use socialCocktail\Http\Controllers\Src\Utiles\DAO;
 use socialCocktail\SubCategoria;
 
@@ -38,5 +39,10 @@ class SubCategoriaDAO implements DAO
 
     public static function count(){
         return SubCategoria::count();
+    }
+
+    public static function getSubCategoriaByCategoria($id){
+        $subCategorias=SubCategoria::all();
+        return $subCategorias->count();
     }
 }
