@@ -14,6 +14,30 @@
     Route::get('/', function () {
         return view('index');
     });
+
+    Route::get('/recetas', function () {
+        return view('plantillas.user.recetas');
+    });
+
+    Route::get('/recetario', function () {
+        return view('plantillas.user.recetario');
+    });
+
+    Route::get('/registrarcoctel', function () {
+        return view('plantillas.user.registrarCoctel');
+    });
+
+    Route::group(['prefix'=>'recetario'],function(){
+
+        Route::get('coctelespersonales', function () {
+            return view('plantillas.user.miscocteles');
+        });
+
+        Route::get('cocteles', function () {
+            return view('plantillas.user.cocteles');
+        });
+    });
+
     Route::get('/admin','AdminController@index');
     Route::group(['prefix' => 'admin'], function(){
 

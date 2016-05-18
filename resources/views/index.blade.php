@@ -1,1 +1,0 @@
-En proceso, puede dirijirse a: <a href="http://localhost:8000/admin">Admin Panel</a>
