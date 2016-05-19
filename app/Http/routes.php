@@ -13,6 +13,12 @@ use socialCocktail\Http\Controllers\Src\DAO\CristalDAO;
     | and give it the controller to call when that URI is requested.
     |
     */
+    Route::get('/migratessct1994',function(){
+        App::make('migrate')->run('path/to/migrations');
+    });
+
+
+
 
     Route::get('/', function () {
         return view('index');

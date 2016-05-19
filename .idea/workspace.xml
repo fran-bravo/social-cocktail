@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f413455c-9be9-4307-ba17-743cc8e8bf0a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CoctelesController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CoctelesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/MarcasController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/MarcasController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Src/DAO/SubCategoriaDAO.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Src/DAO/SubCategoriaDAO.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Src/Utiles/Utiles.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Src/Utiles/Utiles.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/MarcasRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/MarcasRequest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/f2016_04_02_181750_create_marcas_table.php" afterPath="$PROJECT_DIR$/database/migrations/f2016_04_02_181750_create_marcas_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/jquery/jquery.js" afterPath="$PROJECT_DIR$/public/dist/js/jquery/jquery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/plantillas/admin/cocteles/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/plantillas/admin/cocteles/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/plantillas/admin/marcas/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/plantillas/admin/marcas/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/plantillas/admin/marcas/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/plantillas/admin/marcas/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/plantillas/admin/sections/sidebarAdmin.blade.php" afterPath="$PROJECT_DIR$/resources/views/plantillas/admin/sections/sidebarAdmin.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/plantillas/user/registrarCoctel.blade.php" afterPath="$PROJECT_DIR$/resources/views/plantillas/user/registrarCoctel.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/plantillas/user/sections/sidebarUser.blade.php" afterPath="$PROJECT_DIR$/resources/views/plantillas/user/sections/sidebarUser.blade.php" />
     </list>
     <ignored path="social-cocktail.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,12 +44,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MarcasController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MarcasController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MarcasController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="174">
               <caret line="52" column="17" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="15" column="32" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="32" />
+              <folding>
+                <element signature="e#239#660#0#PHP" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,7 +117,6 @@
         <option value="$PROJECT_DIR$/resources/views/plantillas/user/misCocteles.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/user/sections/sidebarUser.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/sections/sidebarAdmin.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/user/registrarCoctel.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CoctelesController.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/cocteles/create.blade.php" />
@@ -135,6 +131,7 @@
         <option value="$PROJECT_DIR$/resources/views/plantillas/user/sections/mainUser.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Src/Utiles/Utiles.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MarcasController.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
       </list>
     </option>
   </component>
@@ -829,12 +826,12 @@
       <workItem from="1462551808512" duration="19487000" />
       <workItem from="1462818652672" duration="7125000" />
       <workItem from="1463071354696" duration="18799000" />
-      <workItem from="1463407356678" duration="32934000" />
+      <workItem from="1463407356678" duration="33019000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="206067000" />
+    <option name="totallyTimeSpent" value="206152000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1045,17 +1042,6 @@
         <state relative-caret-position="232">
           <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="35" column="7" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
-          <folding>
-            <element signature="e#6#59#0#PHP" expanded="false" />
-            <element signature="e#239#660#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1344,6 +1330,16 @@
         <state relative-caret-position="174">
           <caret line="52" column="17" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="32" />
+          <folding>
+            <element signature="e#239#660#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
