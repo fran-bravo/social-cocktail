@@ -32,7 +32,7 @@ class CreateCoctelesTable extends Migration
             $table->foreign('cristal_id')->references('id')->on('cristales');
             //
 
-            $table->integer('tipococtel_id')->unsigned();
+            $table->integer('tipococtel_id')->unsigned()->nullable();
             $table->foreign('tipococtel_id')->references('id')->on('tiposcoctel');
 
             $table->timestamps();

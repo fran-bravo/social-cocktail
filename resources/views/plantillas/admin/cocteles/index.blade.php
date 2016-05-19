@@ -21,6 +21,7 @@
                     <th>Método</th>
                     <th>Cristalería</th>
                     <th>Autor</th>
+                    <th>Tipo</th>
                     <th>Accion</th>
                 </tr>
                 </thead>
@@ -31,6 +32,7 @@
                     <th>Método</th>
                     <th>Cristalería</th>
                     <th>Autor</th>
+                    <th>Tipo</th>
                     <th>Accion</th>
                 </tr>
                 </tfoot>
@@ -46,6 +48,7 @@
                         @else
                         <td>{{$coctel->usuario}}</td>
                         @endif
+                        <td>{{$coctel->tipo->nombre}}</td>
                         <td>
                             <div title="Cambiar Nombre" class="form-group">
                                 <a class="btn btn-info btn-xs" href="{{route('admin.cocteles.edit',$coctel->id)}}">

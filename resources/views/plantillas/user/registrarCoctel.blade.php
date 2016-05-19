@@ -36,38 +36,9 @@
                             <div class="form-group has-feedback">
                                 <select name="tipococtel_id" class="form-control">
                                     <option disabled selected value="">Tipo de coctel</option>
-                                    <option value="Estandar">Estándar</option>
-                                    <option value="Aperitivo">Aperitivo</option>
-                                    <option value="Buck">Buck</option>
-                                    <option value="Caipi">Caipi</option>
-                                    <option value="Chupito">Chupito</option>
-                                    <option value="Cobbler">Cobbler</option>
-                                    <option value="Colada">Colada</option>
-                                    <option value="Collins">Collins</option>
-                                    <option value="Cooler">Cooler</option>
-                                    <option value="Crusta">Crusta</option>
-                                    <option value="Daisy">Daisy</option>
-                                    <option value="Digestivo">Digestivo</option>
-                                    <option value="Egg Nogg">Egg Nogg</option>
-                                    <option value="Fix">Fix</option>
-                                    <option value="Fizz">Fizz</option>
-                                    <option value="Flip">Flip</option>
-                                    <option value="Frappe">Frappe</option>
-                                    <option value="Grog">Grog</option>
-                                    <option value="Highball">Highball</option>
-                                    <option value="Julep">Julep</option>
-                                    <option value="Media tarde">Media tarde</option>
-                                    <option value="Nutritivo">Nutritivo</option>
-                                    <option value="Ponche">Ponche</option>
-                                    <option value="Posset">Posset</option>
-                                    <option value="Puff">Puff</option>
-                                    <option value="Refrescante">Refrescante</option>
-                                    <option value="Rickey">Rickey</option>
-                                    <option value="Toddie">Toddie</option>
-                                    <option value="Sangaree">Sangaree</option>
-                                    <option value="Sling">Sling</option>
-                                    <option value="Smashe">Smashe</option>
-                                    <option value="Sour">Sour</option>
+                                    @foreach($tipos as $tipo)
+                                            <option value="{{$tipo->id}}">{{$tipo->nombre}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group has-feedback">

@@ -34,8 +34,11 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group has-feedback">
-                                <select name="tipo" class="form-control">
+                                <select name="tipococtel_id" class="form-control">
                                     <option disabled selected value="">Tipo de coctel</option>
+                                    @foreach($tipos as $tipo)
+                                        <option value="{{$tipo->id}}">{{$tipo->nombre}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group has-feedback">
@@ -106,13 +109,17 @@
                             <td>
                                 <select class="form-control">
                                     <option value="" disabled selected>...</option>
-
+                                    @foreach($subCategorias as $subCategoria)
+                                        <option value="{{$subCategoria->id}}">{{$subCategoria->nombre}}</option>
+                                    @endforeach
                                 </select>
                             </td>
                             <td>
                                 <select class="form-control">
                                     <option value="" disabled selected>...</option>
-
+                                    @foreach($marcas as $marca)
+                                        <option value="{{$marca->id}}">{{$marca->nombre}}</option>
+                                    @endforeach
                                 </select>
                             </td>
                             <td>
@@ -126,9 +133,11 @@
                         </tbody>
                     </table>
                     <!-- /.box-body -->
+                    <div class="col-md-offset-5 col-sm-offset-5 col-xs-offset-5">
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">Crear</button>
+                        </div>
 
-                    <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Crear</button>
                     </div>
 
                     {!! Form::close() !!}

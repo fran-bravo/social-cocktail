@@ -8,6 +8,7 @@ use socialCocktail\Http\Controllers\Src\DAO\CategoriaDAO;
 use socialCocktail\Http\Controllers\Src\DAO\CristalDAO;
 use socialCocktail\Http\Controllers\Src\DAO\MarcaDAO;
 use socialCocktail\Http\Controllers\Src\DAO\SubCategoriaDAO;
+use socialCocktail\Http\Controllers\Src\DAO\TipoCoctelDAO;
 use socialCocktail\Http\Requests;
 use socialCocktail\Http\Controllers\Src\DAO\CoctelDAO;
 use socialCocktail\Http\Controllers\Src\Utiles\Utiles;
@@ -34,9 +35,14 @@ class CoctelesController extends Controller
      */
     public function create()
     {
-        $cristaleria=CristalDAO::all();
+        $tipos=TipoCoctelDAO::all();
+        $marcas=MarcaDAO::all();
         $categorias=CategoriaDAO::all();
-        return view('plantillas.admin.cocteles.create')->with(['cristaleria'=>$cristaleria,'categorias'=>$categorias]);
+        $subCategorias=SubCategoriaDAO::all();
+        $cristaleria=CristalDAO::all();
+        return view('plantillas.user.registrarCoctel')->with([
+            'marcas'=>$marcas,'categorias'=>$categorias,'subCategorias'=>$subCategorias,'cristaleria'=>$cristaleria,
+            'tipos'=>$tipos]);
     }
 
     /**

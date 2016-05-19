@@ -29,6 +29,7 @@ class RequestCoctelCreate extends Request
             'cristal_id'=>'required|exist_cristaleria',
             'preparacion'=>'required',
             'historia'=>'max:500',
+            'tipococtel_id'=>'exists:tiposcoctel,id|required'
         ];
     }
 }

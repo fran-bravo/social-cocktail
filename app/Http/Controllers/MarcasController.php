@@ -49,7 +49,7 @@ class MarcasController extends Controller
      */
     public function store(MarcasRequest $request)
     {
-        if ( !$this->SubCategoriaIsRelationCategoria($request)){
+        if ($this->SubCategoriaIsRelationCategoria($request)){
             return redirect()->route('admin.marcas.create');
         }
 
