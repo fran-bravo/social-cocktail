@@ -36,12 +36,12 @@
                         <td>
                             <div title="Cambiar Nombre" class="form-group">
                                 <a class="btn btn-info btn-xs" href="{{route('admin.tiposCoctel.edit',$tipo->id)}}">
-                                    <i class="fa fa-beer"></i>
+                                    <i class="fa fa-transgender-alt"></i>
                                 </a>
                             </div>
                             <div title="Cambiar Descripcion" class="form-group">
-                                <a class="btn btn-warning btn-xs" href="{{route('admin.tiposCoctel.edit',$tipo->id)}}">
-                                    <i class="fa fa-tint"></i>
+                                <a class="btn btn-warning btn-xs" href="{{route('admin.tiposCoctel.editDescripcion',$tipo->id)}}">
+                                    <i class="fa fa-edit"></i>
                                 </a>
                             </div>
                             <div title="Eliminar Tipo" class="form-group">

@@ -2,12 +2,14 @@
 
 namespace socialCocktail\Http\Controllers;
 
-use Illuminate\Http\Request;
 
-use socialCocktail\Http\Requests;
+
 use socialCocktail\Http\Controllers\Src\Utiles\Utiles;
 use socialCocktail\Http\Controllers\Src\DAO\TipoCoctelDAO;
 use socialCocktail\Http\Requests\RequestTipoCoctelCreate;
+use socialCocktail\Http\Requests\RequestTiposCoctelCambiarNombre;
+use socialCocktail\Http\Requests\RequestTiposCotelCambiarDescripcion;
+
 class TiposCoctelesController extends Controller
 {
     /**
@@ -63,7 +65,8 @@ class TiposCoctelesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tipo=TipoCoctelDAO::findById($id);
+        return view('plantillas.admin.tiposCoctel.edit')->with('tipo',$tipo);
     }
 
     /**
@@ -73,11 +76,25 @@ class TiposCoctelesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RequestTiposCoctelCambiarNombre $request, $id)
     {
-        //
+        return $this->updateGeneric($request->all(), $id);
     }
 
+    public function editDescripcion($id){
+        $tipo=TipoCoctelDAO::findById($id);
+        return view('plantillas.admin.tiposCoctel.editDescripcion')->with('tipo',$tipo);
+    }
+
+    public function updateDescripcion(RequestTiposCotelCambiarDescripcion $request, $id){
+        return $this->updateGeneric($request->all(), $id);
+    }
+
+    public function updateGeneric($request, $id){
+        TipoCoctelDAO::update($request,$id);
+        Utiles::flashMessageSuccessDefect();
+        return redirect()->route('admin.tiposCoctel.index');
+    }
     /**
      * Remove the specified resource from storage.
      *

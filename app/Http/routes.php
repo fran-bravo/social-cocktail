@@ -182,4 +182,12 @@ use socialCocktail\Http\Controllers\Src\DAO\CristalDAO;
             'uses'=>'TiposCoctelesController@destroy',
             'as'=>'admin.tiposCoctel.destroy'
         ]);
+        Route::get('tiposCoctel/{id}/editDescripcion',[
+            'uses'=>'TiposCoctelesController@editDescripcion',
+            'as'=>'admin.tiposCoctel.editDescripcion'
+        ]);
+        Route::put('tiposCoctel/{id}/updateDescripcion',[
+            'uses'=>'TiposCoctelesController@updateDescripcion',
+            'as'=>'admin.tiposCoctel.updateDescripcion'
+        ]);
     });
