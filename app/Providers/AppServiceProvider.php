@@ -45,14 +45,7 @@ class AppServiceProvider extends ServiceProvider
             }
             return false;
         });
-        Validator::extend('categoriaId_categoria',function($atribute, $value, $parameters){
-            dd($parameters);
-            $categoriaSeleccionada=CategoriaDAO::findById($parameters);
-            if ($categoriaSeleccionada->id==$value){
-                return true;
-            }
-            return false;
-        });
+        
     }
 
     /**

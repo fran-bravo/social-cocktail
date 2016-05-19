@@ -16,6 +16,7 @@
         <ul class="treeview-menu">
             <li><a href="#"><i class="fa fa-beer"></i>Bebidas con alcohol</a></li>
             <li><a href="#"><i class="fa fa-coffee"></i>Bebidas sin alcohol</a></li>
+            <li><a href="#"><i class="fa fa-glass"></i>Cristalería</a></li>
             <li><a href="#"><i class="fa fa-map-pin"></i>Endulzantes</a></li>
             <li><a href="#"><i class="fa fa-leaf"></i>Especias y Hierbas aromáticas</a></li>
             <li><a href="#"><i class="fa fa-lemon-o"></i>Frutas</a></li>

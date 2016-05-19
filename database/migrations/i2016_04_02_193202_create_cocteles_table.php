@@ -32,6 +32,9 @@ class CreateCoctelesTable extends Migration
             $table->foreign('cristal_id')->references('id')->on('cristales');
             //
 
+            $table->integer('tipococtel_id')->unsigned();
+            $table->foreign('tipococtel_id')->references('id')->on('tiposcoctel');
+
             $table->timestamps();
         });
         //Tabla pivot relacion Contel e Ingrediente (many to many)

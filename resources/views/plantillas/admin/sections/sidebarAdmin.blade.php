@@ -49,4 +49,11 @@
         </ul>
 
     </li>
+    <li class="treeview">
+        <a href="#"><i class="fa fa-transgender-alt"></i> <span>Tipos de Cocteles</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+            <li><a href="{{route('admin.tiposCoctel.create')}}"><i class="fa fa-plus"></i>Crear Tipo</a></li>
+            <li><a href="{{route('admin.tiposCoctel.index')}}"><i class="fa fa-list-ol"></i>Listar Tipos</a></li>
+        </ul>
+    </li>
 @endsection
