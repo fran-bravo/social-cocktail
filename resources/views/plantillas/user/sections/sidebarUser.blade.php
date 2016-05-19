@@ -21,14 +21,7 @@
             <li><a href="#"><i class="fa fa-lemon-o"></i>Frutas</a></li>
             <li><a href="#"><i class="fa fa-fire"></i>Hortalizas</a></li>
             <li><a href="#"><i class="fa fa-pie-chart"></i>Lácteos</a></li>
+            <li><a href="#"><i class="fa fa-registered"></i>Marcas</a></li>
         </ul>
     </li>
-    <li class="treeview">
-        <a href="#"><i class="fa fa-registered"></i> <span>Marcas</span> <i class="fa fa-angle-left pull-right"></i></a>
-        <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-plus"></i>...</a></li>
-        </ul>
-    </li>
-    <li><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-    <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
 @endsection

@@ -34,9 +34,9 @@ class CoctelesController extends Controller
      */
     public function create()
     {
-        $cristales=CristalDAO::all();
+        $cristaleria=CristalDAO::all();
         $categorias=CategoriaDAO::all();
-        return view('plantillas.admin.cocteles.create')->with(['cristales'=>$cristales,'categorias'=>$categorias]);
+        return view('plantillas.admin.cocteles.create')->with(['cristaleria'=>$cristaleria,'categorias'=>$categorias]);
     }
 
     /**

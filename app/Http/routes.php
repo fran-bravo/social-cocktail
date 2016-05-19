@@ -1,5 +1,8 @@
 <?php
-
+use socialCocktail\Http\Controllers\Src\DAO\MarcaDAO;
+use socialCocktail\Http\Controllers\Src\DAO\CategoriaDAO;
+use socialCocktail\Http\Controllers\Src\DAO\SubCategoriaDAO;
+use socialCocktail\Http\Controllers\Src\DAO\CristalDAO;
     /*
     |--------------------------------------------------------------------------
     | Application Routes
@@ -24,7 +27,12 @@
     });
 
     Route::get('/registrarcoctel', function () {
-        return view('plantillas.user.registrarCoctel');
+        $marcas=MarcaDAO::all();
+        $categorias=CategoriaDAO::all();
+        $subCategorias=SubCategoriaDAO::all();
+        $cristaleria=CristalDAO::all();
+        return view('plantillas.user.registrarCoctel')->with([
+            'marcas'=>$marcas,'categorias'=>$categorias,'subCategorias'=>$subCategorias,'cristaleria'=>$cristaleria]);
     });
 
     Route::group(['prefix'=>'recetario'],function(){

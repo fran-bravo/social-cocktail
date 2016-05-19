@@ -19,7 +19,7 @@ class Utiles
         Flash::success('Tarea realizada con éxito.');
     }
 
-    public static function flashMessageWarning($message){
-        Flash::warning($message);
+    public static function flashMessageError($message){
+        Flash::error($message);
     }
 }

@@ -49,9 +49,27 @@ class MarcasController extends Controller
      */
     public function store(MarcasRequest $request)
     {
+        if ( !$this->SubCategoriaIsRelationCategoria($request)){
+            return redirect()->route('admin.marcas.create');
+        }
+
         MarcaDAO::create($request->all());
         Utiles::flashMessageSuccessDefect();
         return redirect()->route('admin.marcas.index');
+    }
+
+    private function SubCategoriaIsRelationCategoria(MarcasRequest $request){
+        $id=$request['subCategoria_id'];
+
+        if ($id!=null){
+
+            $subCategoria=SubCategoriaDAO::findById($id);
+            $catetoria=CategoriaDAO::findById($request['categoria_id']);
+            if ($subCategoria->categoria->id != $catetoria->id){
+                Utiles::flashMessageError('La sub categoría no se relaciona con la categoría');
+                return false;
+            }
+        }
     }
 
     /**
@@ -128,7 +146,7 @@ class MarcasController extends Controller
     }
     public function getSubCategorias(Request $request,$id){
         $subCategorias=SubCategoriaDAO::getSubCategoriaByCategoria($id);
-        return $subCategorias;
+        return json_encode($subCategorias);
     }
 
 }

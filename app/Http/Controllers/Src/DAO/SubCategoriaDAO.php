@@ -42,7 +42,7 @@ class SubCategoriaDAO implements DAO
     }
 
     public static function getSubCategoriaByCategoria($id){
-        $subCategorias=SubCategoria::all();
-        return $subCategorias->count();
+        $subCategorias=SubCategoria::where('categoria_id',$id)->get();
+        return $subCategorias;
     }
 }

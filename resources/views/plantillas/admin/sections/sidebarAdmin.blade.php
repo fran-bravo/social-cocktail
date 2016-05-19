@@ -49,7 +49,4 @@
         </ul>
 
     </li>
-
-    <li><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-    <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
 @endsection

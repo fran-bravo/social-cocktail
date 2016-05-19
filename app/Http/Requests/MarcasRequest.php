@@ -24,7 +24,9 @@ class MarcasRequest extends Request
     public function rules()
     {
         return [
-            'nombre'=>'unique:marcas|max:50'
+            'nombre'=>'unique:marcas|max:50',
+            'categoria_id'=>'required|exists:categorias,id',
+            'subCategoria_id'=>'exists:subcategorias,id'
         ];
     }
 }

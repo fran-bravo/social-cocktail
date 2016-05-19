@@ -18,7 +18,7 @@ class CreateMarcasTable extends Migration
             $table->text('descripcion')->nullable();
             $table->integer('categoria_id')->unsigned();
             $table->foreign('categoria_id')->references('id')->on('categorias');
-            $table->integer('subCategoria_id')->unsigned();
+            $table->integer('subCategoria_id')->unsigned()->nullable();
             $table->foreign('subCategoria_id')->references('id')->on('subcategorias');
             $table->softDeletes();
             $table->timestamps();

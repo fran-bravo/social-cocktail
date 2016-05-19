@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Validator;
 use socialCocktail\Http\Controllers\Src\DAO\CategoriaDAO;
 use socialCocktail\Http\Controllers\Src\DAO\CristalDAO;
+use socialCocktail\Http\Controllers\Src\DAO\SubCategoriaDAO;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -41,6 +42,14 @@ class AppServiceProvider extends ServiceProvider
                 if ($cristal==$cristalSeleccionado){
                     return true;
                 }
+            }
+            return false;
+        });
+        Validator::extend('categoriaId_categoria',function($atribute, $value, $parameters){
+            dd($parameters);
+            $categoriaSeleccionada=CategoriaDAO::findById($parameters);
+            if ($categoriaSeleccionada->id==$value){
+                return true;
             }
             return false;
         });
