@@ -12,7 +12,7 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                {!! Form::open(['route'=> 'admin.cocteles.store','method'=>'POST']) !!}
+                {!! Form::open(['route'=> 'user.coctel.store','method'=>'POST', 'files'=>true]) !!}
                 <div class="box-body">
                     <div class="row">
                         <div class="col-md-6">
@@ -64,7 +64,7 @@
                         <h4>Ingrese una foto de su coctel</h4>
                     </div>
                     <div class="form-group">
-                        <input type="file">
+                        <input name="imagen" id="imagen" type="file">
                     </div>
                     <div class="form-group">
                         <h4>Ingredientes</h4>
@@ -123,7 +123,7 @@
                                 </select>
                             </td>
                             <td>
-                                <div class="form-control" style="border-color: white; width: 100%">
+                                <div class="form-control" style="border-color: transparent; width: 100%;background-color: transparent">
                                     <button type="button" class="btn btn-block btn-success btn-xs">
                                         <i class="fa fa-plus"></i>
                                     </button>

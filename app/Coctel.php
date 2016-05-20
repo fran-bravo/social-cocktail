@@ -11,7 +11,7 @@ class Coctel extends Model
 
     protected $dates=['deleted_at'];
     protected $table='cocteles';
-    protected $fillable=['nombre','historia','metodo','preparacion','cristal_id','usuario_id','tipococtel_id'];
+    protected $fillable=['nombre','historia','metodo','preparacion','path','cristal_id','usuario_id','tipococtel_id'];
 
     public function tipo(){
         return $this->belongsTo('socialCocktail\TipoCoctel','tipococtel_id');

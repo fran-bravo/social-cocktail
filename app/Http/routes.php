@@ -27,16 +27,15 @@ use socialCocktail\Http\Controllers\Src\DAO\TipoCoctelDAO;
         return view('plantillas.user.recetario');
     });
 
-    Route::get('/registrarcoctel', function () {
-        $tipos=TipoCoctelDAO::all();
-        $marcas=MarcaDAO::all();
-        $categorias=CategoriaDAO::all();
-        $subCategorias=SubCategoriaDAO::all();
-        $cristaleria=CristalDAO::all();
-        return view('plantillas.user.registrarCoctel')->with([
-            'marcas'=>$marcas,'categorias'=>$categorias,'subCategorias'=>$subCategorias,'cristaleria'=>$cristaleria,
-        'tipos'=>$tipos]);
-    });
+    Route::get('/registrarcoctel',[
+        'uses'=>'CoctelesController@createByUser',
+        'as'=>'user.coctel.create'
+    ]);
+
+    Route::post('user.coctel.storeByUser',[
+        'uses'=>'CoctelesController@storeByUser',
+        'as'=>'user.coctel.store'
+    ]);
 
     Route::group(['prefix'=>'recetario'],function(){
 

@@ -47,6 +47,14 @@ return [
             'driver' => 'local',
             'root' => storage_path('app'),
         ],
+        'cocteles' => [
+            'driver' => 'local',
+            'root' => public_path('imagenes/cocteles'),
+        ],
+        'usuarios' => [
+            'driver' => 'local',
+            'root' => public_path('imagenes/usuarios'),
+        ],
 
         'public' => [
             'driver' => 'local',

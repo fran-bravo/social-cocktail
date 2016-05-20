@@ -25,6 +25,7 @@ class CreateCoctelesTable extends Migration
             $table->string('historia', 500)->nullable();
             $table->string('metodo',50);
             $table->string('preparacion', 500);
+            $table->string('path',100)->nullable();
             $table->softDeletes();
             //FK a la tabla cristales
             $table->integer('cristal_id')->unsigned();

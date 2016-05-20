@@ -6,7 +6,7 @@
     <li class="treeview">
             <a href="#"><i class="fa fa-glass"></i> <span>Cocteles</span> <i class="fa fa-angle-left pull-right"></i></a>
             <ul class="treeview-menu">
-                <li><a href="{{asset('/registrarcoctel')}}"><i class="fa fa-plus"></i>Registrar</a></li>
+                <li><a href="{{asset(route('user.coctel.create'))}}"><i class="fa fa-plus"></i>Registrar</a></li>
                 <li><a href="{{asset('/recetas')}}"><i class="fa fa-list-alt"></i>Recetas</a></li>
                 <li><a href="{{asset('/recetario')}}"><i class="fa fa-folder-open"></i>Recetario Personal</a></li>
             </ul>

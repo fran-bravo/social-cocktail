@@ -14,6 +14,7 @@ use socialCocktail\Http\Controllers\Src\DAO\CoctelDAO;
 use socialCocktail\Http\Controllers\Src\Utiles\Utiles;
 use socialCocktail\Http\Requests\RequestCoctelCreate;
 use socialCocktail\Http\Requests\RequestCoctelCambiarNombre;
+use Intervention\Image\Facades\Image;
 
 class CoctelesController extends Controller
 {
@@ -45,6 +46,17 @@ class CoctelesController extends Controller
             'tipos'=>$tipos]);
     }
 
+    public function createByUser(){
+        $tipos=TipoCoctelDAO::all();
+        $marcas=MarcaDAO::all();
+        $categorias=CategoriaDAO::all();
+        $subCategorias=SubCategoriaDAO::all();
+        $cristaleria=CristalDAO::all();
+        return view('plantillas.user.registrarCoctel')->with([
+            'marcas'=>$marcas,'categorias'=>$categorias,'subCategorias'=>$subCategorias,'cristaleria'=>$cristaleria,
+            'tipos'=>$tipos]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -53,11 +65,45 @@ class CoctelesController extends Controller
      */
     public function store(RequestCoctelCreate $request)
     {
-        CoctelDAO::create($request->all());
-        Utiles::flashMessageSuccessDefect();
+        $this->saveImage($request);
+        $this->genericStore($request);
         return redirect()->route('admin.cocteles.create');
     }
 
+
+
+    public function storeByUser(RequestCoctelCreate $request){
+        $this->saveImage($request);
+        $this->genericStore($request);
+        return redirect()->route('user.coctel.create');
+    }
+    public function getNameImage(Request $request){
+        $imagen=$this->getImageFile($request);
+        $nombre=$request['nombre'].'.'.$imagen->getClientOriginalExtension();
+        return $nombre;
+    }
+
+    public function saveImage(Request $request){
+        $imagen=$this->getImageFile($request);
+        $nombre=$this->getNameImage($request);
+        //config/filesystem
+        \Storage::disk('cocteles')->put($nombre,  \File::get($imagen));
+
+    }
+
+    public function getImageFile(Request $request){
+        return $request->file('imagen');
+    }
+
+    public function genericStore(Request $request){
+        $this->setPathImage($request);
+        CoctelDAO::create($request->all());
+        Utiles::flashMessageSuccessDefect();
+    }
+
+    public function setPathImage(Request $request){
+        $request['path']=$this->getNameImage($request);
+    }
     /**
      * Display the specified resource.
      *
