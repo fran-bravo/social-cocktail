@@ -56,9 +56,14 @@
                                     <i class="fa fa-edit"></i>
                                 </a>
                             </div>
-                            <div title="Cambiar categoria" class="form-group">
+                            <div title="Cambiar categoría" class="form-group">
                                 <a class="btn btn-default btn-xs" href="{{route('admin.marcas.editCategoria',$marca->id)}}">
                                     <i class="fa fa-tags"></i>
+                                </a>
+                            </div>
+                            <div title="Cambiar Sub categoría" class="form-group">
+                                <a class="btn btn-default btn-xs" href="{{route('admin.marcas.editSubCategoria',$marca->id)}}">
+                                    <i class="fa fa-sitemap"></i>
                                 </a>
                             </div>
                             <div title="Eliminar Marca" class="form-group">

@@ -37,6 +37,7 @@ use socialCocktail\Http\Controllers\Src\DAO\TipoCoctelDAO;
         'as'=>'user.coctel.store'
     ]);
 
+
     Route::group(['prefix'=>'recetario'],function(){
 
         Route::get('coctelespersonales', function () {
@@ -46,6 +47,37 @@ use socialCocktail\Http\Controllers\Src\DAO\TipoCoctelDAO;
         Route::get('cocteles', function () {
             return view('plantillas.user.cocteles');
         });
+    });
+
+
+
+Route::get('/{id}/getSubCategorias',[
+    'uses'=>'SubCategoriasController@getSubcategoriasByIdCategoria',
+    'as'=>'user.coctel.getSubCategorias'
+]);
+
+Route::get('/{id}/getMarcas',[
+    'uses'=>'MarcasController@getMarcasBySubCategoria',
+    'as'=>'user.getMarcasBySubcategoria'
+]);
+
+Route::get('/{id}/getSubCategoria',[
+    'uses'=>'SubCategoriasController@getById',
+    'as'=>'user.subcategorias.get'
+]);
+
+
+
+    Route::group(['prefix'=>'registrarcoctel'],function(){
+
+        Route::get('addIngrediente', [
+            'uses'=>'IngredientesController@addIngrediente',
+            'as'=>'user.ingrediente.add'
+        ]);
+
+
+
+
     });
 
     Route::get('/admin','AdminController@index');
@@ -143,8 +175,16 @@ use socialCocktail\Http\Controllers\Src\DAO\TipoCoctelDAO;
             'as'=>'admin.marcas.updateCategoria'
         ]);
         Route::get('marcas/{id}/getSubCategorias',[
-            'uses'=>'MarcasController@getSubCategorias',
+            'uses'=>'SubCategoriasController@getSubcategoriasByIdCategoria',
             'as'=>'admin.marcas.getSubCategorias'
+        ]);
+        Route::get('marcas/{id}/editSubCategoria',[
+            'uses'=>'MarcasController@editSubCategoria',
+            'as'=>'admin.marcas.editSubCategoria'
+        ]);
+        Route::put('marcas/{id}/updateSubCategoria',[
+            'uses'=>'MarcasController@updateSubCategoria',
+            'as'=>'admin.marcas.updateSubCategoria'
         ]);
 
 

@@ -24,6 +24,18 @@
                             @endforeach
                         </select>
                     </div>
+                    <div class="form-group has-feedback">
+                        <select class="form-control" name="tipo" id="tipo" required="required">
+                            <option value="" disabled selected >Selecciones tipo de ingrediente</option>
+                            @if($subCategoria->tipo == 'Líquido')
+                                <option selected value="Líquido">Líquido</option>
+                                <option value="Sólido">Sólido</option>
+                            @else
+                                <option value="Líquido">Líquido</option>
+                                <option selected value="Sólido">Sólido</option>
+                            @endif
+                        </select>
+                    </div>
                 </div>
                 <!-- /.box-body -->
 

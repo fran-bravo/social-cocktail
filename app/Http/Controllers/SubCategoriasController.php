@@ -110,5 +110,15 @@ class SubCategoriasController extends Controller
         return redirect()->route('admin.subCategorias.index');
     }
 
+    public function getSubcategoriasByIdCategoria($id){
+        $subCategorias=SubCategoriaDAO::getSubCategoriaByCategoria($id);
+        return response()->json($subCategorias);
+    }
+
+    public function getById($id){
+        $subCategoria=SubCategoriaDAO::findById($id);
+        return response()->json($subCategoria);
+    }
+
 
 }

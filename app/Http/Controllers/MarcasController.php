@@ -2,6 +2,7 @@
 
 namespace socialCocktail\Http\Controllers;
 
+use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
 
 use socialCocktail\Categoria;
@@ -132,6 +133,28 @@ class MarcasController extends Controller
         return redirect()->route('admin.marcas.index');
     }
 
+    public function editSubCategoria($id){
+        $marca=MarcaDAO::findById($id);
+        $id=$marca->categoria->id;
+        $subCategorias=SubCategoriaDAO::getSubCategoriaByCategoria($id);
+        return view('plantillas.admin.marcas.editSubCategoria')->with(['marca'=>$marca,'subCategorias'=>$subCategorias]);
+    }
+
+    public function updateSubCategoria(Request $request, $id){
+        $this->updateGeneric($request,$id);
+        return redirect()->route('admin.marcas.index');
+    }
+
+    private function updateGeneric(Request $request, $id){
+        MarcaDAO::update($request->all(),$id);
+        Utiles::flashMessageSuccessDefect();
+    }
+
+    public function getMarcasBySubCategoria($id){
+        $marcas=MarcaDAO::getBySubCategoria($id);
+        return response()->json($marcas);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -144,9 +167,6 @@ class MarcasController extends Controller
         Utiles::flashMessageSuccessDefect();
         return redirect()->route('admin.marcas.index');
     }
-    public function getSubCategorias(Request $request,$id){
-        $subCategorias=SubCategoriaDAO::getSubCategoriaByCategoria($id);
-        return json_encode($subCategorias);
-    }
+
 
 }

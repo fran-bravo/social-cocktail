@@ -38,7 +38,11 @@ class CreateCoctelesTable extends Migration
 
             $table->timestamps();
         });
+
+
+
         //Tabla pivot relacion Contel e Ingrediente (many to many)
+       /*
         Schema::create('coctel_ingrediente', function(Blueprint $table){
             $table->increments('id');
             //PKs a las tablas cocteles e ingredientes
@@ -50,7 +54,9 @@ class CreateCoctelesTable extends Migration
             //
             $table->double('cantidad');
             $table->timestamps();
-        });
+       });
+       */
+
         
     }
 
@@ -61,7 +67,7 @@ class CreateCoctelesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('coctel_ingrediente');
+        //Schema::drop('coctel_ingrediente');
         Schema::drop('cocteles');
     }
 }

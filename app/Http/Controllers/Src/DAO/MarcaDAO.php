@@ -38,4 +38,9 @@ class MarcaDAO implements DAO
     public static function count(){
         return Marca::count();
     }
+
+    public static function getBySubCategoria($id){
+        $marcas=Marca::where('subcategoria_id',$id)->get();
+        return $marcas;
+    }
 }

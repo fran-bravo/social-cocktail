@@ -3,9 +3,13 @@
 @section('titleComplement','Social-Cocktail')
 @section('headerContent','Registrar Coctel')
 @section('headerDescription',' ')
+@section('aditionalCSS')
+        <!-- Personal CSS -->
+<link rel="stylesheet" href="{{asset('dist/css/sct.css')}}">
+@endsection
 @section('contentPage')
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-8">
             <div class="box box-danger">
                 <div class="box-header with-border">
                     <h3 class="box-title">Complete el formulario</h3>
@@ -64,85 +68,80 @@
                         <h4>Ingrese una foto de su coctel</h4>
                     </div>
                     <div class="form-group">
-                        <input name="imagen" id="imagen" type="file">
+                        <input name="imagen" id="imagen" type="file" accept=".jpeg,.png,.bmp,.gif,.svg">
                     </div>
+
                     <div class="form-group">
-                        <h4>Ingredientes</h4>
+                        <div class="row">
+                            <div class="col-md-6"><h4>Ingredientes</h4></div>
+                            <div class="col-md-6"><div id="load"></div></div>
+                        </div>
+
+
                     </div>
 
+                    <div class="form-group">
+                        <table id="tbIngredientes" class="table table-striped">
+                            <tbody>
+                            <tr>
 
-                    <table class="table table-striped">
-                        <tbody>
-                        <tr>
-                            <th width="12%">Cant.</th>
-                            <th>Unidad</th>
-                            <th>Categoría</th>
-                            <th>Sub Categoría</th>
-                            <th>Marca</th>
-                            <th>Accion</th>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Oz</td>
-                            <td>Whisky</td>
-                            <td>Escoces</td>
-                            <td>Johnie Walker</td>
-                            <td>Botones.</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input class="form-control">
-                            </td>
-                            <td>
-                                <select class="form-control">
-                                    <option value="" disabled selected>...</option>
-                                </select>
-                            </td>
-                            <td>
-                                <select class="form-control">
-                                    <option value="" disabled selected>...</option>
-                                    @foreach($categorias as $categoria)
-                                        <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
-                                    @endforeach
-                                </select>
-                            </td>
-                            <td>
-                                <select class="form-control">
-                                    <option value="" disabled selected>...</option>
-                                    @foreach($subCategorias as $subCategoria)
-                                        <option value="{{$subCategoria->id}}">{{$subCategoria->nombre}}</option>
-                                    @endforeach
-                                </select>
-                            </td>
-                            <td>
-                                <select class="form-control">
-                                    <option value="" disabled selected>...</option>
-                                    @foreach($marcas as $marca)
-                                        <option value="{{$marca->id}}">{{$marca->nombre}}</option>
-                                    @endforeach
-                                </select>
-                            </td>
-                            <td>
-                                <div class="form-control" style="border-color: transparent; width: 100%;background-color: transparent">
-                                    <button type="button" class="btn btn-block btn-success btn-xs">
-                                        <i class="fa fa-plus"></i>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                                <th>Categoría</th>
+                                <th>Sub Categoría</th>
+                                <th>Marca</th>
+                                <th width="12%">Cant.</th>
+                                <th>Unidad</th>
+                                <th>Accion</th>
+                            </tr>
+
+                            <tr id="selectores" style="background-color: transparent">
+
+                                <td id="tdCategorias">
+                                    <select class="form-control" id="categoria_id">
+                                        <option id="categoriaDefault" value="" disabled selected>Seleccione</option>
+                                        @foreach($categorias as $categoria)
+                                            <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+                                        @endforeach
+                                    </select>
+                                </td>
+                                <td>
+                                    <select disabled class="form-control" id="subCategoria_id">
+                                    </select>
+                                </td>
+                                <td>
+                                    <select disabled class="form-control" id="marca_id">
+                                    </select>
+                                </td>
+                                <td>
+                                    <input disabled class="form-control" id="cantidad">
+                                </td>
+                                <td>
+                                    <select disabled class="form-control" id="unidadMedida">
+                                    </select>
+                                </td>
+                                <td>
+                                    <div class="form-control" style="border-color: transparent; width: 100%;background-color: transparent">
+                                        <button id="addIngrediente" type="button" class="btn btn-block btn-success btn-xs">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="messageIngredients" class="form-group">
+
+                    </div>
                     <!-- /.box-body -->
                     <div class="col-md-offset-5 col-sm-offset-5 col-xs-offset-5">
                         <div class="box-footer">
                             <button type="submit" class="btn btn-primary">Crear</button>
                         </div>
-
                     </div>
 
                     {!! Form::close() !!}
-
-                </div></div>
+                </div>
+            </div>
             <div class="col-md-4"></div>
         </div>
 @endsection

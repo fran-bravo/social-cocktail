@@ -19,10 +19,17 @@
                     </div>
                     <div class="form-group has-feedback">
                         <select class="form-control" name="categoria_id" id="categoria_id" required="required">
-                            <option value >Selecciones una categoria</option>
+                            <option value="" disabled selected>Selecciones una categoria</option>
                             @foreach($categorias as $categoria)
-                            <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+                              <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
                             @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <select class="form-control" name="tipo" id="tipo" required="required">
+                            <option value="" disabled selected >Selecciones tipo de ingrediente</option>
+                            <option value="Líquido">Líquido</option>
+                            <option value="Sólido">Sólido</option>
                         </select>
                     </div>
                 </div>

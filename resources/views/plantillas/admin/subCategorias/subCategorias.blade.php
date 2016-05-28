@@ -19,6 +19,7 @@
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Categoria</th>
+                    <th>Tipo</th>
                     <th>Accion</th>
                 </tr>
                 </thead>
@@ -27,6 +28,7 @@
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Categoria</th>
+                    <th>Tipo</th>
                     <th>Accion</th>
                 </tr>
                 </tfoot>
@@ -36,15 +38,16 @@
                         <td>{{$subCategoria->id}}</td>
                         <td>{{$subCategoria->nombre}}</td>
                         <td>{{$subCategoria->categoria->nombre}}</td>
+                        <td>{{$subCategoria->tipo}}</td>
                         <td>
                             <div title="Cambiar Nombre" class="form-group">
                                 <a class="btn btn-info btn-xs" href="{{route('admin.subCategorias.edit',$subCategoria->id)}}">
                                     <i class="fa fa-sitemap"></i>
                                 </a>
                             </div>
-                            <div title="Cambiar Categoria" class="form-group">
+                            <div title="Cambiar Categoria/Tipo" class="form-group">
                                 <a class="btn btn-warning btn-xs" href="{{route('admin.subCategorias.editCategoria',$subCategoria->id)}}">
-                                    <i class="fa fa-tags"></i>
+                                    <i class="fa fa-edit"></i>
                                 </a>
                             </div>
                             <div title="Eliminar SubCategoria" class="form-group">

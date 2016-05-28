@@ -29,7 +29,7 @@ class Coctel extends Model
 
     //Devuelve los ingredientes que lo componen
     public function ingredientes(){
-        return $this->belongsToMany('socialCocktail\Ingrediente');
+        return $this->hasMany('socialCocktail\Ingrediente');
     }
 
     //Devuelve todas las propinas que se le dejaron

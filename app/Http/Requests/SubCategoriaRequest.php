@@ -25,7 +25,8 @@ class SubCategoriaRequest extends Request
     {
         return [
             'nombre'=>'unique:subCategorias|unique:categorias|max:50|required',
-            'categoria_id'=>'exist_categoria|required'
+            'categoria_id'=>'exist_categoria|required',
+            'tipo'=>'required',
         ];
     }
 }
