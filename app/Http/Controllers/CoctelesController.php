@@ -84,10 +84,12 @@ class CoctelesController extends Controller
     }
 
     public function saveImage(Request $request){
+    if ($request['imagen']){
         $imagen=$this->getImageFile($request);
         $nombre=$this->getNameImage($request);
         //config/filesystem
         \Storage::disk('cocteles')->put($nombre,  \File::get($imagen));
+    }
 
     }
 
@@ -102,7 +104,9 @@ class CoctelesController extends Controller
     }
 
     public function setPathImage(Request $request){
-        $request['path']=$this->getNameImage($request);
+    if ($request['imagen']!=null) {
+        $request['path'] = $this->getNameImage($request);
+    }
     }
     /**
      * Display the specified resource.

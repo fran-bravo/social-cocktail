@@ -208,26 +208,27 @@ function showIngredient(cantidadIngredientes) {
 }
 
 function getRowIngredient(cantIngredientes) {
+    // "ingredientes[]"
     var texts=getTextIngredientes();
     var values=getValuesIngrediente();
     var tr="<tr hidden id='"+ cantIngredientes +"'> " +
         "<td>"+ texts["categoria"] +
-            "<input name='categoria_"+cantIngredientes+"' hidden value='"+values["categoria"]+"'>" +
+            "<input name='ingredientes["+cantIngredientes+"][categoria_id]' hidden value='"+values["categoria"]+"'>" +
         "</td> " +
         "<td>"+texts["subCategoria"]+"" +
-        "   <input name='subCategoria_"+cantIngredientes+"' hidden value='"+values["subCategoria"]+"'>" +
+        "   <input name='ingredientes["+cantIngredientes+"][subcategoria_id]' hidden value='"+values["subCategoria"]+"'>" +
         "</td> " +
         "</td> " +
         "<td>"+texts["marca"]+"" +
-        "   <input name='marca_"+cantIngredientes+"' hidden value='"+values["marca"]+"'>" +
+        "   <input name='ingredientes["+cantIngredientes+"][marca_id]' hidden value='"+values["marca"]+"'>" +
         "</td> " +
         "</td> " +
         "<td>"+texts["cantidad"]+"" +
-        "   <input name='cantidad_"+cantIngredientes+"' hidden value='"+values["cantidad"]+"'>" +
+        "   <input name='ingredientes["+cantIngredientes+"][cantidad]' hidden value='"+values["cantidad"]+"'>" +
         "</td> " +
         "</td> " +
         "<td>"+texts["unidad"]+
-          "<input name='unidad_"+cantIngredientes+"' hidden value='"+values["unidad"]+"'>" +
+          "<input name='ingredientes["+cantIngredientes+"][unidad_medida]' hidden value='"+values["unidad"]+"'>" +
         "</td> " +
         "</td> " +
         "<td>" +

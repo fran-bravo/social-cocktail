@@ -7,17 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Ingrediente extends Model
 {
     protected $table='ingredientes';
-    protected $fillable=['tipo','categoria_id','subcategoria_id','marca_id','coctel_id'];
-
-    //Devuelve la categoria del ingrediente
-    public function categoria(){
-        return $this->belongsTo('socialCocktail\Categoria','categoria_id');
-    }
-
-    //Devuelve la subCategoria del ingrediente
-    public function subCategoria(){
-        return $this->belongsTo('socialCocktail\SubCategoria','subcategoria_id');
-    }
+    protected $fillable=['marca_id','coctel_id','cantidad','unidad_medida'];
 
     //Devuelve la marca del ingrediente
     public function marca(){

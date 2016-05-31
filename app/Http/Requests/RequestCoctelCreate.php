@@ -30,7 +30,8 @@ class RequestCoctelCreate extends Request
             'preparacion'=>'required',
             'historia'=>'max:500',
             'tipococtel_id'=>'exists:tiposcoctel,id|required',
-            'imagen'=>'image'
+            'imagen'=>'image',
+            'ingredientes'=>'required|cantidad_ingredietes|valid_ingredient',
         ];
     }
 }

@@ -15,9 +15,7 @@ use socialCocktail\Http\Controllers\Src\DAO\TipoCoctelDAO;
     | and give it the controller to call when that URI is requested.
     |
     */
-    Route::get('/', function () {
-        return view('index');
-    });
+    Route::get('/','Derivador@index');
 
     Route::get('/recetas', function () {
         return view('plantillas.user.recetas');

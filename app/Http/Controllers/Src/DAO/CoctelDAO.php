@@ -19,6 +19,8 @@ class CoctelDAO
 
     public static function create($request){
         $coctel=Coctel::create($request);
+        $request['coctel_id']=$coctel->id;
+        IngredienteDAO::create($request);
         $coctel->save();
     }
 

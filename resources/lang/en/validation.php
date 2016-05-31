@@ -12,6 +12,8 @@ return [
     | as the size rules. Feel free to tweak each of these messages here.
     |
     */
+    'valid_ingredient'=>'The ingredients are invalid',
+    'cantidad_ingredietes'=>'You must enter two or more ingredients',
     'exist_cristaleria'=>'The glass selected not exist',
     'exist_metodo'     =>'The method selected not exist',
     'exist_categoria'=>'The category selected not exist.',
