@@ -20,6 +20,7 @@
                     <th>Nombre</th>
                     <th>Categoría</th>
                     <th>Sub-categoría</th>
+                    <th>Super Marca</th>
                     <th>Accion</th>
                 </tr>
                 </thead>
@@ -29,6 +30,7 @@
                     <th>Nombre</th>
                     <th>Categoría</th>
                     <th>Sub-categoría</th>
+                    <th>Super Marca</th>
                     <th>Accion</th>
                 </tr>
                 </tfoot>
@@ -43,6 +45,13 @@
                                 No asignada
                             @else
                              {{$marca->subCategoria->nombre}}
+                            @endif
+                        </td>
+                        <td>
+                            @if($marca->superMarca == null)
+                                No asignada
+                            @else
+                                {{$marca->superMarca->nombre}}
                             @endif
                         </td>
                         <td>

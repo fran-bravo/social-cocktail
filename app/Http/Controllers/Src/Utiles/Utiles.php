@@ -24,6 +24,9 @@ class Utiles
     }
 
     public static function getShowCoctel($coctel){
+
+        //MOSTRAR IMAGEN!
+
         if ($coctel->usuario == null){
             $user='Cocteleria Clásica';
         }else{

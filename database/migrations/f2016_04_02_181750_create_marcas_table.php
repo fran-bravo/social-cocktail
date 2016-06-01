@@ -20,6 +20,8 @@ class CreateMarcasTable extends Migration
             $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->integer('subCategoria_id')->unsigned()->nullable();
             $table->foreign('subCategoria_id')->references('id')->on('subcategorias');
+            $table->integer('supermarca_id')->unsigned()->nullable();
+            $table->foreign('supermarca_id')->references('id')->on('marcas');
             $table->softDeletes();
             $table->timestamps();
         });

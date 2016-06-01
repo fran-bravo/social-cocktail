@@ -29,6 +29,14 @@
                         <select disabled class="form-control" name="subCategoria_id" id="subCategoria_id">
                         </select>
                     </div>
+                    <div class="form-group has-feedback">
+                        <select class="form-control" name="supermarca_id" id="supermarca_id">
+                            <option selected disabled value="" >Seleccione una Super Marca</option>
+                            @foreach($marcas as $marca)
+                                <option value="{{$marca->id}}">{{$marca->nombre}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="form-group">
                         <textarea name="descripcion" class="form-control" rows="3" placeholder="Descripcion">{{Input::old('descripcion')}}</textarea>
                     </div>

@@ -16,8 +16,23 @@
                     <div class="form-group">
                         <textarea  name="descripcion" class="form-control" rows="10" placeholder="Descripcion">{{$marca->descripcion}}</textarea>
                     </div>
+                    <div class="form-group has-feedback">
+                        <select class="form-control" name="supermarca_id" id="supermarca_id">
+                            <option selected disabled value="" >Seleccione una Super Marca</option>
+                            @foreach($marcas as $marcas)
+                                @if($marca->superMarca==$marcas)
+                                    <option selected value="{{$marcas->id}}">{{$marcas->nombre}}</option>
+                                @else
+                                    <option value="{{$marcas->id}}">{{$marcas->nombre}}</option>
+                                @endif
+
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
+
                 <!-- /.box-body -->
+
 
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Editar</button>

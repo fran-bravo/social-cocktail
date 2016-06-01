@@ -73,6 +73,9 @@ class CoctelesController extends Controller
 
 
     public function storeByUser(RequestCoctelCreate $request){
+
+        //Validar que no se repitan los ingredientes en el request
+
         $this->saveImage($request);
         $this->genericStore($request);
         return redirect()->route('user.coctel.create');

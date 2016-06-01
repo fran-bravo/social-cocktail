@@ -69,6 +69,18 @@ class AppServiceProvider extends ServiceProvider
 
             return true;
         });
+
+        Validator::extend('unique_ingredient', function($atribute, $value, $parameters){
+            $ingTempo=null;
+            foreach ($value as $ingredient){
+                if ($ingTempo!=null){
+                    if ($ingTempo['marca_id']==$ingredient['marca_id'])
+                        return false;
+                }
+                $ingTempo=$ingredient;
+            }
+            return true;
+        });
     }
 
     private function isEmptyIngredient($ingrediente){

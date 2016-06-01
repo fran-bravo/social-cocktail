@@ -88,6 +88,7 @@ $(document).ready(function () {
     });
 });
 
+
 function enableAddingredient() {
     $("#addIngrediente").removeAttr("disabled");
 }

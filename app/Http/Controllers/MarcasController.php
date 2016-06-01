@@ -37,9 +37,10 @@ class MarcasController extends Controller
      */
     public function create()
     {
+        $marcas=MarcaDAO::all();
         $categorias=CategoriaDAO::all();
         $subCategorias=SubCategoriaDAO::all();
-        return view('plantillas.admin.marcas.create')->with(['categorias'=>$categorias,'subCategorias'=>$subCategorias]);
+        return view('plantillas.admin.marcas.create')->with(['categorias'=>$categorias,'subCategorias'=>$subCategorias,'marcas'=>$marcas]);
     }
 
     /**
@@ -111,8 +112,9 @@ class MarcasController extends Controller
     }
 
     public function editDescripcion($id){
+        $marcas=MarcaDAO::all();
         $marca=MarcaDAO::findById($id);
-        return view('plantillas.admin.marcas.editDescripcion')->with('marca',$marca);
+        return view('plantillas.admin.marcas.editDescripcion')->with(['marca'=>$marca,'marcas'=>$marcas]);
     }
 
     public function updateDescripcion(Request $request, $id){
