@@ -24,7 +24,7 @@ class SubCategoriaRequest extends Request
     public function rules()
     {
         return [
-            'nombre'=>'unique:subCategorias|unique:categorias|max:50|required',
+            'nombre'=>'unique:categorias|max:50|required',
             'categoria_id'=>'exist_categoria|required',
             'tipo'=>'required',
         ];

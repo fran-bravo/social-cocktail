@@ -16,7 +16,7 @@ class CreateCristalesTable extends Migration
             $table->increments('id');
             $table->string('nombre',50);
             $table->double('capacidad');
-            $table->string('descripcion');
+            $table->text('descripcion');
             $table->timestamps();
         });
     }

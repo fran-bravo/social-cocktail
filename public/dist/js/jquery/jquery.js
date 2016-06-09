@@ -86,8 +86,73 @@ $(document).ready(function () {
 
 
     });
+
+    $("#formCreateCoctel").submit(function (e) {
+        var action=$("#formCreateCoctel").attr("action");
+        e.preventDefault();
+        e.stopPropagation();
+        $.ajax({
+            url: action,
+            method: "POST",
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: function (res) {
+                alert("Bien");
+
+                //$("#formCreateCoctel").reset();
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+
+            }
+        });
+    });
+
+    $("#nombre").focusin(function () {
+        $("#nombre").parent().removeClass("has-error");
+        $("#messageNombre").empty();
+    });
+
+    $("#crearCoctel").click(function () {
+        var nombre=$("#nombre").val();
+        if (validateNombre()){
+            isNombreUsed(nombre);
+            return true;
+        }else {
+            return false;
+        }
+
+    });
 });
 
+function validateNombre() {
+    var nombre=$("#nombre").val();
+    if (nombre==""){
+        $("#nombre").parent().addClass("has-error");
+        $("#messageNombre").empty();
+        $("#messageNombre").append("Campo requerido");
+        //$("#nombre").parent().prepend('<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> Input with error</label>');
+        return false;
+    }
+    if (nombre.length>40){
+        //Limpiar los mensajes para que no se acumulen, y que cuando haga foco se salga la clase error
+        $("#nombre").parent().addClass("has-error");
+        $("#messageNombre").empty();
+        $("#messageNombre").append("Longitud máxima 40 caracteres");
+        return false;
+    }
+
+    return true;
+}
+
+function isNombreUsed(nombre) {
+ var ruta="validate/nombreCoctel/"+nombre;
+    $.get(ruta, function (response) {
+            alert(response);
+            $("#load").empty();
+        }
+        //, "json"
+    );
+}
 
 function enableAddingredient() {
     $("#addIngrediente").removeAttr("disabled");

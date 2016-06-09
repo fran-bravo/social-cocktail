@@ -3,18 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="f413455c-9be9-4307-ba17-743cc8e8bf0a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Categoria.php" afterPath="$PROJECT_DIR$/app/Categoria.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CoctelesController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CoctelesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/MarcasController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/MarcasController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Derivador.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Derivador.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Src/Utiles/Utiles.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Src/Utiles/Utiles.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/CategoriasRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/CategoriasRequest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/MarcasRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/MarcasRequest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/RequestCoctelCreate.php" afterPath="$PROJECT_DIR$/app/Http/Requests/RequestCoctelCreate.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Marca.php" afterPath="$PROJECT_DIR$/app/Marca.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/SubCategoriaRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/SubCategoriaRequest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/f2016_04_02_181750_create_marcas_table.php" afterPath="$PROJECT_DIR$/database/migrations/f2016_04_02_181750_create_marcas_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/d2016_04_02_171952_create_cristales_table.php" afterPath="$PROJECT_DIR$/database/migrations/d2016_04_02_171952_create_cristales_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/e2016_04_02_181858_create_categorias_table.php" afterPath="$PROJECT_DIR$/database/migrations/e2016_04_02_181858_create_categorias_table.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/jquery/jquery.js" afterPath="$PROJECT_DIR$/public/dist/js/jquery/jquery.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/plantillas/admin/marcas/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/plantillas/admin/marcas/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/plantillas/admin/marcas/editDescripcion.blade.php" afterPath="$PROJECT_DIR$/resources/views/plantillas/admin/marcas/editDescripcion.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/plantillas/admin/marcas/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/plantillas/admin/marcas/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/plantillas/admin/categorias/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/plantillas/admin/categorias/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/plantillas/user/registrarCoctel.blade.php" afterPath="$PROJECT_DIR$/resources/views/plantillas/user/registrarCoctel.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/plantillas/user/sections/sidebarUser.blade.php" afterPath="$PROJECT_DIR$/resources/views/plantillas/user/sections/sidebarUser.blade.php" />
     </list>
     <ignored path="social-cocktail.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,9 +44,11 @@
       <file leaf-file-name="jquery.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/dist/js/jquery/jquery.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="947">
-              <caret line="107" column="9" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
+            <state relative-caret-position="495">
+              <caret line="149" column="25" selection-start-line="149" selection-start-column="25" selection-end-line="149" selection-end-column="25" />
               <folding>
+                <element signature="e#1012#2400#0" expanded="false" />
+                <element signature="n#!!block;n#validateNombre#0" expanded="false" />
                 <element signature="n#!!block;n#enableAddingredient#0" expanded="false" />
                 <element signature="n#!!block;n#disableAddIngredient#0" expanded="false" />
                 <element signature="n#!!block;n#messageErrorIngredients#0" expanded="false" />
@@ -68,6 +75,7 @@
                 <element signature="n#!!block;n#getValuesIngrediente#0" expanded="false" />
                 <element signature="n#!!block;n#getTipoIngredienteBySubCategoria#0" expanded="false" />
                 <element signature="n#!!block;n#setTipoIngredienteBySubCategoria#0" expanded="false" />
+                <element signature="n#!!block;n#setMarcasBySubCategoria#0" expanded="false" />
                 <element signature="n#!!block;n#getSubCategoriasByCategoria#0" expanded="false" />
                 <element signature="n#!!block;n#getMarcasBySubCategoria#0" expanded="false" />
                 <element signature="n#!!block;n#disabledSelectors#0" expanded="false" />
@@ -85,10 +93,82 @@
                 <element signature="n#!!block;n#defaultElementById#0" expanded="false" />
                 <element signature="n#!!block;n#disableCategoria#0" expanded="false" />
                 <element signature="n#!!block;n#defaultSelectors#0" expanded="false" />
-                <marker date="1464805728000" expanded="true" signature="4928:6049" placeholder="..." />
-                <marker date="1464805728000" expanded="true" signature="4946:5103" placeholder="..." />
-                <marker date="1464805728000" expanded="true" signature="5882:6030" placeholder="..." />
+                <marker date="1465495746000" expanded="true" signature="6798:7919" placeholder="..." />
+                <marker date="1465495746000" expanded="true" signature="6816:6973" placeholder="..." />
+                <marker date="1465495746000" expanded="true" signature="7752:7900" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bebidasConAlcohol.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/plantillas/user/bebidasConAlcohol.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="22" column="35" selection-start-line="0" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cristaleria.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/plantillas/user/cristaleria.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="d2016_04_02_171952_create_cristales_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/d2016_04_02_171952_create_cristales_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sidebarUser.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/plantillas/user/sections/sidebarUser.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="coctel.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/plantillas/user/coctel.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1191">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="32" column="48" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+              <folding>
+                <element signature="e#343#764#0#PHP" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Derivador.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Derivador.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,34 +176,19 @@
       <file leaf-file-name="CoctelesController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CoctelesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="74" column="42" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
+            <state relative-caret-position="534">
+              <caret line="177" column="23" selection-start-line="177" selection-start-column="23" selection-end-line="177" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RequestCoctelCreate.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Requests/RequestCoctelCreate.php">
+      <file leaf-file-name="registrarCoctel.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/plantillas/user/registrarCoctel.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="66" selection-start-line="33" selection-start-column="66" selection-end-line="33" selection-end-column="66" />
+            <state relative-caret-position="-1296">
+              <caret line="23" column="166" selection-start-line="23" selection-start-column="166" selection-end-line="23" selection-end-column="166" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppServiceProvider.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="73" column="27" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
-              <folding>
-                <element signature="e#2687#2854#0#PHP" expanded="false" />
-                <element signature="e#2860#3286#0#PHP" expanded="false" />
-                <element signature="e#3292#3651#0#PHP" expanded="false" />
-                <element signature="e#3657#3772#0#PHP" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -144,20 +209,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2016_05_19_173138_create_tiposcoctel_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2016_05_19_182321_create_tipos_coctel_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/RequestTipoCoctelCreate.php" />
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/resources/views/plantillas/admin/tiposCoctel/edit.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/RequestTiposCoctelCambiarNombre.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/RequestCoctelCambiarNombre.php" />
-        <option value="$PROJECT_DIR$/resources/views/plantillas/admin/tiposCoctel/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/plantillas/admin/tiposCoctel/editDescripcion.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/RequestTiposCotelCambiarDescripcion.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/TiposCoctelesController.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/cocteles/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/cocteles/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/plantillas/user/sections/sidebarUser.blade.php" />
         <option value="$PROJECT_DIR$/config/filesystems.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/marcas/editCategoria.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/user/recetas.blade.php" />
@@ -165,14 +218,12 @@
         <option value="$PROJECT_DIR$/database/migrations/ea2016_04_02_182315_create_subcategorias_table.php" />
         <option value="$PROJECT_DIR$/app/SubCategoria.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/subCategorias/create.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/SubCategoriaRequest.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/subCategorias/subCategorias.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/SubCategoriasController.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/subCategorias/editCategoria.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/marcas/editSubCategoria.blade.php" />
         <option value="$PROJECT_DIR$/public/dist/css/sct.css" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/IngredientesController.php" />
-        <option value="$PROJECT_DIR$/resources/views/plantillas/user/registrarCoctel.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/h2016_04_02_182844_create_ingredientes_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/i2016_04_02_193202_create_cocteles_table.php" />
         <option value="$PROJECT_DIR$/app/Coctel.php" />
@@ -180,21 +231,35 @@
         <option value="$PROJECT_DIR$/app/Ingrediente.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Src/DAO/IngredienteDAO.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Src/DAO/CoctelDAO.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Derivador.php" />
         <option value="$PROJECT_DIR$/resources/views/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Src/Utiles/Utiles.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CoctelesController.php" />
-        <option value="$PROJECT_DIR$/public/dist/js/jquery/jquery.js" />
         <option value="$PROJECT_DIR$/database/migrations/f2016_04_02_181750_create_marcas_table.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/marcas/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Marca.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/marcas/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MarcasController.php" />
         <option value="$PROJECT_DIR$/resources/views/plantillas/admin/marcas/editDescripcion.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/e2016_04_02_181858_create_categorias_table.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CategoriasController.php" />
+        <option value="$PROJECT_DIR$/resources/views/plantillas/admin/categorias/create.blade.php" />
+        <option value="$PROJECT_DIR$/app/Categoria.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Src/DAO/CategoriaDAO.php" />
         <option value="$PROJECT_DIR$/resources/lang/en/validation.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/RequestCoctelCreate.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/CategoriasRequest.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/SubCategoriaRequest.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/MarcasRequest.php" />
         <option value="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Src/Utiles/Utiles.php" />
+        <option value="$PROJECT_DIR$/resources/views/plantillas/user/coctel.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/plantillas/user/registrarCoctel.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CoctelesController.php" />
+        <option value="$PROJECT_DIR$/public/dist/js/jquery/jquery.js" />
+        <option value="$PROJECT_DIR$/resources/views/plantillas/user/bebidasConAlcohol.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Derivador.php" />
+        <option value="$PROJECT_DIR$/resources/views/plantillas/user/sections/sidebarUser.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/d2016_04_02_171952_create_cristales_table.php" />
+        <option value="$PROJECT_DIR$/resources/views/plantillas/user/cristaleria.blade.php" />
       </list>
     </option>
   </component>
@@ -241,8 +306,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -541,7 +604,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="marcas" />
+              <option name="myItemId" value="categorias" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -632,6 +695,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="imagenes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cocteles" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -925,6 +992,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1008,12 +1077,13 @@
       <workItem from="1463071354696" duration="18799000" />
       <workItem from="1463407356678" duration="55623000" />
       <workItem from="1464017456266" duration="49053000" />
-      <workItem from="1464565839226" duration="15064000" />
+      <workItem from="1464565839226" duration="41569000" />
+      <workItem from="1465495039063" duration="4228000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="292873000" />
+    <option name="totallyTimeSpent" value="323606000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1030,14 +1100,14 @@
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23263328" sideWeight="0.86079544" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2358643" sideWeight="0.8512748" order="2" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23263328" sideWeight="0.13920455" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2358643" sideWeight="0.14872521" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1063,100 +1133,22 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/public/dist/js/jquery/jquery.js</url>
+          <line>41</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/composer.lock">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14670">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/storage/app/test" />
-    <entry file="file://$PROJECT_DIR$/storage/app/tragotequilasunrise.jpg" />
-    <entry file="file://$PROJECT_DIR$/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/storage/app/imagenes/cocteles/Cortes.jpg" />
-    <entry file="file://$PROJECT_DIR$/config/filesystems.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/user/recetas.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="55" column="67" selection-start-line="55" selection-start-column="67" selection-end-line="55" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Src/DAO/SubCategoriaDAO.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/ea2016_04_02_182315_create_subcategorias_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/SubCategoria.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/SubCategoriaRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/admin/subCategorias/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="41" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/admin/subCategorias/subCategorias.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="47" column="63" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/storage/framework/views/32a269461a78136c9b51a341a7ed5729d4ca3557.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/plantillas/admin/subCategorias/editCategoria.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="17" column="63" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1171,14 +1163,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SubCategoriasController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="114" column="46" selection-start-line="114" selection-start-column="46" selection-end-line="114" selection-end-column="46" />
           <folding />
         </state>
       </provider>
@@ -1201,7 +1185,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="9255" column="4" selection-start-line="9255" selection-start-column="4" selection-end-line="9255" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1209,7 +1192,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="49" column="14" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1217,7 +1199,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="67">
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1225,7 +1206,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="519">
           <caret line="87" column="22" selection-start-line="87" selection-start-column="22" selection-end-line="87" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1241,23 +1221,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/user/registrarCoctel.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-53">
-          <caret line="84" column="35" selection-start-line="84" selection-start-column="35" selection-end-line="84" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Src/DAO/CategoriaDAO.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1265,15 +1228,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
           <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Coctel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1281,7 +1235,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1289,63 +1242,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="22" column="59" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Src/Utiles/Utiles.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
-          <folding>
-            <marker date="1464724950000" expanded="true" signature="762:4004" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="815:1683" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="857:1459" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="963:1042" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="1093:1433" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="1725:3946" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="1828:3883" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="1870:3357" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="1940:2781" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="1997:2085" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="1997:2086" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="1997:2152" placeholder="..." />
-            <marker date="1464724950000" expanded="false" signature="2058:2084" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="2209:2746" placeholder="..." />
-            <marker date="1464724950000" expanded="false" signature="2258:2305" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="2306:2366" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="2306:2471" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="2306:2553" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="2306:2635" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="2306:2636" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="2306:2707" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="2860:3326" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="2921:3291" placeholder="..." />
-            <marker date="1464724950000" expanded="false" signature="2975:2987" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="2988:3250" placeholder="..." />
-            <marker date="1464724950000" expanded="false" signature="3068:3081" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="3399:3856" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="3451:3825" placeholder="..." />
-            <marker date="1464724950000" expanded="true" signature="3508:3790" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Derivador.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
-          <folding>
-            <element signature="e#299#720#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1361,15 +1257,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="64" column="23" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/MarcasRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1377,7 +1264,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="3" column="45" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1385,7 +1271,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
           <caret line="40" column="51" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1393,15 +1278,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/admin/marcas/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="38" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1409,7 +1285,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1417,23 +1292,212 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/admin/marcas/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="38" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/e2016_04_02_181858_create_categorias_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/admin/categorias/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Src/DAO/CategoriaDAO.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Categoria.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/en/auth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/en/validation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="55" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/RequestCoctelCreate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/CategoriasRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/SubCategoriaRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/MarcasRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MarcasController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="118" column="0" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+        <state relative-caret-position="180">
+          <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SubCategoriasController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="43" column="35" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CategoriasController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="42" column="36" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/user/coctel.blade.pho.php" />
+    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/user/cocteles.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="46" selection-start-line="0" selection-start-column="0" selection-end-line="70" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Coctel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Src/Utiles/Utiles.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="74" column="70" selection-start-line="74" selection-start-column="70" selection-end-line="74" selection-end-column="70" />
+          <folding>
+            <marker date="1465238984000" expanded="true" signature="897:4123" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="950:1818" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="992:1594" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="1098:1177" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="1228:1568" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="1860:4065" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="1963:3512" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="1963:4002" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="2005:3476" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="2005:3512" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="2075:2948" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="2132:2178" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="2132:2179" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="2132:2252" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="2132:2253" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="2132:2319" placeholder="..." />
+            <marker date="1465238984000" expanded="false" signature="2225:2251" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="2376:2913" placeholder="..." />
+            <marker date="1465238984000" expanded="false" signature="2425:2472" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="2473:2533" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="2473:2638" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="2473:2720" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="2473:2802" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="2473:2803" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="2473:2874" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="3027:3445" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="3100:3410" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="3154:3166" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="3167:3280" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="3167:3281" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="3167:3369" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="3247:3260" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="3518:3975" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="3570:3944" placeholder="..." />
+            <marker date="1465238984000" expanded="true" signature="3627:3909" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1125">
+          <caret line="81" column="75" selection-start-line="81" selection-start-column="75" selection-end-line="81" selection-end-column="75" />
+          <folding>
+            <element signature="e#4826#4993#0#PHP" expanded="false" />
+            <element signature="e#4999#5425#0#PHP" expanded="false" />
+            <element signature="e#5431#5790#0#PHP" expanded="false" />
+            <element signature="e#5796#5911#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/user/registrarCoctel.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1296">
+          <caret line="23" column="166" selection-start-line="23" selection-start-column="166" selection-end-line="23" selection-end-column="166" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CoctelesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="177" column="23" selection-start-line="177" selection-start-column="23" selection-end-line="177" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/dist/js/jquery/jquery.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="947">
-          <caret line="107" column="9" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
+        <state relative-caret-position="495">
+          <caret line="149" column="25" selection-start-line="149" selection-start-column="25" selection-end-line="149" selection-end-column="25" />
           <folding>
+            <element signature="e#1012#2400#0" expanded="false" />
+            <element signature="n#!!block;n#validateNombre#0" expanded="false" />
             <element signature="n#!!block;n#enableAddingredient#0" expanded="false" />
             <element signature="n#!!block;n#disableAddIngredient#0" expanded="false" />
             <element signature="n#!!block;n#messageErrorIngredients#0" expanded="false" />
@@ -1460,6 +1524,7 @@
             <element signature="n#!!block;n#getValuesIngrediente#0" expanded="false" />
             <element signature="n#!!block;n#getTipoIngredienteBySubCategoria#0" expanded="false" />
             <element signature="n#!!block;n#setTipoIngredienteBySubCategoria#0" expanded="false" />
+            <element signature="n#!!block;n#setMarcasBySubCategoria#0" expanded="false" />
             <element signature="n#!!block;n#getSubCategoriasByCategoria#0" expanded="false" />
             <element signature="n#!!block;n#getMarcasBySubCategoria#0" expanded="false" />
             <element signature="n#!!block;n#disabledSelectors#0" expanded="false" />
@@ -1477,55 +1542,68 @@
             <element signature="n#!!block;n#defaultElementById#0" expanded="false" />
             <element signature="n#!!block;n#disableCategoria#0" expanded="false" />
             <element signature="n#!!block;n#defaultSelectors#0" expanded="false" />
-            <marker date="1464805728000" expanded="true" signature="4928:6049" placeholder="..." />
-            <marker date="1464805728000" expanded="true" signature="4946:5103" placeholder="..." />
-            <marker date="1464805728000" expanded="true" signature="5882:6030" placeholder="..." />
+            <marker date="1465495746000" expanded="true" signature="6798:7919" placeholder="..." />
+            <marker date="1465495746000" expanded="true" signature="6816:6973" placeholder="..." />
+            <marker date="1465495746000" expanded="true" signature="7752:7900" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/en/auth.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/user/coctel.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="-1191">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/en/validation.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/user/bebidasConAlcohol.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+        <state relative-caret-position="204">
+          <caret line="22" column="35" selection-start-line="0" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CoctelesController.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="74" column="42" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/RequestCoctelCreate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="66" selection-start-line="33" selection-start-column="66" selection-end-line="33" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="73" column="27" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
+        <state relative-caret-position="225">
+          <caret line="32" column="48" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
           <folding>
-            <element signature="e#2687#2854#0#PHP" expanded="false" />
-            <element signature="e#2860#3286#0#PHP" expanded="false" />
-            <element signature="e#3292#3651#0#PHP" expanded="false" />
-            <element signature="e#3657#3772#0#PHP" expanded="false" />
+            <element signature="e#343#764#0#PHP" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Derivador.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/user/sections/sidebarUser.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/d2016_04_02_171952_create_cristales_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/plantillas/user/cristaleria.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>

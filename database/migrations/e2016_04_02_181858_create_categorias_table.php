@@ -16,6 +16,7 @@ class CreateCategoriasTable extends Migration
             $table->increments('id');
             $table->string('nombre',50);
             $table->text('descripcion')->nullable();
+            $table->boolean('comparable');
             $table->timestamps();
         });
     }

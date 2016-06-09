@@ -3,6 +3,7 @@
 namespace socialCocktail\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use socialCocktail\Coctel;
 use socialCocktail\Http\Controllers\Src\DAO\MarcaDAO;
 use Validator;
 use socialCocktail\Http\Controllers\Src\DAO\CategoriaDAO;
@@ -74,13 +75,73 @@ class AppServiceProvider extends ServiceProvider
             $ingTempo=null;
             foreach ($value as $ingredient){
                 if ($ingTempo!=null){
-                    if ($ingTempo['marca_id']==$ingredient['marca_id'])
-                        return false;
+                    if ($this->isComparable($ingredient)){
+                        if ($ingredient['categoria_id']==$ingTempo['categoria_id'])
+                            return false;
+                    }else{
+                        if ($ingTempo['subcategoria_id']==$ingredient['subcategoria_id'])
+                            return false;
+                    }
+
                 }
                 $ingTempo=$ingredient;
             }
             return true;
         });
+
+        Validator::extend('unique_coctel',function($atribute, $value, $parameters){
+            $cocteles=Coctel::all();
+            foreach ($cocteles as $coctel){
+                $ingredientesCoctel=$coctel->ingredientes;
+                if ($this->equalsIngredientes($value, $ingredientesCoctel)){
+                    return false;
+                }
+            }
+            return true;
+        });
+    }
+
+    private function equalsIngredientes($ingredientesEntrada,$ingredientesCoctel){
+        $c=0;
+        if (count($ingredientesCoctel)==count($ingredientesEntrada)){
+            foreach ($ingredientesEntrada as $ingEntrada){
+                foreach ($ingredientesCoctel as $ingCoctel){
+                    if ($this->isComparable($ingEntrada)){
+                        if ($ingEntrada['categoria_id']==$ingCoctel->marca->categoria->id){
+                            $c++;
+                        }
+                    }else{
+                        if ($ingEntrada['subcategoria_id']==$ingCoctel->marca->subcategoria->id){
+                            $c++;
+                        }
+                    }
+                }
+            }
+            if ($c==count($ingredientesEntrada)){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+
+    private function getIdMarcaByIngredient($ingrediente){
+        return $ingrediente['marca_id'];
+    }
+
+    private function getIdCategoriaByIngredient($ingrediente){
+        $marca=MarcaDAO::findById($this->getIdMarcaByIngredient($ingrediente));
+        return $marca->categoria->id;
+    }
+
+    private function isComparable($ingrediente){
+        $marca=MarcaDAO::findById($ingrediente['marca_id']);
+        if ($marca->categoria->comparable){
+            return true;
+        }
+        return false;
     }
 
     private function isEmptyIngredient($ingrediente){

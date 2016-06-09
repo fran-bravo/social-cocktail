@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Categoria extends Model
 {
     protected $table='categorias';
-    protected $fillable=['nombre','descripcion',];
+    protected $fillable=['nombre','descripcion','comparable',];
     
     //Devuelve todos los ingredientes que posean esta marca.
     public function ingredientes(){
@@ -19,5 +19,12 @@ class Categoria extends Model
     }
     public function marcas(){
         return $this->hasMany('socialCocktail\Marca');
+    }
+
+    public function isComparable(){
+        if ($this->comparable){
+            return true;
+        }
+        return false;
     }
 }

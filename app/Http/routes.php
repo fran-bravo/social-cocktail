@@ -4,6 +4,9 @@ use socialCocktail\Http\Controllers\Src\DAO\CategoriaDAO;
 use socialCocktail\Http\Controllers\Src\DAO\SubCategoriaDAO;
 use socialCocktail\Http\Controllers\Src\DAO\CristalDAO;
 use socialCocktail\Http\Controllers\Src\DAO\TipoCoctelDAO;
+    Route::get('/test','Derivador@test');
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -17,6 +20,8 @@ use socialCocktail\Http\Controllers\Src\DAO\TipoCoctelDAO;
     */
     Route::get('/','Derivador@index');
 
+    Route::get('/coctel/{id}','CoctelesController@show');
+
     Route::get('/recetas', function () {
         return view('plantillas.user.recetas');
     });
@@ -24,6 +29,9 @@ use socialCocktail\Http\Controllers\Src\DAO\TipoCoctelDAO;
     Route::get('/recetario', function () {
         return view('plantillas.user.recetario');
     });
+
+    Route::get('/bebidasConAlcohol', "Derivador@bebidasConAlcohol");
+    Route::get('/cristaleria', "Derivador@cristaleria");
 
     Route::get('/registrarcoctel',[
         'uses'=>'CoctelesController@createByUser',
@@ -33,6 +41,11 @@ use socialCocktail\Http\Controllers\Src\DAO\TipoCoctelDAO;
     Route::post('user.coctel.storeByUser',[
         'uses'=>'CoctelesController@storeByUser',
         'as'=>'user.coctel.store'
+    ]);
+
+    Route::get('/validate/nombreCoctel/{nombre}',[
+        'uses'=>'CoctelesController@existNombre',
+        'as'=>'validate.nombre.coctel'
     ]);
 
 

@@ -32,6 +32,11 @@ class Utiles
         }else{
             $user=$coctel->usuario->name;
         }
+        if ($coctel->path==null){
+            $imagen='defaultCoctel.jpg';
+        }else{
+            $imagen=$coctel->path;
+        }
         $ret='<div class="nav-tabs-custom">
                 <ul class="nav nav-tabs pull-right">
                     <li class="dropdown">
@@ -55,7 +60,7 @@ class Utiles
                         <div class="row">
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="form-group">
-                                    <a href="#"><h1 style="font-size: 17px;color: red">'.$coctel->nombre.'</h1></a>
+                                    <a href="'.asset('/coctel/'.$coctel->id).'"><h1 style="font-size: 17px;color: red">'.$coctel->nombre.'</h1></a>
                                 </div>
                                 <div class="form-group">
                                     <ul style="list-style:none;margin:0 0 0 0;padding:0 0 0 0;">
@@ -67,9 +72,9 @@ class Utiles
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="form-group">
+                                    <div class="form-group pull-center">
                                         <div style="margin: auto">
-                                            <img class="img-thumbnail" style="margin-top:3%" width="220px" src="http://www.loquenosabias.net/wp-content/uploads/2015/09/coctel-metropolitan-receta-y-preparacion.jpg">
+                                            <img class="img-thumbnail" style="margin-top:3%" width="150px" src="'.asset('/imagenes/cocteles/'.$imagen).'">
                                         </div>
                                   </div>
                             </div>

@@ -4,6 +4,7 @@ namespace socialCocktail\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Session;
 use socialCocktail\Http\Controllers\Src\DAO\CategoriaDAO;
 use socialCocktail\Http\Controllers\Src\DAO\CristalDAO;
 use socialCocktail\Http\Controllers\Src\DAO\MarcaDAO;
@@ -74,12 +75,15 @@ class CoctelesController extends Controller
 
     public function storeByUser(RequestCoctelCreate $request){
 
-        //Validar que no se repitan los ingredientes en el request
+        //Validar que no se repitan los ingredientes en el request(no me acuerdo si lo hice)
+        //Traer los errores de la sesion y enviarlos;
 
         $this->saveImage($request);
         $this->genericStore($request);
+
         return redirect()->route('user.coctel.create');
     }
+
     public function getNameImage(Request $request){
         $imagen=$this->getImageFile($request);
         $nombre=$request['nombre'].'.'.$imagen->getClientOriginalExtension();
@@ -119,7 +123,8 @@ class CoctelesController extends Controller
      */
     public function show($id)
     {
-        //
+        $coctel=CoctelDAO::findById($id);
+        return view('plantillas.user.coctel')->with('coctel',$coctel);
     }
 
     /**
@@ -167,5 +172,9 @@ class CoctelesController extends Controller
         CoctelDAO::delete($id);
         Utiles::flashMessageSuccessDefect();
         return redirect()->route('admin.cocteles.index');
+    }
+
+    public function existNombre($nombre){
+        return $nombre;
     }
 }

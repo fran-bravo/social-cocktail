@@ -12,6 +12,7 @@ return [
     | as the size rules. Feel free to tweak each of these messages here.
     |
     */
+    'unique_coctel'=>'A cocktail with those ingredients already been registered',
     'unique_ingredient'=>'You can not duplicate ingredients',
     'valid_ingredient'=>'The ingredients are invalid',
     'cantidad_ingredietes'=>'You must enter two or more ingredients',

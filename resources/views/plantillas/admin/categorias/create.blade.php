@@ -17,6 +17,12 @@
                         <input value="{{Input::old('nombre')}}" type="text" class="form-control" name="nombre" placeholder="Nombre" required="required" maxlength="40">
                         <span class="glyphicon glyphicon-tags form-control-feedback"></span>
                     </div>
+                    <div class="form-group has-feedback">
+                        <select class="form-control" name="comparable" id="comparable">
+                            <option selected value="0">No</option>
+                            <option value="1">Si</option>
+                        </select>
+                    </div>
                     <div class="form-group">
                     <textarea name="descripcion" class="form-control" rows="3" placeholder="Descripcion">{{Input::old('descripcion')}}</textarea>
                     </div>

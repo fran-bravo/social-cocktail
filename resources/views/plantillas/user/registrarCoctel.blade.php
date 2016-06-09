@@ -16,13 +16,14 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                {!! Form::open(['route'=> 'user.coctel.store','method'=>'POST', 'files'=>true]) !!}
+                {!! Form::open(['route'=> 'user.coctel.store','method'=>'POST', 'files'=>true, 'id'=>'formCreateCoctel']) !!}
                 <div class="box-body">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group has-feedback">
-                                <input id="nombre" value="{{Input::old('nombre')}}" type="text" class="form-control" name="nombre" placeholder="Nombre" required="required" maxlength="40">
+                                <input id="nombre" value="{{Input::old('nombre')}}" type="text" class="form-control" name="nombre" placeholder="Nombre" maxlength="40">
                                 <span class="glyphicon glyphicon-glass form-control-feedback"></span>
+                                <span id="messageNombre" class="help-block"></span>
                             </div>
                             <div class="form-group has-feedback">
                                 <select name="metodo" class="form-control">
@@ -135,7 +136,7 @@
                     <!-- /.box-body -->
                     <div class="col-md-offset-5 col-sm-offset-5 col-xs-offset-5">
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">Crear</button>
+                            <button id="crearCoctel" type="submit" class="btn btn-primary">Crear</button>
                         </div>
                     </div>
 
