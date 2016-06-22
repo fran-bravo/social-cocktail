@@ -17,7 +17,9 @@ class Derivador extends Controller
     }
 
     public function test(){
-        echo "hola";
+        $coctel=CoctelDAO::findByName("Primero");
+        dd(count($coctel));
+
     }
 
     public function bebidasConAlcohol(){
@@ -27,5 +29,13 @@ class Derivador extends Controller
     public function cristaleria(){
         $cristales=CristalDAO::all();
         return view("plantillas.user.cristaleria")->with("cristales",$cristales);
+    }
+
+    public function registro(){
+        return view('plantillas.user.registro');
+    }
+
+    public function login(){
+        return view('plantillas.user.login');
     }
 }

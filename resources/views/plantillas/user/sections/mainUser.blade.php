@@ -4,7 +4,12 @@
 @section('titleComplement', 'Hola')
 
 @section('content')
-    @include('plantillas.templatesSections.header')
+    @if(\Illuminate\Support\Facades\Auth::check())
+        @include('plantillas.templatesSections.header')
+    @else
+        @include('plantillas.templatesSections.headerGuest')
+    @endif
+
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">

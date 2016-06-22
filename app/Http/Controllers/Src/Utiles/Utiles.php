@@ -29,8 +29,10 @@ class Utiles
 
         if ($coctel->usuario == null){
             $user='Cocteleria Clásica';
+            $user='<li><b>Autor: </b>'.$user.'</li></a>';
         }else{
-            $user=$coctel->usuario->name;
+            $user=$coctel->usuario->name.' '.$coctel->usuario->lastName;
+            $user="<li><b>Autor: </b><a href='".asset('/usuario/'.$coctel->usuario_id)."'>$user</a></li>";
         }
         if ($coctel->path==null){
             $imagen='defaultCoctel.jpg';
@@ -64,7 +66,7 @@ class Utiles
                                 </div>
                                 <div class="form-group">
                                     <ul style="list-style:none;margin:0 0 0 0;padding:0 0 0 0;">
-                                        <li><b>Autor: </b>'.$user.'</li>
+                                        '.$user.' 
                                         <li><b>Cristalería: </b>'.$coctel->cristal->nombre.'</li>
                                         <li><b>Método de preparación: </b>'.$coctel->metodo.'</li>
                                         <li><b>Tipo: </b> '.$coctel->tipo->nombre.'</li>

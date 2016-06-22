@@ -9,6 +9,7 @@
 namespace socialCocktail\Http\Controllers\Src\DAO;
 
 
+use Illuminate\Support\Facades\Hash;
 use socialCocktail\Http\Controllers\Src\Utiles\DAO;
 use socialCocktail\User;
 
@@ -20,7 +21,7 @@ class UserDAO implements DAO
 
     public static function create($request){
         $user=User::create($request);
-        $user->password=bcrypt($user->password);
+        $user->password=Hash::make($request['password']);
         $user->save();
     }
 

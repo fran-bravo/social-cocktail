@@ -2,11 +2,16 @@
 
 namespace socialCocktail\Http\Controllers\Auth;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Input;
+use socialCocktail\Http\Controllers\Src\Utiles\Utiles;
 use socialCocktail\User;
 use Validator;
 use socialCocktail\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -69,4 +74,31 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('user.index');
+    }
+
+    public function getLogin(){
+        return view('plantillas.user.login');
+    }
+
+    public function postLogin(Request $request){
+        if (Auth::attempt(['email' => $request['email'], 'password' => $request['password']]))
+        {
+            if ($request->ajax()){
+                return "1";
+            }
+            return redirect()->route('user.index');
+        }
+        else{
+            if ($request->ajax()){
+                return "0";
+            }
+            Utiles::flashMessageError("Error al ingresar email/contraseña");
+            return redirect()->route('user.login');
+        }
+    }
+
 }

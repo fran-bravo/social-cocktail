@@ -46,7 +46,7 @@
                         @if($coctel->usuario == null)
                             <td>Clásico</td>
                         @else
-                        <td>{{$coctel->usuario}}</td>
+                        <td>{{$coctel->usuario->name}} {{$coctel->usuario->lastName}}</td>
                         @endif
                         <td>{{$coctel->tipo->nombre}}</td>
                         <td>

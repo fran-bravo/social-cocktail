@@ -4,6 +4,7 @@ namespace socialCocktail\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use socialCocktail\Http\Controllers\Src\DAO\CategoriaDAO;
 use socialCocktail\Http\Controllers\Src\DAO\CristalDAO;
@@ -74,14 +75,20 @@ class CoctelesController extends Controller
 
 
     public function storeByUser(RequestCoctelCreate $request){
-
-        //Validar que no se repitan los ingredientes en el request(no me acuerdo si lo hice)
-        //Traer los errores de la sesion y enviarlos;
-
+        $request['usuario_id']=Auth::user()->id;
         $this->saveImage($request);
         $this->genericStore($request);
 
+        if ($request->ajax()){
+            return response()->json("¡Cóctel registrado exitosamente!");
+        }
         return redirect()->route('user.coctel.create');
+    }
+
+    public function genericStore(Request $request){
+        $this->setPathImage($request);
+        CoctelDAO::create($request->all());
+        Utiles::flashMessageSuccessDefect();
     }
 
     public function getNameImage(Request $request){
@@ -102,12 +109,6 @@ class CoctelesController extends Controller
 
     public function getImageFile(Request $request){
         return $request->file('imagen');
-    }
-
-    public function genericStore(Request $request){
-        $this->setPathImage($request);
-        CoctelDAO::create($request->all());
-        Utiles::flashMessageSuccessDefect();
     }
 
     public function setPathImage(Request $request){
@@ -175,6 +176,8 @@ class CoctelesController extends Controller
     }
 
     public function existNombre($nombre){
-        return $nombre;
+        $coctel=CoctelDAO::findByName($nombre);
+        
+        return response()->json(count($coctel));
     }
 }

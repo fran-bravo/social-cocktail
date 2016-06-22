@@ -26,7 +26,7 @@
                                 </div>
                             </div>
                             <div class="item">
-                                <img src="http://almeriatrabaja.com/wp-content/uploads/2016/05/trucos.jpg" alt="Second slide">
+                                <img src="https://k46.kn3.net/taringa/F/B/8/C/4/F/Zagux/F67.jpg" alt="Second slide">
 
                                 <div class="carousel-caption">
                                     Second Slide

@@ -40,4 +40,9 @@ class CoctelDAO
     public static function count(){
         return Coctel::count();
     }
+
+    public static function findByName($nombre){
+        $coctel=Coctel::where('nombre',$nombre)->get();
+        return $coctel;
+    }
 }

@@ -24,7 +24,7 @@ class CreateCoctelesTable extends Migration
             $table->string('nombre',50);
             $table->string('historia', 500)->nullable();
             $table->string('metodo',50);
-            $table->string('preparacion', 500);
+            $table->text('preparacion');
             $table->string('path',100)->nullable();
             $table->softDeletes();
             //FK a la tabla cristales
@@ -38,26 +38,6 @@ class CreateCoctelesTable extends Migration
 
             $table->timestamps();
         });
-
-
-
-        //Tabla pivot relacion Contel e Ingrediente (many to many)
-       /*
-        Schema::create('coctel_ingrediente', function(Blueprint $table){
-            $table->increments('id');
-            //PKs a las tablas cocteles e ingredientes
-            $table->integer('coctel_id')->unsigned();
-            $table->integer('ingrediente_id')->unsigned();
-            //Referencias a las tablas
-            $table->foreign('coctel_id')->references('id')->on('cocteles');
-            $table->foreign('ingrediente_id')->references('id')->on('ingredientes');
-            //
-            $table->double('cantidad');
-            $table->timestamps();
-       });
-       */
-
-        
     }
 
     /**

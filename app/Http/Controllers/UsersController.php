@@ -43,11 +43,22 @@ class UsersController extends Controller
      */
     public function store(UserRequest $request)
     {
-        UserDAO::create($request->all());
+        $this->genericStore($request);
         Utiles::flashMessageSuccessDefect();
         return redirect('admin/users/create');
     }
 
+    public function storeByUser(UserRequest $request){
+        $this->genericStore($request);
+        if ($request->ajax()){
+            return response()->json("¡Usuario registrado exitosamente!");
+        }
+        return redirect('/');
+    }
+
+    public function genericStore(UserRequest $request){
+        UserDAO::create($request->all());
+    }
     /**
      * Display the specified resource.
      *
@@ -56,7 +67,8 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        $user=UserDAO::findById($id);
+        return view('plantillas.user.user')->with("user",$user);
     }
 
     /**
@@ -126,5 +138,9 @@ class UsersController extends Controller
         UserDAO::delete($id);
         Utiles::flashMessageSuccessDefect();
         return redirect('admin/users');
+    }
+
+    public function autenticacion(){
+
     }
 }

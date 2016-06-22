@@ -3,6 +3,7 @@
 namespace socialCocktail\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use socialCocktail\Http\Middleware\AdminMiddleware;
 
 class Kernel extends HttpKernel
 {
@@ -48,5 +49,7 @@ class Kernel extends HttpKernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \socialCocktail\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        //Personal Middleware
+        'is_admin'=>\socialCocktail\Http\Middleware\AdminMiddleware::class,
     ];
 }

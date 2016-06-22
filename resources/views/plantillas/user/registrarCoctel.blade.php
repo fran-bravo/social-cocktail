@@ -23,10 +23,10 @@
                             <div class="form-group has-feedback">
                                 <input id="nombre" value="{{Input::old('nombre')}}" type="text" class="form-control" name="nombre" placeholder="Nombre" maxlength="40">
                                 <span class="glyphicon glyphicon-glass form-control-feedback"></span>
-                                <span id="messageNombre" class="help-block"></span>
+                                <span name="message" id="messageNombre" class="help-block"></span>
                             </div>
                             <div class="form-group has-feedback">
-                                <select name="metodo" class="form-control">
+                                <select id="metodo" name="metodo" class="form-control">
                                     <option disabled selected value="">Método de preparación</option>
                                     <option value="Batido">Batido</option>
                                     <option value="Directo">Directo</option>
@@ -35,24 +35,27 @@
                                     <option value="Licuado">Licuado</option>
                                     <option value="Refrescado">Refrescado</option>
                                 </select>
+                                <span name="message" id="messageMetodo" class="help-block"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group has-feedback">
-                                <select name="tipococtel_id" class="form-control">
+                                <select id="tipoCoctel" name="tipococtel_id" class="form-control">
                                     <option disabled selected value="">Tipo de coctel</option>
                                     @foreach($tipos as $tipo)
                                             <option value="{{$tipo->id}}">{{$tipo->nombre}}</option>
                                     @endforeach
                                 </select>
+                                <span name="message" id="messageTipo" class="help-block"></span>
                             </div>
                             <div class="form-group has-feedback">
-                                <select name="cristal_id" class="form-control">
+                                <select id="cristal" name="cristal_id" class="form-control">
                                     <option disabled selected value="">Cristalería</option>
                                     @foreach($cristaleria as $cristal)
                                         <option value="{{$cristal->id}}">{{$cristal->nombre}}</option>
                                     @endforeach
                                 </select>
+                                <span name="message" id="messageCristal" class="help-block"></span>
                             </div>
                         </div>
                     </div>
@@ -60,10 +63,12 @@
 
 
                     <div class="form-group">
-                        <textarea name="preparacion" class="form-control" rows="3" placeholder="Explique detalladamente como preparar su coctel...">{{Input::old('preparacion')}}</textarea>
+                        <textarea id="preparacion" name="preparacion" class="form-control" rows="3" placeholder="Explique detalladamente como preparar su coctel...">{{Input::old('preparacion')}}</textarea>
+                        <span name="message" id="messagePreparacion" class="help-block"></span>
                     </div>
                     <div class="form-group">
-                        <textarea name="historia" class="form-control" rows="3" placeholder="Cuéntenos en que se inspiró o que lo llevo a crear este coctel... ">{{Input::old('historia')}}</textarea>
+                        <textarea id="historia" name="historia" class="form-control" rows="3" placeholder="Cuéntenos en que se inspiró o que lo llevo a crear este coctel... ">{{Input::old('historia')}}</textarea>
+                        <span name="message" id="messageHistoria" class="help-block"></span>
                     </div>
                     <div class="form-group">
                         <h4>Ingrese una foto de su coctel</h4>
@@ -130,8 +135,12 @@
                             </tbody>
                         </table>
                     </div>
-                    <div id="messageIngredients" class="form-group">
+                    <div  id="messageIngredients" class="form-group">
 
+                    </div>
+                    <div class="form-group">
+                        <div id="ingredientes"></div>
+                        <span name="message" class="help-block"></span>
                     </div>
                     <!-- /.box-body -->
                     <div class="col-md-offset-5 col-sm-offset-5 col-xs-offset-5">

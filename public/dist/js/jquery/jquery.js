@@ -1,8 +1,14 @@
 $(document).ready(function () {
 
+    var pathname = window.location.pathname;
+
+    if (pathname=="/registro" || pathname=="/login"){
+        $("#body").removeClass("skin-red sidebar-mini");
+        $("#body").addClass("hold-transition register-page");
+    }
+
     var cantIngredientes=0;
     var count=0;
-
 
     $("#marca_id").change(function () {
         emptyMessagesErrorIngredients();
@@ -87,8 +93,70 @@ $(document).ready(function () {
 
     });
 
+    $("#loginForm").submit(function (e) {
+
+        var action=$(this).attr("action");
+        e.preventDefault();
+        e.stopPropagation();
+        $.ajax({
+                url: action,
+                method: "POST",
+                data: $(this).serialize(),
+                dataType: 'json',
+                beforeSend: function () {
+                    $("#load").html("<div><img src='imagenes/icons/ajax-loader.gif'></div>");
+                }
+            })
+            .done(function (res) {
+                if (res=="1"){
+                    window.location.href = "/";
+                }else {
+                    setErrorMessage($("#email"),"Email y/o contraseña erroneos");
+                }
+            })
+            .error(function (jqXHR, textStatus, errorThrown) {
+
+            })
+            .always(function () {
+                $("#load").empty();
+            })
+
+    });
+
+
+    $("#createUserByUser").submit(function (e) {
+
+        var action=$(this).attr("action");
+        e.preventDefault();
+        e.stopPropagation();
+        $.ajax({
+                url: action,
+                method: "POST",
+                data: $(this).serialize(),
+                dataType: 'json',
+                beforeSend: function () {
+                    $("#load").html("<div><img src='imagenes/icons/ajax-loader.gif'></div>");
+                }
+            })
+            .done(function (res) {
+                window.location.href = "/";
+            })
+            .error(function (jqXHR, textStatus, errorThrown) {
+                var json=JSON.parse(jqXHR.responseText);
+                for (var pos in json){
+                    setErrorMessage($("#"+pos),json[pos]);
+                }
+            })
+            .always(function () {
+                $("#load").empty();
+            })
+
+    });
+
+
     $("#formCreateCoctel").submit(function (e) {
         var action=$("#formCreateCoctel").attr("action");
+        $("#ingredientes").siblings("span").empty();
         e.preventDefault();
         e.stopPropagation();
         $.ajax({
@@ -96,33 +164,124 @@ $(document).ready(function () {
             method: "POST",
             data: $(this).serialize(),
             dataType: 'json',
-            success: function (res) {
-                alert("Bien");
-
-                //$("#formCreateCoctel").reset();
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-
+            beforeSend: function () {
+                $("#load").html("<div><img src='imagenes/icons/ajax-loader.gif'></div>");
             }
-        });
+        })
+            .done(function (res) {
+                //console.log(res);
+                location.reload();
+
+            })
+            .error(function (jqXHR, textStatus, errorThrown) {
+                var json=JSON.parse(jqXHR.responseText);
+                for (var pos in json){
+                    setErrorMessage($("#"+pos),json[pos]);
+                }
+            })
+            .always(function () {
+                $("#load").empty();
+            })
+
+    });
+
+    $("#terms").focusin(function () {
+        cleanElement($(this));
+    });
+
+    $("#password_confirmation").focusin(function () {
+        cleanElement($(this));
+    });
+
+    $("#password").focusin(function () {
+        cleanElement($(this));
+    });
+
+    $("#email").focusin(function () {
+        cleanElement($(this));
+    });
+
+    $("#lastName").focusin(function () {
+        cleanElement($(this));
+    });
+
+    $("#name").focusin(function () {
+        cleanElement($(this));
     });
 
     $("#nombre").focusin(function () {
-        $("#nombre").parent().removeClass("has-error");
-        $("#messageNombre").empty();
+        cleanElement($(this));
+    });
+
+    $("#tipoCoctel").change(function () {
+        cleanElement($(this));
+    });
+
+    $("#metodo").change(function () {
+        cleanElement($(this));
+    });
+
+    $("#cristal").change(function () {
+        cleanElement($(this));
+    });
+
+    $("#preparacion").focusin(function () {
+        cleanElement($(this));
     });
 
     $("#crearCoctel").click(function () {
         var nombre=$("#nombre").val();
-        if (validateNombre()){
-            isNombreUsed(nombre);
-            return true;
-        }else {
-            return false;
+        var salida=true;
+        if (!validateNombre()){
+            salida=false;
+        }
+        if (isEmptyElement($("#tipoCoctel"))){
+            salida=false;
+        }
+        if (isEmptyElement($("#cristal"))){
+            salida=false;
+        }
+        if (isEmptyElement($("#metodo"))){
+            salida=false;
+        }
+        if (isEmptyElement($("#preparacion")) || isCorrectTam($("#preparacion"),500)){
+            salida=false;
         }
 
+        return salida;
     });
 });
+
+function isCorrectTam(elemento,tam) {
+    var val=elemento.val();
+
+    if (val.length>tam){
+        setErrorMessage(elemento,"Tamaño maximo de caracteres 500")
+        return true;
+    }
+    return false;
+}
+
+function isEmptyElement(elemento) {
+    var val=elemento.val();
+    if(val!=null && val!=""){
+        return false;
+    }else {
+        setErrorMessage(elemento,"Campo requerido");
+        return true;
+    }
+}
+
+function setErrorMessage(elemento,mensaje) {
+    elemento.parent().addClass("has-error");
+    elemento.siblings("span[name='message']").empty();
+    elemento.siblings("span[name='message']").append(mensaje);
+}
+
+function cleanElement(elemento) {
+    elemento.parent().removeClass("has-error");
+    elemento.siblings("span").empty();
+}
 
 function validateNombre() {
     var nombre=$("#nombre").val();
@@ -130,11 +289,9 @@ function validateNombre() {
         $("#nombre").parent().addClass("has-error");
         $("#messageNombre").empty();
         $("#messageNombre").append("Campo requerido");
-        //$("#nombre").parent().prepend('<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> Input with error</label>');
         return false;
     }
     if (nombre.length>40){
-        //Limpiar los mensajes para que no se acumulen, y que cuando haga foco se salga la clase error
         $("#nombre").parent().addClass("has-error");
         $("#messageNombre").empty();
         $("#messageNombre").append("Longitud máxima 40 caracteres");
@@ -145,13 +302,26 @@ function validateNombre() {
 }
 
 function isNombreUsed(nombre) {
- var ruta="validate/nombreCoctel/"+nombre;
-    $.get(ruta, function (response) {
-            alert(response);
-            $("#load").empty();
-        }
-        //, "json"
-    );
+    if (nombre!="") {
+        var salida=false;
+        var ruta = "validate/nombreCoctel/" + nombre;
+
+       $.get(ruta, function (response) {
+            if (response=="1") {
+                $("#nombre").parent().addClass("has-error");
+                $("#messageNombre").empty();
+                $("#messageNombre").append("El nombre ya esta en uso");
+                $("#load").empty();
+                salida=true;
+            }else {
+                $("#load").empty();
+                salida=false;
+            }
+
+        }, "json");
+        alert(salida);
+        return salida;
+    }
 }
 
 function enableAddingredient() {

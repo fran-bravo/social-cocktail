@@ -22,7 +22,7 @@
             @yield('aditionalCSS')
             <title>@yield('title','Main') | @yield('titleComplement','Complement')</title>
         </head>
-        <body class="skin-red sidebar-mini">
+        <body id="body" class="skin-red sidebar-mini">
              <div class="wrapper">
             @yield('content')
 

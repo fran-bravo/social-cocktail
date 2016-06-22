@@ -37,6 +37,9 @@
                                 <b>Método</b> <a class="pull-right">{{$coctel->metodo}}</a>
                             </li>
                             <li class="list-group-item">
+                                <b>Tipo</b> <a class="pull-right">{{$coctel->tipo->nombre}}</a>
+                            </li>
+                            <li class="list-group-item">
                                 <b>Propína</b> <a class="pull-right">$ 13,287</a>
                             </li>
                         </ul>

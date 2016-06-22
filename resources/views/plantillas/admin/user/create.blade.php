@@ -320,6 +320,12 @@
 
             </div>
             <!-- /.box-body -->
+            <div class="form-group">
+                <input checked id="terms" name="terms" type="checkbox">
+                I agree to the
+                <a href="#">terms</a>
+                <span name="message" class="help-block"></span>
+            </div>
 
             <div class="box-footer">
                 <button id="crearUser" type="submit" class="btn btn-primary">Crear</button>

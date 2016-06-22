@@ -4,28 +4,25 @@ namespace socialCocktail\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
-use socialCocktail\Http\Controllers\Src\Utiles\Utiles;
 
-class Authenticate
+class AdminMiddleware
 {
     /**
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
-     * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
+    public function handle($request, Closure $next)
     {
-        if (Auth::guard($guard)->guest()) {
+        if (Auth::user()->tipoUsuario != "Admin"){
             if ($request->ajax() || $request->wantsJson()) {
                 return response('Unauthorized.', 401);
             } else {
                 return redirect()->guest('login');
             }
         }
-
         return $next($request);
     }
 }

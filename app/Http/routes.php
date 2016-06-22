@@ -1,9 +1,5 @@
 <?php
-use socialCocktail\Http\Controllers\Src\DAO\MarcaDAO;
-use socialCocktail\Http\Controllers\Src\DAO\CategoriaDAO;
-use socialCocktail\Http\Controllers\Src\DAO\SubCategoriaDAO;
-use socialCocktail\Http\Controllers\Src\DAO\CristalDAO;
-use socialCocktail\Http\Controllers\Src\DAO\TipoCoctelDAO;
+
     Route::get('/test','Derivador@test');
 
 
@@ -18,9 +14,36 @@ use socialCocktail\Http\Controllers\Src\DAO\TipoCoctelDAO;
     | and give it the controller to call when that URI is requested.
     |
     */
-    Route::get('/','Derivador@index');
+    Route::get('/',[
+        'uses'=>'Derivador@index',
+        'as'=>'user.index'
+    ]);
+
+    Route::get('/login',[
+        'uses'=>'Auth\AuthController@getLogin',
+        'as'=>'user.login'
+    ]);
+
+    Route::get('/logout','Auth\AuthController@logout');
+
+    Route::post('/login', [
+        'uses'=>'Auth\AuthController@postLogin',
+      'as'=>'user.login'
+    ]);
+
+    Route::get('/registro',[
+        'middleware'=>'guest',
+        'uses'=>'Derivador@registro'
+    ]);
+
+    Route::get('/usuario/{id}','UsersController@show');
 
     Route::get('/coctel/{id}','CoctelesController@show');
+
+    Route::post('/registrar',[
+        'uses'=>'UsersController@storeByUser',
+        'as'=>'user.registro'
+    ]);
 
     Route::get('/recetas', function () {
         return view('plantillas.user.recetas');
@@ -34,6 +57,7 @@ use socialCocktail\Http\Controllers\Src\DAO\TipoCoctelDAO;
     Route::get('/cristaleria', "Derivador@cristaleria");
 
     Route::get('/registrarcoctel',[
+        'middleware' => 'auth',
         'uses'=>'CoctelesController@createByUser',
         'as'=>'user.coctel.create'
     ]);
@@ -90,9 +114,9 @@ Route::get('/{id}/getSubCategoria',[
 
 
     });
+    Route::get('/admin',['uses'=>'AdminController@index','middleware'=>['auth','is_admin']]);
 
-    Route::get('/admin','AdminController@index');
-    Route::group(['prefix' => 'admin'], function(){
+    Route::group(['prefix' => 'admin','middleware'=>['auth','is_admin']], function(){
 
 
 
@@ -245,3 +269,7 @@ Route::get('/{id}/getSubCategoria',[
             'as'=>'admin.tiposCoctel.updateDescripcion'
         ]);
     });
+
+//Route::auth();
+
+//Route::get('/home', 'HomeController@index');
