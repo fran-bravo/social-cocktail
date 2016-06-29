@@ -6,7 +6,7 @@
 @section('contentPage')
 
     <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-12">
             <div class="box box-solid">
 
                 <!-- /.box-header -->
@@ -55,7 +55,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-7">
 
             <!-- SHOW COCTEL -->
 
@@ -171,7 +171,7 @@
 
             <!-- SHOW PUBLICACION -->
         </div>
-        <div class="col-md-4">
+        <div class="col-md-5">
 
 
 

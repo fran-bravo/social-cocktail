@@ -45,4 +45,14 @@ class CoctelDAO
         $coctel=Coctel::where('nombre',$nombre)->get();
         return $coctel;
     }
+
+    public static function countByUser($id){
+        $cant=Coctel::where('usuario_id',$id)->get();
+        return count($cant);
+    }
+
+    public static function findByUserId($id){
+        $cocteles=Coctel::where('usuario_id',$id)->get();
+        return $cocteles;
+    }
 }

@@ -3,11 +3,13 @@
 namespace socialCocktail\Http\Controllers;
 
 
+use socialCocktail\Http\Controllers\Src\DAO\CoctelDAO;
 use socialCocktail\Http\Requests;
 use socialCocktail\Http\Requests\UserRequest;
 use socialCocktail\Http\Requests\EditUserRequest;
 use socialCocktail\Http\Requests\EmailEditRequest;
 use socialCocktail\Http\Requests\PasswordEditRequest;
+use socialCocktail\Pais;
 use socialCocktail\User;
 use socialCocktail\Http\Controllers\Src\Utiles\Utiles;
 use socialCocktail\Http\Controllers\Src\DAO\UserDAO;
@@ -68,7 +70,9 @@ class UsersController extends Controller
     public function show($id)
     {
         $user=UserDAO::findById($id);
-        return view('plantillas.user.user')->with("user",$user);
+        $cocteles=CoctelDAO::findByUserId($user->id);
+        $paises=Pais::all()->sortBy('nombre');
+        return view('plantillas.user.user')->with(['user'=>$user,'cocteles'=>$cocteles,'paises'=>$paises]);
     }
 
     /**

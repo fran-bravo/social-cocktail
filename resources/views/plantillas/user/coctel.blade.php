@@ -13,7 +13,7 @@
                 <div class="box box-danger">
                     <div class="box-body box-profile">
                         @if($coctel->path==null)
-                            <img class="profile-user-img img-responsive img-circle" src="{{asset('imagenes/cocteles/defaultCoctel.jpg')}}" alt="User profile picture">
+                            <img class="profile-user-img img-responsive img-circle" src="{{asset('imagenes/cocteles/defaultCoctel.png')}}" alt="User profile picture">
                         @else
                             <img class="profile-user-img img-responsive img-circle" src="{{asset('imagenes/cocteles'.$coctel->path)}}" alt="User profile picture">
                         @endif

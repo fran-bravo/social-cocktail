@@ -3,11 +3,6 @@
 @section('titleComplement','Social-Cocktail')
 @section('headerContent','Perfil del Usuario')
 @section('headerDescription',' ')
-@section('aditionalCSS')
-<style>
-
-</style>
-@endsection
 @section('contentPage')
     <section class="content">
 
@@ -25,7 +20,7 @@
 
                         <ul class="list-group list-group-unbordered">
                             <li class="list-group-item">
-                                <b>Cócteles</b> <a class="pull-right">Prog</a>
+                                <b>Cócteles</b> <a class="pull-right">{{\socialCocktail\Http\Controllers\Src\DAO\CoctelDAO::countByUser($user->id)}}</a>
                             </li>
                             <li class="list-group-item">
                                 <b>Seguidores</b> <a class="pull-right">Prog</a>
@@ -92,6 +87,11 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#activity" data-toggle="tab">Actividad</a></li>
                         <li><a href="#timeline" data-toggle="tab">Cócteles</a></li>
+                        @if(\Illuminate\Support\Facades\Auth::user()!=null)
+                            @if($user->id == \Illuminate\Support\Facades\Auth::user()->id)
+                                <li><a href="#settings" data-toggle="tab" aria-expanded="true">Información</a></li>
+                            @endif
+                        @endif
                     </ul>
                     <div class="tab-content">
                         <div class="active tab-pane" id="activity">
@@ -99,9 +99,70 @@
                         </div>
                         <!-- /.tab-pane -->
                         <div class="tab-pane" id="timeline">
+
+                            <!-- Mostrar los cocteles del usuario -->
+                            @foreach($cocteles as $coctel)
+                                {{\socialCocktail\Http\Controllers\Src\Utiles\Utiles::getShowCoctel($coctel)}}
+                            @endforeach
                          </div>
                         <!-- /.tab-pane -->
+                        @if(\Illuminate\Support\Facades\Auth::user()!=null)
+                            @if($user->id == \Illuminate\Support\Facades\Auth::user()->id)
+                                <div class="tab-pane" id="settings">
+                                    <h4>Información personal</h4>
+                                    <hr style="margin-top: 5px">
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                        </div>
+                                        <div class="col-md-10">
+                                            <ul class="list-group list-group-unbordered">
+                                                <li name="rowInfo" class="list-group-item">
+                                                    <b>Nombre:</b><a name="editBtn" hidden><p class="pull-right"><i class="fa fa-fw fa-edit"></i></a></p> <p style="padding-right: 5%" class="pull-right">{{\Illuminate\Support\Facades\Auth::user()->name}}</p>
 
+
+                                                </li>
+                                                <li name="rowInfo" class="list-group-item">
+                                                    <b>Apellido:</b> <a name="editBtn" hidden><p class="pull-right"><i class="fa fa-fw fa-edit"></i></a></p> <p style="padding-right: 5%" class="pull-right">{{\Illuminate\Support\Facades\Auth::user()->lastName}}</p>
+                                                </li>
+                                                <li name="rowInfo" class="list-group-item">
+                                                    <b>Nacimiento:</b> <a name="editBtn" hidden><p class="pull-right"><i class="fa fa-fw fa-edit"></i></a></p> <p style="padding-right: 5%" class="pull-right">{{\Illuminate\Support\Facades\Auth::user()->nacimiento}}</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-1">
+                                        </div>
+                                    </div>
+                                    <h4>Información de contacto</h4>
+                                    <hr style="margin-top: 5px">
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                        </div>
+                                        <div class="col-md-10">
+                                            <ul class="list-group list-group-unbordered">
+                                                <li name="rowInfo" class="list-group-item">
+                                                    <b>País:</b> <a name="editBtn" hidden><p class="pull-right"><i class="fa fa-fw fa-edit"></i></a></p> <p style="padding-right: 5%" class="pull-right">{{\Illuminate\Support\Facades\Auth::user()->pais}}</p>
+                                                </li>
+                                                <li name="rowInfo" class="list-group-item">
+                                                    <b>Provincia:</b> <a name="editBtn" hidden><p class="pull-right"><i class="fa fa-fw fa-edit"></i></a></p> <p style="padding-right: 5%" class="pull-right">{{\Illuminate\Support\Facades\Auth::user()->provincia}}</p>
+                                                </li>
+                                                <li name="rowInfo" class="list-group-item">
+                                                    <b>Localidad:</b><a name="editBtn" hidden><p class="pull-right"><i class="fa fa-fw fa-edit"></i></a></p> <p style="padding-right: 5%" class="pull-right">{{\Illuminate\Support\Facades\Auth::user()->localidad}}</p>
+                                                </li>
+                                                <li name="rowInfo" class="list-group-item">
+                                                    <b>Domicilio:</b> <a name="editBtn" hidden><p class="pull-right"><i class="fa fa-fw fa-edit"></i></a></p> <p style="padding-right: 5%" class="pull-right">{{\Illuminate\Support\Facades\Auth::user()->domicilio}}</p>
+                                                </li>
+                                                <li name="rowInfo" class="list-group-item">
+                                                    <b>Teléfono:</b> <a name="editBtn" hidden><p class="pull-right"><i class="fa fa-fw fa-edit"></i></a></p> <p style="padding-right: 5%" class="pull-right">{{\Illuminate\Support\Facades\Auth::user()->telefono}}</p>
+                                                </li>
+
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-md-1">
+                                        </div>
+                                </div>
+                                @endif
+                        @endif
                         <!-- /.tab-pane -->
                     </div>
                     <!-- /.tab-content -->

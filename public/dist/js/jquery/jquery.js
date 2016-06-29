@@ -10,6 +10,13 @@ $(document).ready(function () {
     var cantIngredientes=0;
     var count=0;
 
+    $('li[name=rowInfo]').mouseover(function () {
+        $(this).find("a[name=editBtn]").removeAttr("hidden");
+    });
+    $('li[name=rowInfo]').mouseout(function () {
+        $(this).find("a[name=editBtn]").attr("hidden","hidden");
+    });
+
     $("#marca_id").change(function () {
         emptyMessagesErrorIngredients();
     });
