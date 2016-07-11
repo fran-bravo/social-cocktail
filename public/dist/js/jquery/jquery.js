@@ -9,13 +9,124 @@ $(document).ready(function () {
 
     var cantIngredientes=0;
     var count=0;
+    var editBtn=$('li[name=rowInfo]');
 
-    $('li[name=rowInfo]').mouseover(function () {
-        $(this).find("a[name=editBtn]").removeAttr("hidden");
-    });
-    $('li[name=rowInfo]').mouseout(function () {
-        $(this).find("a[name=editBtn]").attr("hidden","hidden");
-    });
+
+
+    addEvent();
+
+    function addEvent() {
+        editBtn.mouseover(function () {
+            $(this).find("a[name=editBtn]").removeAttr("hidden");
+        });
+        editBtn.mouseout(function () {
+            $(this).find("a[name=editBtn]").attr("hidden","hidden");
+        });
+        editBtn.find("a[name=editBtn]").click(function () {
+            var padre=$(this).parent().parent();
+            padre.addClass("box-comments");
+            var valor=$(this).siblings("p[name=valor]").text();
+            var campo=padre.find("b[name=titulo]");
+            var div=$(this).parent();
+            var divPadre = div.html();
+            var nombreInput=campo.siblings('p[name=nameInput]');
+            var entrada=null;
+            var type="text";
+            if (nombreInput.text()=="nacimiento"){
+                type="date";
+            }
+            entrada=getInputModificarCampo(nombreInput.text(),campo.text(),type);
+
+
+
+            $(this).parent().html(" " +
+                "<form name='form"+nombreInput.text()+"'>" +
+                "        <div class='row'>" +
+                "           <div class='col-md-2'>" +
+                "           </div>" +
+                "           <div class='col-md-4'>" +
+                "                   <div class='form-group'>" +
+                                   entrada+
+                                        " <span name='message' class='help-block'></span>"+
+                "                     </div>" +
+                "           </div>" +
+                "           <div class='col-md-2'>" +
+                "               <button name='btn"+nombreInput.text()+"' type='submit' class='btn btn-block btn-success btn-sm'><i class='fa fa-fw fa-check'></i></button>" +
+                "           </div>" +
+                "           <div class='col-md-2'>" +
+                "               <button name='cancelar' type='button' class='btn btn-block btn-danger btn-sm'><i class='fa fa-fw fa-close'></i></button>" +
+                "           </div>" +
+                "           <div class='col-md-1'>" +
+                                "<div id='load'></div>" +
+            "               </div>" +
+                "       </div>" +
+                "<form> ");
+
+
+            if ($("#pais_id").html()!=undefined){
+                getPaisesJSON(valor);
+            }
+
+
+            var input=padre.find("[name="+nombreInput.text()+"]");
+            var form=$("form[name=form"+nombreInput.text()+"]");
+
+            $("button[name=cancelar]").click(function () {
+                //var form=$(this).parent().parent().parent();
+                form.parent().html(divPadre);
+                div.parent().removeClass("box-comments");
+                addEvent();
+            });
+
+            $("button[name=btn"+nombreInput.text()+"]").click(function () {
+                var t=$("input[name="+nombreInput.text()+"]");
+                if(t.val()==""){
+                    setErrorMessage(t,"El campo es requerido");
+                    return false;
+                }
+                return true;
+            });
+
+            input.focusin(function () {
+                cleanElement(input);
+            });
+
+            form.submit(function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                $.ajax({
+                        url: "/usuario/update",
+                        method: "POST",
+                        data: $(this).serialize(),
+                        dataType: 'json',
+                        beforeSend: function () {
+                            $("#load").html("<div><img src='../imagenes/icons/ajax-loader.gif'></div>");
+                        }
+                    })
+                    .done(function (res) {
+                        form.parent().html(divPadre);
+                        div.parent().removeClass("box-comments");
+                        addEvent();
+                        var valSalida=input.val();
+                        if (nombreInput.text()=="pais_id"){
+                            valSalida=input.find("option:selected").text();
+                        }
+                        $("#val"+form.find("[name="+nombreInput.text()+"]").attr("name")).text(valSalida);
+                        console.log(res);
+                    })
+                    .error(function (jqXHR, textStatus, errorThrown) {
+                        var json=JSON.parse(jqXHR.responseText);
+                        for (var pos in json){
+                            setErrorMessage($("input[name="+pos+"]"),json[pos]);
+                        }
+                    })
+                    .always(function () {
+                        $("#load").empty();
+                    })
+            });
+
+        });
+    }
 
     $("#marca_id").change(function () {
         emptyMessagesErrorIngredients();
@@ -660,4 +771,31 @@ function defaultSelectors() {
     defaultUnidadMedida();
     defaultSubCategoria();
     defaultCategoria();
+}
+
+function getInputModificarCampo(nombreInput, campo,type) {
+    if(nombreInput=="pais_id"){
+        return "<select id='pais_id' name='pais_id' class='form-control'></select>";
+    }else {
+        return "<input name='" + nombreInput + "' placeholder='" + campo + "' type='" + type + "' class='form-control'>";
+    }
+}
+
+function getPaisesJSON(valor) {
+    $.get("/paisesJSON", function (response) {
+    var select=$("#pais_id");
+        for(indice in response){
+
+            if (valor==response[indice].nombre){
+                select.append("<option selected value='"+response[indice].id+"'>"+response[indice].nombre+"</option>");
+            }else {
+                select.append("<option value='"+response[indice].id+"'>"+response[indice].nombre+"</option>");
+            }
+            //console.log(response[indice].nombre);
+        }
+    }, "json");
+}
+
+function getOptionPais() {
+
 }

@@ -20,7 +20,7 @@ class User extends Authenticatable
     protected $table='users';
 
     protected $fillable = [
-        'name','lastName', 'email','pais','provincia','localidad','codigoPostal','domicilio','genero','telefono','cuit_cuil',
+        'name','lastName', 'email','pais_id','provincia','localidad','codigoPostal','domicilio','genero','telefono','cuit_cuil',
         'activo','nacimiento','tipoUsuario','cv_id',
     ];
 
@@ -51,6 +51,10 @@ class User extends Authenticatable
     //Devuelve todos los comentarios
     public function comentarios(){
         return $this->hasMany('socialCocktail\Comentario');
+    }
+
+    public function pais(){
+        return $this->belongsTo('socialCocktail\Pais','pais_id');
     }
 
     //              Revisar relaciones con mensajes!

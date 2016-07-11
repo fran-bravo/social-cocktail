@@ -36,6 +36,19 @@
         'uses'=>'Derivador@registro'
     ]);
 
+    //Modificar usuario desde perfil
+    Route::post('/usuario/update',[
+        'uses'=>'UsersController@updateByUser',
+        'middleware'=>'auth'
+    ]);
+
+    //Get Paises in JSON
+    Route::get('/paisesJSON',[
+        'uses'=>'UsersController@getPaises',
+        'as'=>'getPaisesInJSON',
+        'middleware'=>'auth'
+    ]);
+
     Route::get('/usuario/{id}','UsersController@show');
 
     Route::get('/coctel/{id}','CoctelesController@show');

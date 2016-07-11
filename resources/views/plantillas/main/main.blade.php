@@ -14,6 +14,8 @@
             <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
             <!-- Theme style -->
             <link rel="stylesheet" href="{{asset('dist/css/AdminLTE.min.css')}}">
+            <!-- CSS personal-->
+            <link rel="stylesheet" href="{{asset('dist/css/personal.css')}}">
             <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
                   page. However, you can choose any other skin. Make sure you
                   apply the skin class to the body tag so the changes take effect.

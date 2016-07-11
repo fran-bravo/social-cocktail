@@ -3,7 +3,9 @@
 namespace socialCocktail\Http\Controllers;
 
 
+use Illuminate\Support\Facades\Auth;
 use socialCocktail\Http\Controllers\Src\DAO\CoctelDAO;
+use socialCocktail\Http\Controllers\Src\DAO\PaisDAO;
 use socialCocktail\Http\Requests;
 use socialCocktail\Http\Requests\UserRequest;
 use socialCocktail\Http\Requests\EditUserRequest;
@@ -34,7 +36,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('plantillas.admin.user.create');
+        $paises=PaisDAO::all();
+        return view('plantillas.admin.user.create')->with('paises',$paises);
     }
 
     /**
@@ -55,6 +58,9 @@ class UsersController extends Controller
         if ($request->ajax()){
             return response()->json("¡Usuario registrado exitosamente!");
         }
+
+
+
         return redirect('/');
     }
 
@@ -84,7 +90,8 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user=UserDAO::findById($id);
-        return view('plantillas.admin.user.edit')->with('user',$user);
+        $paises=Pais::all();
+        return view('plantillas.admin.user.edit')->with(['user'=>$user,'paises'=>$paises]);
     }
 
     /**
@@ -100,6 +107,11 @@ class UsersController extends Controller
         Utiles::flashMessageSuccessDefect();
         return redirect('admin/users');
 
+    }
+
+    public function updateByUser(EditUserRequest $request){
+        UserDAO::update($request->all(),Auth::user()->id);
+            return response()->json($request->all());
     }
 
 
@@ -146,5 +158,10 @@ class UsersController extends Controller
 
     public function autenticacion(){
 
+    }
+
+    public function getPaises(){
+        $paises=PaisDAO::all();
+        return response()->json($paises);
     }
 }

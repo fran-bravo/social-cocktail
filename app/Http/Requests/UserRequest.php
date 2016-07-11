@@ -29,7 +29,7 @@ class UserRequest extends Request
             'password'=>'min:8|max:30|required|confirmed|alpha_num',
             'password_confirmation'=>'required',
             'email'=>'required|unique:users|email|max:50',
-            'pais'=>'min:2|max:2',
+            'pais_id'=>'exists:paises,id',
             'provincia'=>'min:5|max:50',
             'localidad'=>'min:5|max:50',
             'codigoPostal'=>'max:10000|numeric|alpha_num',

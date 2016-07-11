@@ -105,6 +105,38 @@ class Utiles
         echo $ret;
 
     }
+
+    public static function getLiShowInfo($text,$valor){
+        $name="default";
+        if ($text=="Nombre")
+            $name="name";
+        if ($text=="Apellido")
+            $name="lastName";
+        if ($text=="Nacimiento")
+            $name="nacimiento";
+        if ($text=="País")
+            $name="pais_id";
+        if ($text=="Provincia")
+            $name="provincia";
+        if ($text=="Localidad")
+            $name="localidad";
+        if ($text=="Domicilio")
+            $name="domicilio";
+        if ($text=="Teléfono")
+            $name="telefono";
+
+        $salida='<li name="rowInfo" class="list-group-item">
+                    <b name="titulo">'.$text.'</b>
+                    <p name="nameInput" hidden>'.$name.'</p>
+                    <div style="display: inline" name="contentForm">
+                        <a title="Modificar" class="editBtn" name="editBtn" hidden>
+                            <p class="pull-right"><i class="fa fa-fw fa-edit"></i></p>
+                        </a>
+                        <p id="val'.$name.'" name="valor" style="padding-right: 5%" class="pull-right">'.$valor.'</p>
+                    </div>
+                 </li>';
+        echo $salida;
+    }
 }
 
 

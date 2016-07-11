@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name', 50);
             $table->string('lastName', 50)->nullable();
             $table->string('password', 255);
-            $table->string('pais', 50);
+            //$table->string('pais', 50);
             $table->string('provincia', 50);
             $table->string('localidad', 50)->nullable();
             $table->string('codigoPostal', 20)->nullable();
@@ -34,6 +34,9 @@ class CreateUsersTable extends Migration
             $table->integer('cv_id')->unsigned()->nullable();
             $table->foreign('cv_id')->references('id')->on('cvs');
             //
+            $table->integer('pais_id')->unsigned()->nullable();
+            $table->foreign('pais_id')->references('id')->on('paises');
+
             $table->rememberToken();
             $table->timestamps();
 

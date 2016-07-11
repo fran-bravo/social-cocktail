@@ -116,20 +116,17 @@
                                         </div>
                                         <div class="col-md-10">
                                             <ul class="list-group list-group-unbordered">
-                                                <li name="rowInfo" class="list-group-item">
-                                                    <b>Nombre:</b><a name="editBtn" hidden><p class="pull-right"><i class="fa fa-fw fa-edit"></i></a></p> <p style="padding-right: 5%" class="pull-right">{{\Illuminate\Support\Facades\Auth::user()->name}}</p>
 
+                                                {{\socialCocktail\Http\Controllers\Src\Utiles\Utiles::getLiShowInfo('Nombre',\Illuminate\Support\Facades\Auth::user()->name)}}
 
-                                                </li>
-                                                <li name="rowInfo" class="list-group-item">
-                                                    <b>Apellido:</b> <a name="editBtn" hidden><p class="pull-right"><i class="fa fa-fw fa-edit"></i></a></p> <p style="padding-right: 5%" class="pull-right">{{\Illuminate\Support\Facades\Auth::user()->lastName}}</p>
-                                                </li>
-                                                <li name="rowInfo" class="list-group-item">
-                                                    <b>Nacimiento:</b> <a name="editBtn" hidden><p class="pull-right"><i class="fa fa-fw fa-edit"></i></a></p> <p style="padding-right: 5%" class="pull-right">{{\Illuminate\Support\Facades\Auth::user()->nacimiento}}</p>
-                                                </li>
+                                                {{\socialCocktail\Http\Controllers\Src\Utiles\Utiles::getLiShowInfo('Apellido',\Illuminate\Support\Facades\Auth::user()->lastName)}}
+
+                                                {{\socialCocktail\Http\Controllers\Src\Utiles\Utiles::getLiShowInfo('Nacimiento',\Illuminate\Support\Facades\Auth::user()->nacimiento)}}
+
                                             </ul>
                                         </div>
                                         <div class="col-md-1">
+
                                         </div>
                                     </div>
                                     <h4>Información de contacto</h4>
@@ -139,38 +136,42 @@
                                         </div>
                                         <div class="col-md-10">
                                             <ul class="list-group list-group-unbordered">
-                                                <li name="rowInfo" class="list-group-item">
-                                                    <b>País:</b> <a name="editBtn" hidden><p class="pull-right"><i class="fa fa-fw fa-edit"></i></a></p> <p style="padding-right: 5%" class="pull-right">{{\Illuminate\Support\Facades\Auth::user()->pais}}</p>
-                                                </li>
-                                                <li name="rowInfo" class="list-group-item">
-                                                    <b>Provincia:</b> <a name="editBtn" hidden><p class="pull-right"><i class="fa fa-fw fa-edit"></i></a></p> <p style="padding-right: 5%" class="pull-right">{{\Illuminate\Support\Facades\Auth::user()->provincia}}</p>
-                                                </li>
-                                                <li name="rowInfo" class="list-group-item">
-                                                    <b>Localidad:</b><a name="editBtn" hidden><p class="pull-right"><i class="fa fa-fw fa-edit"></i></a></p> <p style="padding-right: 5%" class="pull-right">{{\Illuminate\Support\Facades\Auth::user()->localidad}}</p>
-                                                </li>
-                                                <li name="rowInfo" class="list-group-item">
-                                                    <b>Domicilio:</b> <a name="editBtn" hidden><p class="pull-right"><i class="fa fa-fw fa-edit"></i></a></p> <p style="padding-right: 5%" class="pull-right">{{\Illuminate\Support\Facades\Auth::user()->domicilio}}</p>
-                                                </li>
-                                                <li name="rowInfo" class="list-group-item">
-                                                    <b>Teléfono:</b> <a name="editBtn" hidden><p class="pull-right"><i class="fa fa-fw fa-edit"></i></a></p> <p style="padding-right: 5%" class="pull-right">{{\Illuminate\Support\Facades\Auth::user()->telefono}}</p>
-                                                </li>
+
+                                                @if(\Illuminate\Support\Facades\Auth::user()->pais_id!=null)
+                                                    {{\socialCocktail\Http\Controllers\Src\Utiles\Utiles::getLiShowInfo('País',\Illuminate\Support\Facades\Auth::user()->pais->nombre)}}
+                                                @else
+                                                    {{\socialCocktail\Http\Controllers\Src\Utiles\Utiles::getLiShowInfo('País',"")}}
+                                                @endif
+
+
+                                                {{\socialCocktail\Http\Controllers\Src\Utiles\Utiles::getLiShowInfo('Provincia',\Illuminate\Support\Facades\Auth::user()->provincia)}}
+
+                                                {{\socialCocktail\Http\Controllers\Src\Utiles\Utiles::getLiShowInfo('Localidad',\Illuminate\Support\Facades\Auth::user()->localidad)}}
+
+                                                {{\socialCocktail\Http\Controllers\Src\Utiles\Utiles::getLiShowInfo('Domicilio',\Illuminate\Support\Facades\Auth::user()->domicilio)}}
+
+                                                {{\socialCocktail\Http\Controllers\Src\Utiles\Utiles::getLiShowInfo('Teléfono',\Illuminate\Support\Facades\Auth::user()->telefono)}}
 
                                             </ul>
-
                                         </div>
                                         <div class="col-md-1">
+
                                         </div>
+                                    </div>
                                 </div>
+
                                 @endif
                         @endif
                         <!-- /.tab-pane -->
-                    </div>
+                    </div> <!-- -->
                     <!-- /.tab-content -->
                 </div>
                 <!-- /.nav-tabs-custom -->
             </div>
             <!-- /.col -->
         </div>
+
+        </section>
         <!-- /.row -->
 
 @endsection

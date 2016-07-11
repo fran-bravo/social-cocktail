@@ -24,9 +24,9 @@ class EditUserRequest extends Request
     public function rules()
     {
         return [
-            'name'=>'min:3|max:40|required',
-            'lastName'=>'min:3|max:40|required',
-            'pais'=>'min:2|max:2|alpha|required',
+            'name'=>'min:3|max:40',
+            'lastName'=>'min:3|max:40',
+            'pais_id'=>'exists:paises,id',
             'provincia'=>'min:5|max:50',
             'localidad'=>'min:5|max:50',
             'codigoPostal'=>'max:10000|numeric|alpha_num',
