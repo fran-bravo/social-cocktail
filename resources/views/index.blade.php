@@ -7,9 +7,9 @@
 
     <div class="row">
         <div class="col-md-12">
+            <!--
             <div class="box box-solid">
 
-                <!-- /.box-header -->
                 <div class="box-body">
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
@@ -48,8 +48,8 @@
                         </a>
                     </div>
                 </div>
-                <!-- /.box-body -->
             </div>
+        -->
             <!-- /.box -->
         </div>
     </div>
@@ -59,10 +59,17 @@
 
             <!-- SHOW COCTEL -->
 
-
-            @foreach($cocteles as $coctel)
-                    {{\socialCocktail\Http\Controllers\Src\Utiles\Utiles::getShowCoctel($coctel)}}
-            @endforeach
+            @if(\Illuminate\Support\Facades\Auth::user()!=null)
+                {{\socialCocktail\Http\Controllers\Src\Utiles\Utiles::getBodyPublicacion()}}
+            @endif
+            <div id="contentIndex">
+                @foreach($publicaciones as $publicacion)
+                    {{\socialCocktail\Http\Controllers\Src\Utiles\Utiles::getShowPublicacion($publicacion)}}
+                @endforeach
+                @foreach($cocteles as $coctel)
+                        {{\socialCocktail\Http\Controllers\Src\Utiles\Utiles::getShowCoctel($coctel)}}
+                @endforeach
+            </div>
 
 
             <!-- SHOW COCTEL -->

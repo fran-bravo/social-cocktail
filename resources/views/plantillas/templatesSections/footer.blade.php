@@ -13,4 +13,7 @@
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2016 <a href="#">Social-Cocktail Inc</a>.</strong> All rights reserved.
+    <script>
+        var _token="{{csrf_token()}}";
+    </script>
 </footer>

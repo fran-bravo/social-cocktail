@@ -37,7 +37,7 @@ class Esi implements SurrogateInterface
     /**
      * Constructor.
      *
-     * @param array $contentTypes An array of content-type that should be parsed for ESI information.
+     * @param array $contentTypes An array of content-type that should be parsed for ESI information
      *                            (default: text/html, text/xml, application/xhtml+xml, and application/xml)
      */
     public function __construct(array $contentTypes = array('text/html', 'text/xml', 'application/xhtml+xml', 'application/xml'))
@@ -124,7 +124,7 @@ class Esi implements SurrogateInterface
      *
      * @param string $uri          A URI
      * @param string $alt          An alternate URI
-     * @param bool   $ignoreErrors Whether to ignore alertas or not
+     * @param bool   $ignoreErrors Whether to ignore errors or not
      * @param string $comment      A comment to add as an esi:include tag
      *
      * @return string
@@ -217,7 +217,7 @@ class Esi implements SurrogateInterface
      * @param HttpCache $cache        An HttpCache instance
      * @param string    $uri          The main URI
      * @param string    $alt          An alternative URI
-     * @param bool      $ignoreErrors Whether to ignore alertas or not
+     * @param bool      $ignoreErrors Whether to ignore errors or not
      *
      * @return string
      *

@@ -4,8 +4,11 @@ namespace socialCocktail\Http\Controllers;
 
 
 use Illuminate\Support\Facades\Auth;
+use Monolog\Handler\Curl\Util;
 use socialCocktail\Http\Controllers\Src\DAO\CoctelDAO;
 use socialCocktail\Http\Controllers\Src\DAO\PaisDAO;
+use socialCocktail\Http\Controllers\Src\DAO\PublicacionDAO;
+use socialCocktail\Http\Controllers\Src\DAO\SeguidorDAO;
 use socialCocktail\Http\Requests;
 use socialCocktail\Http\Requests\UserRequest;
 use socialCocktail\Http\Requests\EditUserRequest;
@@ -75,10 +78,24 @@ class UsersController extends Controller
      */
     public function show($id)
     {
+
+        //Arrays unidos en secciones...
+
         $user=UserDAO::findById($id);
-        $cocteles=CoctelDAO::findByUserId($user->id);
         $paises=Pais::all()->sortBy('nombre');
-        return view('plantillas.user.user')->with(['user'=>$user,'cocteles'=>$cocteles,'paises'=>$paises]);
+        $cocteles=CoctelDAO::findByUserId($user->id);
+        $publicaciones=PublicacionDAO::findById($user->id);
+        $seguidos=array();
+        $seguidores=array();
+        if (Auth::user()->id==$id){
+            $seguidos=SeguidorDAO::findBySeguidor(Auth::user()->id);
+            $seguidores=SeguidorDAO::findBySeguido(Auth::user()->id);
+        }
+        
+
+        return view('plantillas.user.user')->with(['user'=>$user, 'cocteles'=>$cocteles,
+                                                    'paises'=>$paises,'publicaciones'=>$publicaciones,
+                                                    'seguidos'=>$seguidos,'seguidores'=>$seguidores]);
     }
 
     /**
@@ -110,6 +127,8 @@ class UsersController extends Controller
     }
 
     public function updateByUser(EditUserRequest $request){
+        Utiles::saveImage($request,'imagenes/users');
+        Utiles::setPathImage($request);
         UserDAO::update($request->all(),Auth::user()->id);
             return response()->json($request->all());
     }

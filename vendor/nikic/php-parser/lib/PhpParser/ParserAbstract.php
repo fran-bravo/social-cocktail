@@ -88,6 +88,8 @@ abstract class ParserAbstract implements Parser
     protected $startAttributeStack;
     /** @var array End attributes of last *shifted* token */
     protected $endAttributes;
+    /** @var array Start attributes of last *read* token */
+    protected $lookaheadStartAttributes;
 
     /** @var bool Whether to throw on first error */
     protected $throwOnError;
@@ -109,9 +111,9 @@ abstract class ParserAbstract implements Parser
     }
 
     /**
-     * Get array of alertas that occurred during the last parse.
+     * Get array of errors that occurred during the last parse.
      *
-     * This method may only return multiple alertas if the 'throwOnError' option is disabled.
+     * This method may only return multiple errors if the 'throwOnError' option is disabled.
      *
      * @return Error[]
      */
@@ -166,7 +168,7 @@ abstract class ParserAbstract implements Parser
                 if ($symbol === self::SYMBOL_NONE) {
                     // Fetch the next token id from the lexer and fetch additional info by-ref.
                     // The end attributes are fetched into a temporary variable and only set once the token is really
-                    // shifted (not during read). Otherwise you would sometimes get off-by-one alertas, when a rule is
+                    // shifted (not during read). Otherwise you would sometimes get off-by-one errors, when a rule is
                     // reduced after a token was read but not yet shifted.
                     $tokenId = $this->lexer->getNextToken($tokenValue, $startAttributes, $endAttributes);
 
@@ -185,6 +187,7 @@ abstract class ParserAbstract implements Parser
                     // This is necessary to assign some meaningful attributes to /* empty */ productions. They'll get
                     // the attributes of the next token, even though they don't contain it themselves.
                     $this->startAttributeStack[$this->stackPos+1] = $startAttributes;
+                    $this->lookaheadStartAttributes = $startAttributes;
 
                     //$this->traceRead($symbol);
                 }
@@ -251,7 +254,7 @@ abstract class ParserAbstract implements Parser
                         if ($this->throwOnError) {
                             throw $e;
                         } else {
-                            // Currently can't recover from "special" alertas
+                            // Currently can't recover from "special" errors
                             return null;
                         }
                     }
@@ -460,8 +463,10 @@ abstract class ParserAbstract implements Parser
                 continue;
             }
 
-            /* declare() and __halt_compiler() can be used before a namespace declaration */
-            if ($stmt instanceof Node\Stmt\Declare_ || $stmt instanceof Node\Stmt\HaltCompiler) {
+            /* declare(), __halt_compiler() and nops can be used before a namespace declaration */
+            if ($stmt instanceof Node\Stmt\Declare_
+                || $stmt instanceof Node\Stmt\HaltCompiler
+                || $stmt instanceof Node\Stmt\Nop) {
                 continue;
             }
 

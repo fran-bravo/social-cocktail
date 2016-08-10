@@ -19,7 +19,7 @@ class Swift_Bug34Test extends \PHPUnit_Framework_TestCase
 
         $message->setBody('<img src="'.$cid.'" />', 'text/html');
 
-        $message->setTo(array('user@domain.tld' => 'user'));
+        $message->setTo(array('user@domain.tld' => 'User'));
 
         $message->setFrom(array('other@domain.tld' => 'Other'));
         $message->setSender(array('other@domain.tld' => 'Other'));
@@ -36,7 +36,7 @@ class Swift_Bug34Test extends \PHPUnit_Framework_TestCase
         'Date: '.$date."\r\n".
         'Subject: test subject'."\r\n".
         'From: Other <other@domain.tld>'."\r\n".
-        'To: user <user@domain.tld>'."\r\n".
+        'To: User <user@domain.tld>'."\r\n".
         'MIME-Version: 1.0'."\r\n".
         'Content-Type: multipart/alternative;'."\r\n".
         ' boundary="'.$boundary.'"'."\r\n".
@@ -60,8 +60,8 @@ class Swift_Bug34Test extends \PHPUnit_Framework_TestCase
         '--\\1'."\r\n".
         'Content-Type: image/gif; name=image.gif'."\r\n".
         'Content-Transfer-Encoding: base64'."\r\n".
-        'Content-Disposition: inline; filename=image.gif'."\r\n".
         'Content-ID: <'.$cidVal.'>'."\r\n".
+        'Content-Disposition: inline; filename=image.gif'."\r\n".
         "\r\n".
         preg_quote(base64_encode('<image data>'), '~').
         "\r\n\r\n".

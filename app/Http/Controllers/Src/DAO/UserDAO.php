@@ -20,6 +20,7 @@ class UserDAO implements DAO
     }
 
     public static function create($request){
+        $request['imagen']='defaultCoctel.png';
         $user=User::create($request);
         $user->password=Hash::make($request['password']);
         $user->save();

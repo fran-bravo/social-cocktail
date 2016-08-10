@@ -16,6 +16,13 @@
             <link rel="stylesheet" href="{{asset('dist/css/AdminLTE.min.css')}}">
             <!-- CSS personal-->
             <link rel="stylesheet" href="{{asset('dist/css/personal.css')}}">
+            <!-- FancyBox -->
+            <link rel="stylesheet" href="{{asset('dist/fancybox/source/jquery.fancybox.css?v=2.1.5')}}" type="text/css" media="screen" />
+            <!-- Optionally add helpers - button, thumbnail and/or media -->
+            <link rel="stylesheet" href="{{asset('dist//fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5')}}" type="text/css" media="screen" />
+            <link rel="stylesheet" href="{{asset('dist/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7')}}" type="text/css" media="screen" />
+            <!-- JCrop -->
+            <link rel="stylesheet" href="http://jcrop-cdn.tapmodo.com/v2.0.0-RC1/css/Jcrop.css" type="text/css">
             <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
                   page. However, you can choose any other skin. Make sure you
                   apply the skin class to the body tag so the changes take effect.
@@ -47,6 +54,22 @@
             <script src="{{asset('/plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
             <!-- AdminLTE for demo purposes -->
             <script src="{{asset('/dist/js/demo.js')}}"></script>
-        @yield('aditionalSCRIPT')
+             <!-- FancyBox -->
+                     <!-- Add mousewheel plugin (this is optional) -->
+                     <script type="text/javascript" src="{{asset('dist/fancybox/lib/jquery.mousewheel-3.0.6.pack.js')}}"></script>
+                     <!-- Add FancyBox-->
+                     <script type="text/javascript" src="{{asset('dist/fancybox/source/jquery.fancybox.pack.js?v=2.1.5')}}"></script>
+                     <!-- Optionally add helpers - button, thumbnail and/or media -->
+                     <script type="text/javascript" src="{{asset('dist/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5')}}"></script>
+                     <script type="text/javascript" src="{{asset('dist/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6')}}"></script>
+                    <script type="text/javascript" src="{{asset('dist/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7')}}"></script>
+
+            <!--Boostrap FileStyle -->
+             <script type="text/javascript" src="{{asset('dist/js/bootstrap-filestyle.js')}}"> </script>
+             <!-- Jquery UI -->
+             <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+             <!-- JCrop -->
+             <script src="http://jcrop-cdn.tapmodo.com/v2.0.0-RC1/js/Jcrop.js"></script>
+             @yield('aditionalSCRIPT')
         </body>
     </html>

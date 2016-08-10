@@ -13,7 +13,6 @@ class CreatePropinasTable extends Migration
     public function up()
     {
         Schema::create('propinas', function (Blueprint $table) {
-            $table->increments('id');
 
             //Pks a las tablas usuarios y cocteles
             $table->integer('usuario_id')->unsigned();
@@ -23,7 +22,9 @@ class CreatePropinasTable extends Migration
             $table->foreign('usuario_id')->references('id')->on('users');
             $table->foreign('coctel_id')->references('id')->on('cocteles');
 
-            $table->integer('dinero');
+            $table->integer('dinero')->nullable();
+
+            $table->primary(['usuario_id', 'coctel_id']);
 
             $table->timestamps();
         });

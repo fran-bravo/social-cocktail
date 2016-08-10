@@ -9,7 +9,7 @@
  */
 
 /**
- * Wrapper for PHP alertas.
+ * Wrapper for PHP errors.
  *
  * @since Class available since Release 2.2.0
  */

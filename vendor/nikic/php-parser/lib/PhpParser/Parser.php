@@ -14,9 +14,9 @@ interface Parser {
     public function parse($code);
 
     /**
-     * Get array of alertas that occurred during the last parse.
+     * Get array of errors that occurred during the last parse.
      *
-     * This method may only return multiple alertas if the 'throwOnError' option is disabled.
+     * This method may only return multiple errors if the 'throwOnError' option is disabled.
      *
      * @return Error[]
      */

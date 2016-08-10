@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comentario extends Model
 {
-    protected $table=['comentarios'];
+    protected $table='comentarios';
     protected $fillable=['contenido','usuario_id','coctel_id','publicacion_id'];
 
     //Devuelve el usuario creador
     public function usuario(){
-        return $this->belongsTo('socialCocktail\User');
+        return $this->belongsTo('socialCocktail\User','usuario_id');
     }
 
     //Devuelve el coctel al cual comento

@@ -16,8 +16,61 @@
     */
     Route::get('/',[
         'uses'=>'Derivador@index',
-        'as'=>'user.index'
+        'as'=>'user.index',
+        'middleware'=>'auth'
     ]);
+    //SET PROPINA COCTEL
+    Route::post('setPropina/{id}',[
+        'uses'=>'CoctelesController@setPropina',
+        'as'=>'setPropina',
+        'middleware'=>'auth',
+    ]);
+
+    //GET PROPINA COCTEL
+    Route::get('getPropina/{id}',[
+        'uses'=>'CoctelesController@getPropina',
+        'as'=>'getPropina',
+        'middleware'=>'auth',
+    ]);
+
+    //SET PUBLICACION
+    Route::post('/setPublicacion',[
+        'uses'=>'PublicacionesController@store',
+        'as'=>'user.crear.publicacion',
+        'middleware'=>'auth'
+    ]);
+
+    //SET COMENTARIO
+    Route::post('/setComentario',[
+        'uses'=>'ComentariosController@store',
+        'as'=>'user.create.comentario',
+        'middleware'=>'auth'
+    ]);
+
+    //GET COMENTARIOS BY PUBLICACION
+    Route::get('/getComentarios/{id}',[
+        'uses'=>'ComentariosController@show',
+        'as'=>'user.show.comentarios',
+        'middleware'=>'auth'
+    ]);
+
+
+    //SET SEGUIDOR
+    Route::post('/setSeguidor/{id}',[
+        'uses'=>'SeguidoresController@store',
+        'as'=>'user.seguir',
+        'middleware'=>'auth'
+    ]);
+
+    //remove seguidor
+    Route::post('/removeSeguidor/{id}',[
+        'uses'=>'SeguidoresController@destroy',
+        'as'=>'user.destroy.seguidor',
+        'middleware'=>'auth'
+    ]);
+
+
+
 
     Route::get('/login',[
         'uses'=>'Auth\AuthController@getLogin',
@@ -48,6 +101,8 @@
         'as'=>'getPaisesInJSON',
         'middleware'=>'auth'
     ]);
+
+
 
     Route::get('/usuario/{id}','UsersController@show');
 

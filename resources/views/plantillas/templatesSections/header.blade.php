@@ -93,14 +93,14 @@
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <!-- The user image in the navbar-->
-                        <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="user-image" alt="User Image">
+                        <img id="userImagen" src="{{asset('imagenes/users/'.\Illuminate\Support\Facades\Auth::user()->imagen)}}" class="user-image" alt="User Image">
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                        <span class="hidden-xs">{{\Illuminate\Support\Facades\Auth::user()->name}} {{\Illuminate\Support\Facades\Auth::user()->lastName}}</span>
+                        <span id="nombreUserLog" class="hidden-xs">{{\Illuminate\Support\Facades\Auth::user()->name}} {{\Illuminate\Support\Facades\Auth::user()->lastName}}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- The user image in the menu -->
                         <li class="user-header">
-                            <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+                            <img src="{{asset('imagenes/users/'.\Illuminate\Support\Facades\Auth::user()->imagen)}}" class="img-circle" alt="User Image">
                             <p>
                                 {{\Illuminate\Support\Facades\Auth::user()->name}} {{\Illuminate\Support\Facades\Auth::user()->lastName}}
                                 <small>Member since Nov. 2012</small>

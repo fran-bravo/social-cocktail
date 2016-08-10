@@ -32,6 +32,12 @@ class RequestCoctelCreate extends Request
             'tipococtel_id'=>'exists:tiposcoctel,id|required',
             'imagen'=>'image',
             'ingredientes'=>'required|cantidad_ingredietes|valid_ingredient|unique_ingredient|unique_coctel',
+            'cropx'=>'required|numeric|min:0',
+            'cropy'=>'required|numeric|min:0',
+            'cropw'=>'required|numeric|min:20',
+            'croph'=>'required|numeric|min:20',
+            'height'=>'required|numeric|min:20',
+            'width'=>'required|numeric|min:20',
         ];
     }
 }

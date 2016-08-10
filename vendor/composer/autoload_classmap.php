@@ -23,6 +23,7 @@ return array(
     'CreatePropinasTable' => $baseDir . '/database/migrations/l2016_04_02_210557_create_propinas_table.php',
     'CreatePropuestasTable' => $baseDir . '/database/migrations/p2016_04_02_215356_create_propuestas_table.php',
     'CreatePublicacionesTable' => $baseDir . '/database/migrations/q2016_04_02_220455_create_publicaciones_table.php',
+    'CreateSeguidoresTable' => $baseDir . '/database/migrations/s2016_08_01_180015_create_seguidores_table.php',
     'CreateSubcategoriasTable' => $baseDir . '/database/migrations/ea2016_04_02_182315_create_subcategorias_table.php',
     'CreateTiposCoctelTable' => $baseDir . '/database/migrations/2016_05_19_182321_create_tipos_coctel_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/b2014_10_12_000000_create_users_table.php',

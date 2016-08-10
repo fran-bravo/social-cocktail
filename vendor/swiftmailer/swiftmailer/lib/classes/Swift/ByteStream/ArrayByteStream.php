@@ -82,9 +82,7 @@ class Swift_ByteStream_ArrayByteStream implements Swift_InputByteStream, Swift_O
 
         // Don't use array slice
         $end = $length + $this->_offset;
-        $end = $this->_arraySize < $end
-            ? $this->_arraySize
-            : $end;
+        $end = $this->_arraySize < $end ? $this->_arraySize : $end;
         $ret = '';
         for (; $this->_offset < $end; ++$this->_offset) {
             $ret .= $this->_array[$this->_offset];
@@ -134,7 +132,7 @@ class Swift_ByteStream_ArrayByteStream implements Swift_InputByteStream, Swift_O
     /**
      * Remove an already bound stream.
      *
-     * If $is is not bound, no alertas will be raised.
+     * If $is is not bound, no errors will be raised.
      * If the stream currently has any buffered data it will be written to $is
      * before unbinding occurs.
      *

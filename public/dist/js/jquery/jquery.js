@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
     var pathname = window.location.pathname;
+    var URLdomain = window.location.host
 
     if (pathname=="/registro" || pathname=="/login"){
         $("#body").removeClass("skin-red sidebar-mini");
@@ -10,9 +11,358 @@ $(document).ready(function () {
     var cantIngredientes=0;
     var count=0;
     var editBtn=$('li[name=rowInfo]');
+    var imgSalida=$('#imgSalida');
+    setTextareaHeight($("#contenido"));
+
+    var userImagen=$("#userImagen");
+    //Ocultar img de previsualizacion carga foto usuario
+    imgSalida.hide();
+
+
+    $("#seguirBtn").click(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var action = "http://"+URLdomain+"/setSeguidor/"+$("#userId").text();
+        var actionDejar="http://"+URLdomain+"/removeSeguidor/"+$("#userId").text();
+        eventSeguirBtn($(this), action,actionDejar);
+    });
+    
+    $("#dejarSeguirBtn").click(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var action = "http://"+URLdomain+"/removeSeguidor/"+$("#userId").text();
+        var actionSeguir = "http://"+URLdomain+"/setSeguidor/"+$("#userId").text();
+        eventDejarSeguirBtn($(this),action,actionSeguir);
+    });
+    
+    
+    
+    
+    //SET COMENTARIO COCTEL
+    $("#formSetComentarioCoctel").submit(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var form=$(this);
+        var action="http://"+URLdomain+"/setComentario";
+
+        $.ajax({
+                url: action,
+                method: "POST",
+                data: $(this).serialize(),
+                dataType: "json",
+                beforeSend: function () {
+                    $("#load").html("<div><img src='../imagenes/icons/ajax-loader.gif'></div>");
+                }
+            })
+            .done(function (res) {
+                var divComentarios=form.parent().siblings("[name=comentarios]");
+                divComentarios.addClass("box-footer box-comments");
+                divComentarios.append('' +
+                    '<div hidden="hidden" class="box-comment"> ' +
+                    '<img class="img-circle img-sm" src="'+userImagen.attr("src")+'" alt="User Image"> ' +
+                    '<div class="comment-text"> ' +
+                    '<span class="username">' +
+                    $("#nombreUserLog").text() +
+                    '<span class="text-muted pull-right">Hace un momento</span> ' +
+                    '</span>' +
+                    form.find("[name=contenido]").val()+
+                    '   </div> ' +
+                    '</div>');
+                divComentarios.children().last().toggle("blind");
+                form.find("[name=contenido]").val("")
+                console.log(res);
+            })
+            .error(function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR.responseText);
+                var json=JSON.parse(jqXHR.responseText);
+                for (var pos in json){
+                    setErrorMessage(form.find(".contenidoC"),json[pos]);
+                }
+            })
+            .always(function () {
+                $("#load").empty();
+            })
+
+    });
+
+    
+    //GET COMENTARIOS BY PUBLICACION
+    $("[name=getComentarios]").click(function (e) {
+
+        var action=$(this).attr("href");
+        var obj=$(this);
+        e.preventDefault();
+        e.stopPropagation();
+        $.ajax({
+                url: action,
+                method: "GET",
+                dataType: 'json',
+                beforeSend: function () {
+                    $("#load").html("<div><img src='../imagenes/icons/ajax-loader.gif'></div>");
+                }
+            })
+            .done(function (res) {
+                var divComentarios = obj.parent().parent().siblings("[name=comentarios]");
+                divComentarios.addClass("box-footer box-comments");
+                divComentarios.html("");
+                divComentarios.attr("hidden","hidden");
+
+                for(var i=0; i<res.length; i++ ){
+                    divComentarios.append('' +
+                        '<div class="box-comment"> ' +
+                             '<img class="img-circle img-sm" src="http://'+URLdomain+'/imagenes/users/'+res[i].usuario.imagen+'" alt="User Image"> ' +
+                            '<div class="comment-text"> ' +
+                                 '<span class="username">' +
+                                        res[i].usuario.name +' '+res[i].usuario.lastName+
+                                        '<span class="text-muted pull-right">'+res[i].created_at+'</span> ' +
+                                    '</span>' +
+                                res[i].contenido+
+                        '    </div> ' +
+                        '</div>');
+                }
+                divComentarios.toggle("blind");
+            })
+            .error(function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR.responseText);
+                var json=JSON.parse(jqXHR.responseText);
+                for (var pos in json){
+                    setErrorMessage($("#"+pos),json[pos]);
+                }
+            })
+            .always(function () {
+                $("#load").empty();
+            })
+
+    });
+    
+
+    $("[name=submitComentario]").click(function (e) {
+        var form = $(this).parents("form");
+        var contenido=form.find(".contenidoC");
+        if (contenido.val() =="" || contenido.val()== null){
+            setErrorMessage(contenido,"El campo es requerido");
+            return false;
+        }
+    });
+
+    $(".contenidoC").focusin(function () {
+        cleanElement($(this));
+        var form = $(this).parents("form");
+        form.off("submit");
+        form.submit(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            var action="http://"+URLdomain+"/setComentario";
+
+            $.ajax({
+                    url: action,
+                    method: "POST",
+                    data: $(this).serialize(),
+                    dataType: "json",
+                    beforeSend: function () {
+                        $("#load").html("<div><img src='../imagenes/icons/ajax-loader.gif'></div>");
+                    }
+                })
+                .done(function (res) {
+                    var divComentarios=form.parent().siblings("[name=comentarios]");
+                    divComentarios.addClass("box-footer box-comments");
+                    divComentarios.append('' +
+                        '<div hidden="hidden" class="box-comment"> ' +
+                            '<img class="img-circle img-sm" src="'+userImagen.attr("src")+'" alt="User Image"> ' +
+                            '<div class="comment-text"> ' +
+                                '<span class="username">' +
+                                    $("#nombreUserLog").text() +
+                                    '<span class="text-muted pull-right">Hace un momento</span> ' +
+                                '</span>' +
+                            form.find("[name=contenido]").val()+
+                        '   </div> ' +
+                        '</div>');
+                    divComentarios.children().last().toggle("blind");
+                    form.find("[name=contenido]").val("")
+                    console.log(res);
+                })
+                .error(function (jqXHR, textStatus, errorThrown) {
+                    console.log(jqXHR.responseText);
+                    var json=JSON.parse(jqXHR.responseText);
+                    for (var pos in json){
+                        setErrorMessage(form.find(".contenidoC"),json[pos]);
+                    }
+                })
+                .always(function () {
+                    $("#load").empty();
+                })
+        });
 
 
 
+
+    });
+    
+
+    //SET PUBLICACION 
+    $("#submitPublicacion").click(function () {
+        //TODO validar los datos
+    });
+    
+    $("#formSetPublicacion").submit(function (e) {
+        var contenido=$("#contenido");
+        contenido.click(function () {
+            cleanElement($(this));
+        });
+        e.preventDefault();
+        e.stopPropagation();
+        var action="/setPublicacion";
+        $.ajax({
+                url: action,
+                method: "POST",
+                data: $(this).serialize(),
+                dataType: 'json',
+                beforeSend: function () {
+                    $("#load").html("<div><img src='../imagenes/icons/ajax-loader.gif'></div>");
+                }
+            })
+            .done(function (res) {
+                contenido.attr("style","height: 48%");
+                $("#contentIndex").prepend('' +
+                    '<div id="nuevaPublicacion" hidden="hidden" class="box box-widget">' +
+                    '    <div class="box-header with-border">' +
+                    '        <div class="user-block"> ' +
+                    '           <img class="img-circle" src="'+userImagen.attr("src")+'" alt="User Image"> ' +
+                    '           <span class="username">' +
+                    '               <a href="#">'+$("#nombreUserLog").text()+'</a>' +
+                '                   </span> ' +
+                '                   <span class="description">Pensar - Hace un momento</span> ' +
+                '            </div> ' +
+                '            <div class="box-tools"> ' +
+                    '           <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Mark as read"> ' +
+                '                   <i class="fa fa-circle-o"></i></button> <button type="button" class="btn btn-box-tool" data-widget="collapse">' +
+                '                   <i class="fa fa-minus"></i> </button> <button type="button" class="btn btn-box-tool" data-widget="remove">' +
+                '                   <i class="fa fa-times"></i></button> </div> </div> <div class="box-body"> <p>'+contenido.val()+'</p> ' +
+                '                   <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button> ' +
+                '                   <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button> ' +
+                '                   <span class="pull-right text-muted">0 likes - 0 comments</span> </div> ' +
+                     '</div>'
+                );
+                contenido.val("");
+                $("#nuevaPublicacion").toggle("blind");
+                console.log(res);
+            })
+            .error(function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR.responseText);
+                var json=JSON.parse(jqXHR.responseText);
+                for (var pos in json){
+                    setErrorMessage($("#"+pos),json[pos]);
+                }
+            })
+            .always(function () {
+                $("#load").empty();
+            })
+    });
+    
+//SET PROPINA DESDE COCTEL REDUCIDO
+    $("a[name=setPropinaA]").click(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var idCoctel=$(this).siblings("input").val();
+        var actionSet="http://"+URLdomain+"/setPropina/"+idCoctel;
+        var actionGet="http://"+URLdomain+"/getPropina/"+idCoctel;
+        setPropina(actionSet,$(this),1);
+    });
+
+
+//SET PROPINA DESDE PERFIL COCTEL
+
+    $("#setPropina").click(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var idCoctel=$("#idCoctel").val();
+        var actionSet="http://"+URLdomain+"/setPropina/"+idCoctel;
+        var actionGet="http://"+URLdomain+"/getPropina/"+idCoctel;
+
+        setPropina(actionSet, $(this),0);
+        showPropina(actionGet);
+
+    });
+
+
+
+    $("#img").fancybox({});
+    $(":file").filestyle({
+        buttonText:"Seleccionar",
+        iconName:"fa fa-file-image-o",
+    });
+
+    $("#imagen").siblings("div").find("input").attr("id","nombreFile");
+
+    $("#cancelarPopup").click(function () {
+        $("#imagen").val("");
+        $("#nombreFile").val("");
+        $("#divCImg").html("");
+    });
+
+    
+    $('#imagen').change(function(e) {
+        addImage(e);
+    });
+
+    $("#formCambiarImagenPerfil").submit(function (e) {
+
+        var f = $(this);
+        var action="/usuario/update";
+        e.preventDefault();
+        e.stopPropagation();
+        var formData= new FormData(f[0]);
+
+        $.ajax({
+                url: action,
+                method: "POST",
+                data: formData,
+                dataType: 'json',
+                processData: false,
+                contentType: false,
+                beforeSend: function () {
+                    $("#load").html("<div><img src='../imagenes/icons/ajax-loader.gif'></div>");
+                }
+            })
+            .done(function (res) {
+                console.log(res);
+                location.reload();
+
+            })
+            .error(function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR.responseText);
+                var json=JSON.parse(jqXHR.responseText);
+                for (var pos in json){
+                    setErrorMessage($("#"+pos),json[pos]);
+                }
+            })
+            .always(function () {
+                $("#load").empty();
+            })
+
+    });
+
+    $("#submitImg").click(function () {
+        var imagen=$("#imagen");
+        if (imagen.val()==""){
+            setErrorMessage(imagen,"El campo es requerido");
+            return false;
+        }
+        if ($('#cropw').val() == 0 || $('#croph').val() == 0){
+            setErrorMessage(imagen,"Seleccione un area en la imagen");
+            return false;
+        }
+        return true;
+    });
+
+    $("#imagen").click(function () {
+        cleanElement($(this));
+    })
+    
     addEvent();
 
     function addEvent() {
@@ -273,25 +623,31 @@ $(document).ready(function () {
 
 
     $("#formCreateCoctel").submit(function (e) {
-        var action=$("#formCreateCoctel").attr("action");
+        var f = $(this);
+        var action=f.attr("action");
         $("#ingredientes").siblings("span").empty();
         e.preventDefault();
         e.stopPropagation();
+        var formData= new FormData(f[0]);
+
         $.ajax({
             url: action,
             method: "POST",
-            data: $(this).serialize(),
+            data: formData,
             dataType: 'json',
+            processData: false,
+            contentType: false,
             beforeSend: function () {
                 $("#load").html("<div><img src='imagenes/icons/ajax-loader.gif'></div>");
             }
         })
             .done(function (res) {
-                //console.log(res);
+                console.log(res);
                 location.reload();
 
             })
             .error(function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR.responseText);
                 var json=JSON.parse(jqXHR.responseText);
                 for (var pos in json){
                     setErrorMessage($("#"+pos),json[pos]);
@@ -796,6 +1152,213 @@ function getPaisesJSON(valor) {
     }, "json");
 }
 
-function getOptionPais() {
+//Previsualizacion de imagen
+function addImage(e){
+    var file = e.target.files[0],
+        imageType = /image.*/;
 
+    if (!file.type.match(imageType))
+        return;
+
+    var reader = new FileReader();
+    reader.onload = fileOnload;
+    reader.readAsDataURL(file);
+}
+
+function fileOnload(e) {
+    $("#imgSalida").toggle("blind");
+    $("#imgSalida").remove();
+    $(".ui-effects-wrapper").remove();
+    $("#divCImg").append(
+        '<img style="border: none" width="100%" height="100%" id="imgSalida" src="" />'
+    );
+    $("#divCImg").find("p").remove();
+    var result=e.target.result;
+    var imgSalida=$('#imgSalida');
+    imgSalida.attr("src",result);
+    imgSalida.hide();
+    imgSalida.toggle("blind");
+    imgSalida.Jcrop({
+        bgColor: 'black',
+        opacity: 1,
+        aspectRatio: 1,
+        onSelect: updateCoords,
+        setSelect: [ 10,50,150,150 ],
+
+    });
+    $(".jcrop-active").removeAttr("style");
+
+
+    function updateCoords(c) {
+        cleanElement($("#imagen"));
+        $('#cropx').val(c.x);
+        $('#cropy').val(c.y);
+        $('#cropw').val(c.w);
+        $('#croph').val(c.h);
+        $('#height').val(imgSalida.height());
+        $('#width').val(imgSalida.width());
+    }
+
+}
+
+function setPropina(action, objeto, opcion) {
+
+
+    //Envia y guarda propina
+    $.ajax({
+            url: action,
+            method: "POST",
+            data: {
+                _token:_token
+            },
+            dataType:"JSON",
+            beforeSend: function () {
+                $("#load").html("<div><img src='../imagenes/icons/ajax-loader.gif'></div>");
+            }
+        })
+        .done(function (res) {
+            console.log(res);
+            if (opcion==0){
+                objeto.attr("class","btn btn-danger btn-block disabled");
+                objeto.children("b").text("Haz dejado propína");
+            }
+            if (opcion==1){
+                objeto.attr("disabled","disabled");
+                objeto.attr("style","color:green");
+                objeto.off("click");
+            }
+        })
+        .error(function (jqXHR, textStatus, errorThrown) {
+            console.log(textStatus);
+            console.log(jqXHR.responseText);
+            console.log(errorThrown);
+            if (jqXHR.status!=200){
+                alert("Error, intente nuevamente mas tarde");
+            }
+        })
+        .always(function () {
+            $("#load").empty();
+        })
+}
+
+function showPropina(action) {
+    //Devuelve la cantidad de propina del coctel actualizada
+    $.ajax({
+            url: action,
+            method: "GET",
+            beforeSend: function () {
+                $("#load").html("<div><img src='../imagenes/icons/ajax-loader.gif'></div>");
+            }
+        })
+        .done(function (res) {
+            $("#showPropina").text("$ "+res);
+        })
+        .error(function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR.responseText);
+        })
+        .always(function () {
+            $("#load").empty();
+        })
+}
+
+//ajusta tamaño de textArea
+function setTextareaHeight(textareas) {
+    textareas.each(function () {
+        var textarea = $(this);
+
+        if ( !textarea.hasClass('autoHeightDone') ) {
+            textarea.addClass('autoHeightDone');
+
+            var extraHeight = parseInt(textarea.css('padding-top')) + parseInt(textarea.css('padding-bottom')), // to set total height - padding size
+                h = textarea[0].scrollHeight - extraHeight;
+
+            // init height
+            textarea.height('auto').height(h);
+
+            textarea.bind('keyup', function() {
+
+                textarea.removeAttr('style'); // no funciona el height auto
+
+                h = textarea.get(0).scrollHeight - extraHeight;
+
+                textarea.height(h+'px'); // set new height
+            });
+        }
+    })
+}
+
+function eventSeguirBtn(boton, action, actionDejar) {
+
+
+    $.ajax({
+            url: action,
+            method: "POST",
+            data: {
+                _token:_token
+            },
+            dataType: 'json',
+            beforeSend: function () {
+                $("#load").html("<div><img src='../imagenes/icons/ajax-loader.gif'></div>");
+            }
+        })
+        .done(function (res) {
+            boton.removeClass("btn-success");
+            boton.addClass("btn-danger");
+            boton.html("<b>Dejar de seguir</b>");
+            boton.attr("id","dejarSeguirBtn");
+
+            boton.off("click");
+
+            $("#dejarSeguirBtn").click(function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                eventDejarSeguirBtn($(this),actionDejar,action);
+            });
+
+            console.log(res);
+        })
+        .error(function (jqXHR, textStatus, errorThrown) {
+            alert(jqXHR.responseText);
+            console.log(jqXHR.responseText);
+        })
+        .always(function () {
+            $("#load").empty();
+        })
+}
+
+function eventDejarSeguirBtn(boton,action,actionSeguir) {
+    $.ajax({
+            url: action,
+            method: "POST",
+            data: {
+                _token:_token
+            },
+            dataType: 'json',
+            beforeSend: function () {
+                $("#load").html("<div><img src='../imagenes/icons/ajax-loader.gif'></div>");
+            }
+        })
+        .done(function (res) {
+            boton.removeClass("btn-danger");
+            boton.addClass("btn-success");
+            boton.html("<b>Seguir</b>");
+            boton.attr("id","seguirBtn");
+
+            boton.off("click");
+
+            $("#seguirBtn").click(function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                eventSeguirBtn($(this),actionSeguir,action);
+            });
+
+            console.log(res);
+        })
+        .error(function (jqXHR, textStatus, errorThrown) {
+            alert(jqXHR.responseText);
+            console.log(jqXHR.responseText);
+        })
+        .always(function () {
+            $("#load").empty();
+        })
 }

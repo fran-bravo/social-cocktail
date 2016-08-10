@@ -36,6 +36,7 @@ class EditUserRequest extends Request
             'cuit_cuil'=>'min:5|max:50',
             'nacimiento'=>'date',
             'tipoUsuario'=>'in:Usuario,Empresa,Admin|alpha',
+            'imagen'=>'image',
         ];
     }
 }

@@ -53,7 +53,7 @@ return [
         ],
         'usuarios' => [
             'driver' => 'local',
-            'root' => public_path('imagenes/usuarios'),
+            'root' => public_path('imagenes/users'),
         ],
 
         'public' => [

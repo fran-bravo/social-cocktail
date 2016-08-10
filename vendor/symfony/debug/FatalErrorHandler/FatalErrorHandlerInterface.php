@@ -14,7 +14,7 @@ namespace Symfony\Component\Debug\FatalErrorHandler;
 use Symfony\Component\Debug\Exception\FatalErrorException;
 
 /**
- * Attempts to convert fatal alertas to exceptions.
+ * Attempts to convert fatal errors to exceptions.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */

@@ -9,6 +9,7 @@
 namespace socialCocktail\Http\Controllers\Src\DAO;
 
 
+use Illuminate\Support\Facades\Auth;
 use socialCocktail\Coctel;
 
 class CoctelDAO
@@ -54,5 +55,14 @@ class CoctelDAO
     public static function findByUserId($id){
         $cocteles=Coctel::where('usuario_id',$id)->get();
         return $cocteles;
+    }
+
+    public static function findBySeguidorLogueado(){
+        $seguidos=SeguidorDAO::findBySeguidor(Auth::user()->id);
+        $array=array();
+        foreach ($seguidos as $seguido){
+            array_push($array,$seguido->seguido->id);
+        }
+        return Coctel::whereIn('usuario_id',$array)->get();
     }
 }

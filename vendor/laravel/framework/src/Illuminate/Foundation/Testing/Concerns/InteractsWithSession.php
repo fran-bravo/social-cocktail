@@ -127,7 +127,7 @@ trait InteractsWithSession
     }
 
     /**
-     * Assert that the session has alertas bound.
+     * Assert that the session has errors bound.
      *
      * @param  string|array  $bindings
      * @param  mixed  $format

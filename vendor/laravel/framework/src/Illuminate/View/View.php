@@ -76,6 +76,8 @@ class View implements ArrayAccess, ViewContract
      *
      * @param  callable|null  $callback
      * @return string
+     *
+     * @throws \Throwable
      */
     public function render(callable $callback = null)
     {
@@ -84,7 +86,7 @@ class View implements ArrayAccess, ViewContract
 
             $response = isset($callback) ? call_user_func($callback, $this, $contents) : null;
 
-            // Once we have the contents of the view, we will flush the templatesSections if we are
+            // Once we have the contents of the view, we will flush the sections if we are
             // done rendering all views so that there is nothing left hanging over when
             // another view gets rendered in the future by the application developer.
             $this->factory->flushSectionsIfDoneRendering();
@@ -110,7 +112,7 @@ class View implements ArrayAccess, ViewContract
     {
         // We will keep track of the amount of views being rendered so we can flush
         // the section after the complete rendering operation is done. This will
-        // clear out the templatesSections for any separate views that may be rendered.
+        // clear out the sections for any separate views that may be rendered.
         $this->factory->incrementRender();
 
         $this->factory->callComposer($this);
@@ -118,15 +120,15 @@ class View implements ArrayAccess, ViewContract
         $contents = $this->getContents();
 
         // Once we've finished rendering the view, we'll decrement the render count
-        // so that each templatesSections get flushed out next time a view is created and
-        // no old templatesSections are staying around in the memory of an environment.
+        // so that each sections get flushed out next time a view is created and
+        // no old sections are staying around in the memory of an environment.
         $this->factory->decrementRender();
 
         return $contents;
     }
 
     /**
-     * Get the templatesSections of the rendered view.
+     * Get the sections of the rendered view.
      *
      * @return array
      */
@@ -197,7 +199,7 @@ class View implements ArrayAccess, ViewContract
     }
 
     /**
-     * Add validation alertas to the view.
+     * Add validation errors to the view.
      *
      * @param  \Illuminate\Contracts\Support\MessageProvider|array  $provider
      * @return $this

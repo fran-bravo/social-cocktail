@@ -8,6 +8,33 @@
 <link rel="stylesheet" href="{{asset('dist/css/sct.css')}}">
 @endsection
 @section('contentPage')
+
+    <!-- Popup -->
+    <div class="modal fade" id="popupNuevaAventura" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h4 class="modal-title" id="myModalLabel">Seleccione el area</h4>
+                </div>
+                <div id="nuevaAventura" class="modal-body">
+                    <div id="divCImg">
+                        <p>Primero cargue una imagen para previsualizarla</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="cancelarPopup" type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal" id="aceptarPopup">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup -->
+
+
+
+
     <div class="row">
         <div class="col-md-8">
             <div class="box box-danger">
@@ -17,6 +44,12 @@
                 <!-- /.box-header -->
                 <!-- form start -->
                 {!! Form::open(['route'=> 'user.coctel.store','method'=>'POST', 'files'=>true, 'id'=>'formCreateCoctel']) !!}
+                <input type="hidden" name="cropx" id="cropx" value="0" />
+                <input type="hidden" name="cropy" id="cropy" value="0" />
+                <input type="hidden" name="cropw" id="cropw" value="150" />
+                <input type="hidden" name="croph" id="croph" value="150" />
+                <input type="hidden" name="height" id="height" value="760" />
+                <input type="hidden" name="width" id="width" value="570" />
                 <div class="box-body">
                     <div class="row">
                         <div class="col-md-6">
@@ -73,9 +106,15 @@
                     <div class="form-group">
                         <h4>Ingrese una foto de su coctel</h4>
                     </div>
-                    <div class="form-group">
-                        <input name="imagen" id="imagen" type="file" accept=".jpeg,.png,.bmp,.gif,.svg">
+                    <div class="col-md-9">
+                        <div class="form-group">
+                            <input data-toggle="modal" data-target="#popupNuevaAventura" name="file" id="imagen" type="file" accept=".jpeg,.png,.bmp,.gif,.svg">
+                        </div>
                     </div>
+                    <div class="col-md-3">
+                        <input data-toggle="modal" data-target="#popupNuevaAventura" type="button" class="btn btn-danger" value="Seleccionar area">
+                    </div>
+
 
                     <div class="form-group">
                         <div class="row">
@@ -145,7 +184,7 @@
                     <!-- /.box-body -->
                     <div class="col-md-offset-5 col-sm-offset-5 col-xs-offset-5">
                         <div class="box-footer">
-                            <button id="crearCoctel" type="submit" class="btn btn-primary">Crear</button>
+                            <button id="crearCoctel" type="submit" class="btn btn-success">Crear</button>
                         </div>
                     </div>
 

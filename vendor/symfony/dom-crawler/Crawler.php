@@ -156,12 +156,12 @@ class Crawler implements \Countable, \IteratorAggregate
     /**
      * Adds an HTML content to the list of nodes.
      *
-     * The libxml alertas are disabled when the content is parsed.
+     * The libxml errors are disabled when the content is parsed.
      *
-     * If you want to get parsing alertas, be sure to enable
-     * internal alertas via libxml_use_internal_errors(true)
-     * and then, get the alertas via libxml_get_errors(). Be
-     * sure to clear alertas with libxml_clear_errors() afterward.
+     * If you want to get parsing errors, be sure to enable
+     * internal errors via libxml_use_internal_errors(true)
+     * and then, get the errors via libxml_get_errors(). Be
+     * sure to clear errors with libxml_clear_errors() afterward.
      *
      * @param string $content The HTML content
      * @param string $charset The charset
@@ -211,12 +211,12 @@ class Crawler implements \Countable, \IteratorAggregate
     /**
      * Adds an XML content to the list of nodes.
      *
-     * The libxml alertas are disabled when the content is parsed.
+     * The libxml errors are disabled when the content is parsed.
      *
-     * If you want to get parsing alertas, be sure to enable
-     * internal alertas via libxml_use_internal_errors(true)
-     * and then, get the alertas via libxml_get_errors(). Be
-     * sure to clear alertas with libxml_clear_errors() afterward.
+     * If you want to get parsing errors, be sure to enable
+     * internal errors via libxml_use_internal_errors(true)
+     * and then, get the errors via libxml_get_errors(). Be
+     * sure to clear errors with libxml_clear_errors() afterward.
      *
      * @param string $content The XML content
      * @param string $charset The charset
@@ -319,7 +319,7 @@ class Crawler implements \Countable, \IteratorAggregate
      *
      * @param int $position The position
      *
-     * @return Crawler A new instance of the Crawler with the selected node, or an empty Crawler if it does not exist.
+     * @return Crawler A new instance of the Crawler with the selected node, or an empty Crawler if it does not exist
      */
     public function eq($position)
     {
@@ -376,7 +376,7 @@ class Crawler implements \Countable, \IteratorAggregate
      *
      * @param \Closure $closure An anonymous function
      *
-     * @return Crawler A Crawler instance with the selected nodes.
+     * @return Crawler A Crawler instance with the selected nodes
      */
     public function reduce(\Closure $closure)
     {

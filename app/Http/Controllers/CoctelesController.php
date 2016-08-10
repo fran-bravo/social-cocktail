@@ -2,13 +2,16 @@
 
 namespace socialCocktail\Http\Controllers;
 
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Mockery\CountValidator\Exception;
 use socialCocktail\Http\Controllers\Src\DAO\CategoriaDAO;
 use socialCocktail\Http\Controllers\Src\DAO\CristalDAO;
 use socialCocktail\Http\Controllers\Src\DAO\MarcaDAO;
+use socialCocktail\Http\Controllers\Src\DAO\PropinaDAO;
 use socialCocktail\Http\Controllers\Src\DAO\SubCategoriaDAO;
 use socialCocktail\Http\Controllers\Src\DAO\TipoCoctelDAO;
 use socialCocktail\Http\Requests;
@@ -67,7 +70,7 @@ class CoctelesController extends Controller
      */
     public function store(RequestCoctelCreate $request)
     {
-        $this->saveImage($request);
+        Utiles::saveImage($request, 'cocteles');
         $this->genericStore($request);
         return redirect()->route('admin.cocteles.create');
     }
@@ -76,7 +79,8 @@ class CoctelesController extends Controller
 
     public function storeByUser(RequestCoctelCreate $request){
         $request['usuario_id']=Auth::user()->id;
-        $this->saveImage($request);
+
+        Utiles::saveImage($request,'imagenes/cocteles');
         $this->genericStore($request);
 
         if ($request->ajax()){
@@ -86,36 +90,11 @@ class CoctelesController extends Controller
     }
 
     public function genericStore(Request $request){
-        $this->setPathImage($request);
+        Utiles::setPathImage($request);
         CoctelDAO::create($request->all());
         Utiles::flashMessageSuccessDefect();
     }
 
-    public function getNameImage(Request $request){
-        $imagen=$this->getImageFile($request);
-        $nombre=$request['nombre'].'.'.$imagen->getClientOriginalExtension();
-        return $nombre;
-    }
-
-    public function saveImage(Request $request){
-    if ($request['imagen']){
-        $imagen=$this->getImageFile($request);
-        $nombre=$this->getNameImage($request);
-        //config/filesystem
-        \Storage::disk('cocteles')->put($nombre,  \File::get($imagen));
-    }
-
-    }
-
-    public function getImageFile(Request $request){
-        return $request->file('imagen');
-    }
-
-    public function setPathImage(Request $request){
-    if ($request['imagen']!=null) {
-        $request['path'] = $this->getNameImage($request);
-    }
-    }
     /**
      * Display the specified resource.
      *
@@ -179,5 +158,24 @@ class CoctelesController extends Controller
         $coctel=CoctelDAO::findByName($nombre);
         
         return response()->json(count($coctel));
+    }
+
+    public function setPropina($idCoctel){
+        $idUsuario=Auth::user()->id;
+        $coctel=CoctelDAO::findById($idCoctel);
+        if ($idUsuario==$coctel->usuario->id){
+            return response()->json("No es posible auto-Propinearse");
+        }
+
+        try{
+            PropinaDAO::create($idUsuario,$idCoctel);
+        }catch (QueryException $e){
+            return response()->json("Solo es posible dejar propina una vez.");
+        }
+        return Response()->json("¡Haz dejado propina!");
+    }
+
+    public function getPropina($idCoctel){
+        return PropinaDAO::countAllByIdCoctel($idCoctel);
     }
 }

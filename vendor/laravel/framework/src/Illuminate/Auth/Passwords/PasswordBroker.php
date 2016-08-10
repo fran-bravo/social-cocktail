@@ -78,21 +78,21 @@ class PasswordBroker implements PasswordBrokerContract
     {
         // First we will check to see if we found a user at the given credentials and
         // if we did not we will redirect back to this current URI with a piece of
-        // "flash" data in the session to indicate to the developers the alertas.
+        // "flash" data in the session to indicate to the developers the errors.
         $user = $this->getUser($credentials);
 
         if (is_null($user)) {
-            return PasswordBrokerContract::INVALID_USER;
+            return static::INVALID_USER;
         }
 
         // Once we have the reset token, we are ready to send the message out to this
         // user with a link to reset their password. We will then redirect back to
-        // the current URI having nothing set in the session to indicate alertas.
+        // the current URI having nothing set in the session to indicate errors.
         $token = $this->tokens->create($user);
 
         $this->emailResetLink($user, $token, $callback);
 
-        return PasswordBrokerContract::RESET_LINK_SENT;
+        return static::RESET_LINK_SENT;
     }
 
     /**
@@ -146,7 +146,7 @@ class PasswordBroker implements PasswordBrokerContract
 
         $this->tokens->delete($credentials['token']);
 
-        return PasswordBrokerContract::PASSWORD_RESET;
+        return static::PASSWORD_RESET;
     }
 
     /**
@@ -158,15 +158,15 @@ class PasswordBroker implements PasswordBrokerContract
     protected function validateReset(array $credentials)
     {
         if (is_null($user = $this->getUser($credentials))) {
-            return PasswordBrokerContract::INVALID_USER;
+            return static::INVALID_USER;
         }
 
         if (! $this->validateNewPassword($credentials)) {
-            return PasswordBrokerContract::INVALID_PASSWORD;
+            return static::INVALID_PASSWORD;
         }
 
         if (! $this->tokens->exists($user, $credentials['token'])) {
-            return PasswordBrokerContract::INVALID_TOKEN;
+            return static::INVALID_TOKEN;
         }
 
         return $user;
@@ -235,10 +235,44 @@ class PasswordBroker implements PasswordBrokerContract
         $user = $this->users->retrieveByCredentials($credentials);
 
         if ($user && ! $user instanceof CanResetPasswordContract) {
-            throw new UnexpectedValueException('user must implement CanResetPassword interface.');
+            throw new UnexpectedValueException('User must implement CanResetPassword interface.');
         }
 
         return $user;
+    }
+
+    /**
+     * Create a new password reset token for the given user.
+     *
+     * @param  CanResetPasswordContract $user
+     * @return string
+     */
+    public function createToken(CanResetPasswordContract $user)
+    {
+        return $this->tokens->create($user);
+    }
+
+    /**
+     * Delete the given password reset token.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function deleteToken($token)
+    {
+        $this->tokens->delete($token);
+    }
+
+    /**
+     * Validate the given password reset token.
+     *
+     * @param  CanResetPasswordContract $user
+     * @param  string $token
+     * @return bool
+     */
+    public function tokenExists(CanResetPasswordContract $user, $token)
+    {
+        return $this->tokens->exists($user, $token);
     }
 
     /**

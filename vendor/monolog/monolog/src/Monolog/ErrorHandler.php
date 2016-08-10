@@ -18,7 +18,7 @@ use Monolog\Handler\AbstractHandler;
 /**
  * Monolog error handler
  *
- * A facility to enable logging of runtime alertas, exceptions and fatal alertas.
+ * A facility to enable logging of runtime errors, exceptions and fatal errors.
  *
  * Quick setup: <code>ErrorHandler::register($logger);</code>
  *
@@ -47,7 +47,7 @@ class ErrorHandler
     /**
      * Registers a new ErrorHandler for a given Logger
      *
-     * By default it will handle alertas, exceptions and fatal alertas
+     * By default it will handle errors, exceptions and fatal errors
      *
      * @param  LoggerInterface $logger
      * @param  array|false     $errorLevelMap  an array of E_* constant to LogLevel::* constant mapping, or false to disable error handling
@@ -149,7 +149,7 @@ class ErrorHandler
         // fatal error codes are ignored if a fatal error handler is present as well to avoid duplicate log entries
         if (!$this->hasFatalErrorHandler || !in_array($code, self::$fatalErrors, true)) {
             $level = isset($this->errorLevelMap[$code]) ? $this->errorLevelMap[$code] : LogLevel::CRITICAL;
-            $this->logger->log($level, self::codeToString($code).': '.$message, array('code' => $code, 'message' => $message, 'file' => $file, 'line' => $line));
+            $this->logger->log($level, self::codeToString($code).': '.$message, array('code' => $code, 'message' => $message, 'file' => $file, 'line' => $line, 'context' => $context));
         }
 
         if ($this->previousErrorHandler === true) {
